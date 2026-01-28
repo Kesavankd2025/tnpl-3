@@ -1,0 +1,208 @@
+/* Color Variables from Aruna Logo */
+:root {
+    --aruna-purple: #4B3B87;
+    --aruna-purple-dark: #3A2D6B;
+    --aruna-orange: #F7941D;
+    --aruna-orange-dark: #D67D15;
+    --aruna-light-bg: #F8F6FC;
+}
+
+body {
+    color: #000000 !important;
+}
+
+p {
+    color: #000000 !important;
+}
+
+/* Header Background - Reduced Size */
+.menu-area,
+#sticky-header,
+.transparent-header {
+    background-color: #ffffff !important;
+    box-shadow: 0 2px 8px rgba(75, 59, 135, 0.1);
+    padding: 10px 0 !important;
+}
+
+header {
+    background-color: #ffffff !important;
+}
+
+/* Logo Styles - Reduced Size */
+.header-logo {
+    height: 50px;
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+.header-logo:hover {
+    transform: scale(1.05);
+}
+
+.mobile-logo {
+    height: 40px;
+    width: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Apply Logo Colors */
+.tg-btn {
+    background: linear-gradient(135deg, var(--aruna-purple) 0%, var(--aruna-purple-dark) 100%) !important;
+    border-color: var(--aruna-purple) !important;
+}
+
+.tg-btn:hover {
+    background: linear-gradient(135deg, var(--aruna-orange) 0%, var(--aruna-orange-dark) 100%) !important;
+    border-color: var(--aruna-orange) !important;
+    box-shadow: 0 5px 15px rgba(247, 148, 29, 0.3);
+}
+
+.navigation li.active a,
+.navigation li:hover a {
+    color: var(--aruna-purple) !important;
+}
+
+.sub-title {
+    color: var(--aruna-orange) !important;
+}
+
+
+/* FAQ Accordion Styles */
+.faq-section {
+    margin-bottom: 50px;
+}
+
+.faq-section-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #222;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 3px solid var(--aruna-purple);
+    display: inline-block;
+}
+
+.faq-section-title i {
+    color: var(--aruna-purple);
+    margin-right: 10px;
+}
+
+.accordion-item {
+    border: none;
+    margin-bottom: 15px;
+    border-radius: 12px !important;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.accordion-button {
+    font-weight: 600;
+    color: #222;
+    padding: 20px 25px;
+    font-size: 16px;
+    background: #fff;
+    border-radius: 12px !important;
+}
+
+.accordion-button:not(.collapsed) {
+    color: #fff;
+    background-color: var(--aruna-purple);
+    box-shadow: none;
+}
+
+.accordion-button:focus {
+    border-color: transparent;
+    box-shadow: 0 0 0 0.25rem rgba(75, 59, 135, 0.25);
+}
+
+.accordion-button::after {
+    background-size: 16px;
+    width: 16px;
+    height: 16px;
+}
+
+.accordion-button:not(.collapsed)::after {
+    filter: brightness(0) invert(1);
+}
+
+.accordion-body {
+    padding: 20px 25px;
+    color: #555;
+    line-height: 1.8;
+    background: var(--aruna-light-bg);
+}
+
+.faq-cta-section {
+    background: linear-gradient(135deg, var(--aruna-purple) 0%, var(--aruna-purple-dark) 100%);
+    border-radius: 20px;
+    padding: 60px 40px;
+    text-align: center;
+    color: #fff;
+}
+
+.faq-cta-section h3 {
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.faq-cta-section p {
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 30px;
+    font-size: 18px;
+}
+
+.faq-cta-section .tg-btn {
+    background: #fff;
+    color: var(--aruna-purple);
+}
+
+.faq-cta-section .tg-btn:hover {
+    background: #222;
+    color: #fff;
+}
+
+/* Quick Links Sidebar */
+.faq-quick-links {
+    background: var(--aruna-light-bg);
+    padding: 30px;
+    border-radius: 15px;
+    position: sticky;
+    top: 100px;
+}
+
+.faq-quick-links h4 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #222;
+}
+
+.faq-quick-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.faq-quick-links ul li {
+    margin-bottom: 10px;
+}
+
+.faq-quick-links ul li a {
+    display: block;
+    padding: 12px 15px;
+    background: #fff;
+    border-radius: 8px;
+    color: #555;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.faq-quick-links ul li a:hover,
+.faq-quick-links ul li a.active {
+    background: var(--aruna-purple);
+    color: #fff;
+}
+
+.faq-quick-links ul li a i {
+    margin-right: 10px;
+}

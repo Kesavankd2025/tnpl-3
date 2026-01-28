@@ -1,0 +1,81 @@
+/* Color Variables from Aruna Logo */
+:root {
+    --aruna-purple: #4B3B87;
+    --aruna-purple-dark: #3A2D6B;
+    --aruna-orange: #F7941D;
+    --aruna-orange-dark: #D67D15;
+    --aruna-light-bg: #F8F6FC;
+}
+
+body {
+    color: #000000 !important;
+}
+
+p {
+    color: #000000 !important;
+}
+
+/* Header Background - Reduced Size */
+.menu-area,
+#sticky-header,
+.transparent-header {
+    background-color: #ffffff !important;
+    box-shadow: 0 2px 8px rgba(75, 59, 135, 0.1);
+    padding: 10px 0 !important;
+}
+
+header {
+    background-color: #ffffff !important;
+}
+
+/* Logo Styles - Reduced Size */
+.header-logo {
+    height: 50px;
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+.header-logo:hover {
+    transform: scale(1.05);
+}
+
+.mobile-logo {
+    height: 40px;
+    width: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Apply Logo Colors */
+.tg-btn {
+    background: linear-gradient(135deg, var(--aruna-purple) 0%, var(--aruna-purple-dark) 100%) !important;
+    border-color: var(--aruna-purple) !important;
+}
+
+.tg-btn:hover {
+    background: linear-gradient(135deg, var(--aruna-orange) 0%, var(--aruna-orange-dark) 100%) !important;
+    border-color: var(--aruna-orange) !important;
+    box-shadow: 0 5px 15px rgba(247, 148, 29, 0.3);
+}
+
+.navigation li.active a,
+.navigation li:hover a {
+    color: var(--aruna-purple) !important;
+}
+
+.sub-title {
+    color: var(--aruna-orange) !important;
+}
+
+
+/* --- Map Utilities --- */
+.contact-map-container {
+    height: 100%;
+    min-height: 500px;
+}
+
+.contact-map-iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}

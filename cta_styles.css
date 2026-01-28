@@ -1,0 +1,30 @@
+/* CTA Section Refinement */
+.product-cta {
+    padding: 100px 0;
+    background-color: #fff;
+    text-align: center;
+}
+
+.product-cta h3 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #000;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    letter-spacing: 0.5px;
+}
+
+.product-cta p {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 35px;
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+.product-cta .tg-btn {
+    padding: 15px 35px;
+    font-size: 16px;
+}

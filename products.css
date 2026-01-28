@@ -1,0 +1,365 @@
+/* Color Variables from Aruna Logo */
+:root {
+    --aruna-purple: #4B3B87;
+    --aruna-purple-dark: #3A2D6B;
+    --aruna-orange: #F7941D;
+    --aruna-orange-dark: #D67D15;
+    --aruna-light-bg: #ffffff;
+}
+
+body,
+.main-area,
+.tg-shop-area {
+    background-color: #ffffff !important;
+}
+
+body {
+    color: #000000 !important;
+}
+
+p {
+    color: #000000 !important;
+}
+
+/* Header Background - Reduced Size */
+.menu-area,
+#sticky-header,
+.transparent-header {
+    background-color: #ffffff !important;
+    box-shadow: 0 2px 8px rgba(75, 59, 135, 0.1);
+    padding: 10px 0 !important;
+}
+
+header {
+    background-color: #ffffff !important;
+}
+
+/* Logo Styles - Reduced Size */
+.header-logo {
+    height: 50px;
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+.header-logo:hover {
+    transform: scale(1.05);
+}
+
+.mobile-logo {
+    height: 40px;
+    width: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Apply Logo Colors */
+.tg-btn {
+    background: linear-gradient(135deg, var(--aruna-purple) 0%, var(--aruna-purple-dark) 100%) !important;
+    border-color: var(--aruna-purple) !important;
+}
+
+.tg-btn:hover {
+    background: linear-gradient(135deg, var(--aruna-orange) 0%, var(--aruna-orange-dark) 100%) !important;
+    border-color: var(--aruna-orange) !important;
+    box-shadow: 0 5px 15px rgba(247, 148, 29, 0.3);
+}
+
+.navigation li.active a,
+.navigation li:hover a {
+    color: var(--aruna-purple) !important;
+}
+
+.sub-title {
+    color: var(--aruna-orange) !important;
+}
+
+
+/* Accordion Styles for FAQ */
+.accordion-button:not(.collapsed) {
+    color: #fff;
+    background-color: var(--aruna-purple);
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .125);
+}
+
+.accordion-button:focus {
+    border-color: var(--aruna-orange);
+    box-shadow: 0 0 0 0.25rem rgba(75, 59, 135, 0.25);
+}
+
+.accordion-button {
+    font-weight: 600;
+    color: #000000 !important;
+}
+
+/* Product Sidebar */
+.product-sidebar {
+    background: var(--aruna-light-bg);
+    padding: 30px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+}
+
+.widget-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #000000 !important;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #e5e5e5;
+    position: relative;
+}
+
+.widget-title::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: var(--aruna-purple);
+}
+
+.filter-group {
+    margin-bottom: 30px;
+}
+
+.filter-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #222;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.filter-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.filter-list li {
+    margin-bottom: 12px;
+}
+
+/* Custom Checkbox */
+.custom-checkbox {
+    display: block;
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+    font-size: 15px;
+    color: #555;
+    user-select: none;
+}
+
+.custom-checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    height: 18px;
+    width: 18px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+.custom-checkbox:hover input~.checkmark {
+    background-color: #f0f0f0;
+}
+
+.custom-checkbox input:checked~.checkmark {
+    background-color: var(--aruna-purple);
+    border-color: var(--aruna-purple);
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.custom-checkbox input:checked~.checkmark:after {
+    display: block;
+}
+
+.custom-checkbox .checkmark:after {
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+/* Link Btn */
+.link-btn {
+    display: inline-block;
+    color: var(--aruna-purple);
+    font-weight: 600;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+}
+
+.link-btn:hover {
+    color: var(--aruna-purple-dark);
+    padding-left: 5px;
+}
+
+/* Product Card Styles */
+.tg-shop-item,
+.product-item {
+    background: transparent !important;
+    border-radius: 16px;
+    overflow: hidden;
+    padding: 30px 20px !important;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    border: none !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    /* Maintain shadow for depth */
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.tg-shop-wrapper .product-item {
+    margin: 15px 0;
+    /* Vertical space */
+}
+
+@media (min-width: 576px) {
+    .tg-shop-wrapper .product-item {
+        margin: 15px;
+        /* Horizontal and vertical space on larger screens */
+        flex: 0 0 calc(33.333% - 30px);
+        /* Adjust to maintain 3 columns with margins */
+    }
+}
+
+@media (max-width: 991px) and (min-width: 768px) {
+    .tg-shop-wrapper .product-item {
+        flex: 0 0 calc(50% - 30px);
+        /* 2 columns on tablets */
+    }
+}
+
+@media (max-width: 767px) {
+    .tg-shop-wrapper .product-item {
+        flex: 0 0 calc(100% - 30px);
+        /* 1 column on mobile */
+    }
+}
+
+.tg-shop-item:hover,
+.product-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    /* Pronounced hover shadow */
+    border-color: var(--aruna-purple);
+}
+
+.tg-shop-thumb {
+    padding: 0px;
+    background: transparent;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 250px;
+    /* Fixed height for thumb area */
+}
+
+.tg-shop-thumb img {
+    transition: transform 0.6s ease;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    /* Standardizes all product pack sizes */
+}
+
+.tg-shop-content {
+    padding: 25px 20px !important;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: center;
+}
+
+.tg-shop-cat a {
+    color: var(--aruna-orange) !important;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    margin-bottom: 6px;
+    display: inline-block;
+}
+
+.tg-shop-content .title {
+    font-size: 18px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    font-weight: 800;
+}
+
+.tg-shop-content .title a {
+    color: #000000 !important;
+    font-weight: 800;
+}
+
+.tg-shop-content p {
+    font-size: 14px;
+    color: #333333 !important;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.tg-shop-bottom {
+    margin-top: auto;
+}
+
+.view-btn {
+    display: inline-block;
+    padding: 8px 20px;
+    background: var(--aruna-purple);
+    color: #fff !important;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 13px;
+    transition: all 0.3s ease;
+    border: 1px solid var(--aruna-purple);
+    text-align: center;
+    width: auto;
+    margin: 0 auto;
+}
+
+.view-btn:hover {
+    background: var(--aruna-orange);
+    border-color: var(--aruna-orange);
+    box-shadow: 0 5px 15px rgba(247, 148, 29, 0.3);
+}
+
+.tg-shop-content .title a:hover {
+    color: var(--aruna-orange) !important;
+}
+
+/* Specific fix for Copy Crown Image size in new structure */
+.product-item[data-grade="standard"] .tg-shop-thumb img {
+    transform: scale(1.3);
+}
+
+.product-item[data-grade="standard"]:hover .tg-shop-thumb img {
+    transform: scale(1.35);
+}

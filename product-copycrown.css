@@ -1,0 +1,620 @@
+/* Color Variables from Aruna Logo */
+:root {
+    --aruna-purple: #4B3B87;
+    --aruna-purple-dark: #3A2D6B;
+    --aruna-orange: #F7941D;
+    --aruna-orange-dark: #D67D15;
+    --aruna-light-bg: #ffffff;
+}
+
+/* Header Background - Reduced Size */
+.menu-area,
+#sticky-header,
+.transparent-header {
+    background-color: transparent !important;
+    box-shadow: none;
+    padding: 10px 0 !important;
+}
+
+#sticky-header.sticky-menu {
+    background-color: #ffffff !important;
+    box-shadow: 0 2px 8px rgba(75, 59, 135, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 999;
+    animation: sticky 0.5s;
+}
+
+header {
+    background-color: transparent !important;
+}
+
+/* Logo Styles - Increased Size */
+.header-logo {
+    height: 70px;
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+.header-logo:hover {
+    transform: scale(1.05);
+}
+
+.mobile-logo {
+    height: 55px;
+    width: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Apply Logo Colors */
+.tg-btn {
+    background: linear-gradient(135deg, var(--aruna-purple) 0%, var(--aruna-purple-dark) 100%) !important;
+    border-color: var(--aruna-purple) !important;
+}
+
+.tg-btn:hover {
+    background: linear-gradient(135deg, var(--aruna-orange) 0%, var(--aruna-orange-dark) 100%) !important;
+    border-color: var(--aruna-orange) !important;
+    box-shadow: 0 5px 15px rgba(247, 148, 29, 0.3);
+}
+
+.navigation li.active a,
+.navigation li:hover a {
+    color: var(--aruna-purple) !important;
+}
+
+.sub-title {
+    color: var(--aruna-orange) !important;
+}
+
+/* Global Typography & Colors */
+body {
+    font-family: 'Trajan Pro Bold', 'Cinzel', serif;
+    color: #555;
+    background-color: #ffffff;
+}
+
+.main-area {
+    margin-top: 20px !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Trajan Pro Bold', 'Cinzel', serif;
+    color: #000000;
+}
+
+/* Footer Adjustments */
+
+
+/* Header Overrides for Light Hero */
+.transparent-header .navbar-wrap ul li a {
+    color: #333 !important;
+}
+
+.transparent-header .header-action>ul>li>a {
+    color: #333 !important;
+}
+
+.transparent-header .navbar-wrap ul li.active>a,
+.transparent-header .navbar-wrap ul li:hover>a {
+    color: var(--aruna-purple) !important;
+}
+
+/* Premium Hero Section */
+.product-hero {
+    background: radial-gradient(circle at center, #ffffff 0%, #f4f6f8 100%);
+    padding: 180px 0 100px;
+    /* Increased top padding to clear header */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative Background Element */
+.product-hero::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 500px;
+    height: 500px;
+    background: var(--aruna-purple);
+    opacity: 0.03;
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.product-hero-image {
+    background: transparent;
+    /* Removed border and padding for floating effect */
+    padding: 0;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    transition: transform 0.5s ease;
+}
+
+.product-hero-image:hover {
+    transform: translateY(-10px);
+}
+
+.product-hero-image img {
+    max-width: 100%;
+    height: auto;
+    max-height: 450px;
+    object-fit: contain;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.15));
+    /* Soft shadow on image itself */
+}
+
+.product-hero-badge {
+    display: inline-block;
+    background: rgba(75, 59, 135, 0.1);
+    /* Light green bg */
+    color: var(--aruna-purple);
+    padding: 8px 20px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+.product-hero-title {
+    font-size: 48px;
+    font-weight: 700;
+    color: #000000;
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+}
+
+.product-hero-tagline {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 40px;
+    line-height: 1.7;
+    font-weight: 300;
+}
+
+.product-hero-cta {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.tg-btn-outline {
+    background: transparent;
+    border: 2px solid var(--aruna-purple);
+    color: var(--aruna-purple);
+    padding: 12px 35px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+}
+
+.tg-btn-outline:hover {
+    background: var(--aruna-purple);
+    color: #fff;
+    box-shadow: 0 10px 20px rgba(75, 59, 135, 0.3);
+    transform: translateY(-2px);
+}
+
+/* Refined Accordion */
+.accordion-item {
+    border: none;
+    background: transparent;
+    margin-bottom: 10px;
+}
+
+.accordion-button {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 10px !important;
+    padding: 15px 20px;
+    font-weight: 600;
+    color: #333;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
+}
+
+.accordion-button:not(.collapsed) {
+    background: #fff;
+    color: var(--aruna-purple);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    border-color: transparent;
+}
+
+.accordion-body {
+    padding: 20px 10px;
+    color: #555;
+    line-height: 1.7;
+}
+
+/* Premium Specs - Data Cards */
+.product-specs {
+    padding: 80px 0;
+    background: #ffffff;
+}
+
+.spec-card {
+    background: #fff;
+    border: 1px solid #f0f0f0;
+    border-radius: 16px;
+    padding: 25px;
+    transition: all 0.3s ease;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.spec-card:hover {
+    border-color: var(--aruna-purple);
+    box-shadow: 0 10px 30px rgba(75, 59, 135, 0.15);
+    transform: translateY(-5px);
+}
+
+.spec-label {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #888;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.spec-value {
+    font-size: 20px;
+    font-weight: 700;
+    color: #222;
+    margin: 0;
+}
+
+.spec-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--aruna-purple), var(--aruna-purple-dark));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.spec-card:hover::after {
+    opacity: 1;
+}
+
+/* Applications - Minimalist Cards */
+.product-applications {
+    background: var(--aruna-light-bg);
+    /* Changed to light for contrast with dark/colored cards if needed, or keep white */
+    padding: 80px 0;
+}
+
+.application-card {
+    background: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 30px 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    height: 100%;
+    min-height: 220px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.application-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.app-icon-circle {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: rgba(75, 59, 135, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.application-card .app-icon-circle i {
+    color: var(--aruna-purple);
+    font-size: 30px;
+    transition: all 0.3s ease;
+}
+
+.application-card:hover .app-icon-circle {
+    background: var(--aruna-purple);
+}
+
+.application-card:hover .app-icon-circle i {
+    color: #fff !important;
+}
+
+.app-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+}
+
+/* Section Titles Premium */
+.section-title h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #000000;
+    position: relative;
+    display: inline-block;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+    .product-hero-title {
+        font-size: 36px;
+    }
+}
+
+@media (max-width: 576px) {
+    .product-hero-cta {
+        flex-direction: column;
+    }
+
+    .tg-btn-outline {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Eco-Benefits - Refined Cards */
+.eco-benefits {
+    background: #ffffff;
+}
+
+.benefit-card {
+    background: #fff;
+    border: 1px solid #f0f0f0;
+    border-radius: 16px;
+    padding: 30px 20px;
+    transition: all 0.3s ease;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.benefit-card:hover {
+    border-color: var(--aruna-purple);
+    box-shadow: 0 10px 30px rgba(75, 59, 135, 0.15);
+    transform: translateY(-5px);
+}
+
+.benefit-card .benefit-icon-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: rgba(75, 59, 135, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.benefit-card .benefit-icon-circle i {
+    color: var(--aruna-purple);
+    font-size: 30px;
+    transition: all 0.3s ease;
+}
+
+.benefit-card:hover .benefit-icon-circle {
+    background: var(--aruna-purple);
+}
+
+.benefit-card:hover .benefit-icon-circle i {
+    color: #fff !important;
+}
+
+.benefit-card h5 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.benefit-card p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 0;
+    line-height: 1.6;
+}
+
+/* Related Product Card Styles */
+.related-product-card {
+    background: #fff;
+    border: 1px solid #f0f0f0;
+    border-radius: 16px;
+    padding: 25px;
+    transition: all 0.3s ease;
+    height: 100%;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+
+.related-product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    border-color: var(--aruna-purple);
+}
+
+.related-product-thumb {
+    height: 240px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    overflow: hidden;
+    border-radius: 8px;
+    background: #fff;
+    position: relative;
+}
+
+.related-product-thumb img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.related-product-card:hover .related-product-thumb img {
+    transform: scale(1.05);
+}
+
+.related-product-content {
+    margin-top: auto;
+}
+
+.related-product-content h5 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    color: #000;
+}
+
+.related-product-content h5 a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.related-product-content h5 a:hover {
+    color: var(--aruna-purple);
+}
+
+.related-product-content p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
+    margin: 0;
+}
+
+
+/* CTA Section Refinement */
+.product-cta {
+    padding: 50px 0;
+    background-color: #fff;
+    text-align: center;
+}
+
+.product-cta h3 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #000;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    letter-spacing: 0.5px;
+}
+
+.product-cta p {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 35px;
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+.product-cta .tg-btn {
+    padding: 15px 35px;
+    font-size: 16px;
+}
+
+
+
+/* Force Center CTA Title */
+.product-cta h3 {
+    text-align: center !important;
+    width: 100%;
+}
+
+
+
+/* CTA Box - Light Theme (White with Purple Border) */
+.cta-box {
+    background: #ffffff;
+    border: 2px solid var(--aruna-purple);
+    /* Purple Border */
+    border-radius: 20px;
+    padding: 50px 30px;
+    box-shadow: 0 15px 40px rgba(75, 59, 135, 0.08);
+    /* Soft Purple Shadow */
+    margin-top: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-box h3 {
+    color: #000000 !important;
+    /* Black Heading */
+    margin-bottom: 15px;
+    font-size: 32px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.cta-box p {
+    color: #666666;
+    /* Grey Text */
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+/* Primary Button - Solid Purple */
+.cta-box .tg-btn {
+    background: var(--aruna-purple);
+    color: #ffffff;
+    border: 2px solid var(--aruna-purple);
+}
+
+.cta-box .tg-btn:hover {
+    background: transparent;
+    color: var(--aruna-purple);
+}
+
+/* Secondary Button - Outline Grey/Purple */
+.cta-box .btn-dark-brand {
+    background: transparent;
+    border: 2px solid #ddd;
+    color: #333;
+}
+
+.cta-box .btn-dark-brand:hover {
+    border-color: var(--aruna-purple);
+    color: var(--aruna-purple);
+    background: transparent;
+}

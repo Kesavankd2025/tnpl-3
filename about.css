@@ -1,0 +1,111 @@
+/* --- About Page Specific --- */
+
+/* Color Variables from Aruna Logo */
+:root {
+    --aruna-purple: #4B3B87;
+    --aruna-purple-dark: #3A2D6B;
+    --aruna-orange: #F7941D;
+    --aruna-orange-dark: #D67D15;
+    --aruna-light-bg: #F8F6FC;
+}
+
+body {
+    color: #000000 !important;
+}
+
+p {
+    color: #000000 !important;
+}
+
+/* Header Background - Reduced Size */
+
+/* Logo Styles - Reduced Size */
+.header-logo {
+    height: 50px;
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+.header-logo:hover {
+    transform: scale(1.05);
+}
+
+.mobile-logo {
+    height: 40px;
+    width: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Apply Logo Colors */
+.tg-btn,
+.header-btn .tg-btn {
+    background: linear-gradient(135deg, var(--aruna-purple) 0%, var(--aruna-purple-dark) 100%) !important;
+    border-color: var(--aruna-purple) !important;
+    color: #ffffff !important;
+}
+
+.tg-btn:hover {
+    background: linear-gradient(135deg, var(--aruna-orange) 0%, var(--aruna-orange-dark) 100%) !important;
+    border-color: var(--aruna-orange) !important;
+    box-shadow: 0 5px 15px rgba(247, 148, 29, 0.3);
+}
+
+.navigation li.active a,
+.navigation li:hover a {
+    color: var(--aruna-purple) !important;
+}
+
+.sub-title {
+    color: var(--aruna-orange) !important;
+}
+
+
+.tg-supplement-img {
+    display: inline-block !important;
+    position: relative !important;
+}
+
+.about-shape-pos {
+    display: none !important;
+}
+
+.list-unstyled-mb20 {
+    list-style-type: none !important;
+    padding-left: 0 !important;
+    margin-bottom: 20px !important;
+}
+
+/* Breadcrumb Centering */
+.breadcrumb-area .breadcrumb-content {
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+}
+
+.breadcrumb-area .breadcrumb {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 auto !important;
+}
+
+.breadcrumb-area .breadcrumb-item {
+    display: inline-flex !important;
+    align-items: center !important;
+}
+
+.breadcrumb-area .title {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+/* Sustainability Section Text Color */
+.tg-video-content p {
+    color: #ffffff !important;
+}
