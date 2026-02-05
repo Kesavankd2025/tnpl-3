@@ -2,11 +2,11 @@
 
 /* Color Variables from Aruna Logo */
 :root {
-    --aruna-purple: #4B3B87;
-    --aruna-purple-dark: #3A2D6B;
-    --aruna-orange: #F7941D;
-    --aruna-orange-dark: #D67D15;
-    --aruna-light-bg: #F8F6FC;
+    --aruna-purple: #F7941D;
+    --aruna-purple-dark: #D67D15;
+    --aruna-orange: #34337e;
+    --aruna-orange-dark: #34337e;
+    --aruna-light-bg: #ffffff;
 }
 
 body {
@@ -40,14 +40,14 @@ p {
 /* Apply Logo Colors */
 .tg-btn,
 .header-btn .tg-btn {
-    background: linear-gradient(135deg, var(--aruna-purple) 0%, var(--aruna-purple-dark) 100%) !important;
+    background: var(--aruna-purple) !important;
     border-color: var(--aruna-purple) !important;
     color: #ffffff !important;
 }
 
 .tg-btn:hover {
     background: linear-gradient(135deg, var(--aruna-orange) 0%, var(--aruna-orange-dark) 100%) !important;
-    border-color: var(--aruna-orange) !important;
+    border-color: var(--aruna-purple) !important;
     box-shadow: 0 5px 15px rgba(247, 148, 29, 0.3);
 }
 
@@ -57,7 +57,7 @@ p {
 }
 
 .sub-title {
-    color: var(--aruna-orange) !important;
+    color: var(--aruna-purple) !important;
 }
 
 

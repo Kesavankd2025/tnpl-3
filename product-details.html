@@ -1,0 +1,692 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>TNPL Platinum - Aruna & Co.</title>
+    <meta name="description" content="TNPL Platinum - Superior whiteness and premium feel for top-tier printing.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="shortcut icon" type="image/x-icon" href="">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap"
+        rel="stylesheet">
+
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/animate.min.css">
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/css/flaticon.css">
+    <link rel="stylesheet" href="assets/css/jquery-ui.css">
+    <link rel="stylesheet" href="assets/css/odometer.css">
+    <link rel="stylesheet" href="assets/css/slick.css">
+    <link rel="stylesheet" href="assets/css/default.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+
+    <style>
+        :root {
+            --primary-color: #4B3B87;
+            --primary-dark: #3b2e6b;
+            --accent-color: #e8983b;
+            --secondary-color: #4B3B87;
+            --text-dark: #1a1a1a;
+            --text-gray: #000000;
+            --light-bg: #f8f9fa;
+            --white: #ffffff;
+            --transition-base: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        body {
+            font-family: 'Merriweather', serif;
+            background-color: var(--white);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .hero-new {
+            position: relative;
+            height: 90vh;
+            min-height: 600px;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            color: var(--primary-color);
+            overflow: hidden;
+        }
+
+        .hero-new::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            z-index: 1;
+        }
+
+        .hero-new .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-new h1 {
+            font-size: 80px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+            line-height: 1;
+        }
+
+        .hero-new p {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+
+        .product-detail-area {
+            padding: 130px 0 120px;
+            background: #fff;
+        }
+
+        .product-detail-img-box {
+            background: #fff9f2;
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+        }
+
+        .product-detail-img-box img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+        .detail-content h2 {
+            font-family: 'Inter', sans-serif;
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .detail-content .subtitle {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+        .accordion-item {
+            border: none;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 10px;
+        }
+
+        .accordion-button {
+            padding: 20px 0;
+            font-weight: 700;
+            color: var(--primary-color);
+            background: none !important;
+            box-shadow: none !important;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .accordion-button:not(.collapsed) {
+            color: var(--accent-color);
+        }
+
+        .accordion-body {
+            padding: 0 0 20px 0;
+            color: #555;
+            font-size: 16px;
+        }
+
+        .applications-area {
+            padding: 130px 0 120px;
+            background: #fdfdfd;
+        }
+
+        .app-card {
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
+            transition: var(--transition-base);
+            height: 100%;
+            position: relative;
+        }
+
+        .app-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .app-card h4 {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            color: #fff;
+            font-weight: 700;
+            z-index: 2;
+        }
+
+        .app-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+
+        .app-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .specs-area-new {
+            padding: 130px 0 120px;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+        }
+
+        .specs-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+
+        .specs-container-new {
+            position: relative;
+            z-index: 2;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 60px;
+            border-radius: 20px;
+            color: #333;
+        }
+
+        .spec-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .spec-item {
+            border-bottom: 1px solid #ddd;
+            padding: 15px 0;
+        }
+
+        .spec-label {
+            font-size: 14px;
+            color: #777;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .spec-value {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .btn-green {
+            background-color: #006f56;
+            color: #fff;
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-weight: 700;
+            text-transform: uppercase;
+            border: none;
+            transition: all 0.3s;
+        }
+
+        .btn-green:hover {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
+        .related-slider-area {
+            padding: 100px 0;
+            background: #fff;
+        }
+
+        .navigation li a,
+        .navbar-wrap ul li a {
+            color: #000000 !important;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- header-area -->
+    <header id="home">
+        <div id="header-fixed-height"></div>
+        <div id="sticky-header" class="tg-menu-area menu-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="mobile-nav-toggler"><i class="flaticon-layout"></i></div>
+                        <div class="menu-wrap">
+                            <nav class="menu-nav">
+                                <div class="logo">
+                                    <a href="index.html">
+                                        <img src="images/aruna_logo.png" alt="Aruna & Co. - Authorised TNPL Distributor"
+                                            class="header-logo">
+                                    </a>
+                                </div>
+                                <div class="navbar-wrap main-menu d-none d-xl-flex">
+                                    <ul class="navigation">
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="about.html">About Us</a></li>
+                                        <li><a href="products.html">Products</a></li>
+                                        <li><a href="#">Blog</a></li>
+                                        <!-- <li><a href="#">FAQ</a></li> -->
+                                        <li><a href="contact.html">Contact</a></li>
+                                    </ul>
+                                </div>
+                                <div class="header-btn d-none d-sm-block">
+                                    <a href="index.html#order" class="tg-btn">Order Now</a>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header-area-end -->
+
+    <!-- Mobile Menu  -->
+    <div class="mobile-menu">
+        <nav class="menu-box">
+            <div class="close-btn"><i class="fas fa-times"></i></div>
+            <div class="nav-logo">
+                <a href="index.html">
+                    <img src="images/aruna_aruna_logo.png" alt="Aruna & Co. - Authorised TNPL Distributor"
+                        class="mobile-logo">
+                </a>
+            </div>
+            <div class="menu-outer">
+                <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
+            </div>
+            <div class="social-links">
+                <ul class="clearfix">
+                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                    <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <div class="menu-backdrop"></div>
+    <!-- End Mobile Menu -->
+
+    <main>
+
+        <!-- Hero Section -->
+        <section class="hero-new"
+            style="background: #39327f url('./assets/img/products/banner-platinum.png') no-repeat center center / cover !important;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <h1>TNPL Platinum</h1>
+                        <p>Premium bagasse-based copier paper engineered for flawless printing and lasting performance.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Details -->
+        <section class="product-detail-area">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 mb-50 mb-lg-0">
+                        <div class="product-detail-img-box wow fadeInLeft" data-wow-delay=".2s">
+                            <img src="assets/img/products/tnpl_platinum.png" alt="TNPL Platinum Detail">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="detail-content wow fadeInRight" data-wow-delay=".4s">
+                            <h2>TNPL Platinum</h2>
+                            <p class="subtitle">Premium bagasse-based copier paper engineered for flawless printing and
+                                lasting performance.
+                            </p>
+
+                            <div class="accordion" id="productAccordion">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingOne">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapseOne" aria-expanded="true"
+                                            aria-controls="collapseOne">
+                                            Description
+                                        </button>
+                                    </h2>
+                                    <div id="collapseOne" class="accordion-collapse collapse show"
+                                        aria-labelledby="headingOne" data-bs-parent="#productAccordion">
+                                        <div class="accordion-body">
+                                            TNPL Copier Platinum delivers high-speed, reliable printing with a brilliant
+                                            white finish — crafted from sustainable bagasse pulp for performance with
+                                            purpose.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingTwo">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+                                            aria-expanded="false" aria-controls="collapseTwo">
+                                            Quick Highlights
+                                        </button>
+                                    </h2>
+                                    <div id="collapseTwo" class="accordion-collapse collapse"
+                                        aria-labelledby="headingTwo" data-bs-parent="#productAccordion">
+                                        <div class="accordion-body">
+                                            - Superior Whiteness (ISO 92%+) for brilliant print contrast.<br>
+                                            - High stiffness and bulk for a premium weight feel.<br>
+                                            - Excellent opacity to minimize show-through.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingThree">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseThree"
+                                            aria-expanded="false" aria-controls="collapseThree">
+                                            Key Features
+                                        </button>
+                                    </h2>
+                                    <div id="collapseThree" class="accordion-collapse collapse"
+                                        aria-labelledby="headingThree" data-bs-parent="#productAccordion">
+                                        <div class="accordion-body">
+                                            -Comes in A4, A3, and Folio size<br>
+                                            -Excellent dimensional stability enables high-speed copying<br>
+                                            -Well-packaged in attractive, convenient, and moisture-resistant.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Applications -->
+        <section class="applications-area">
+            <div class="container">
+                <div class="row align-items-center mb-60">
+                    <div class="col-12 text-center">
+                        <span class="section-label centered-label" style="color: var(--accent-color);">Ideal For</span>
+                        <h2
+                            style="font-family: 'Inter', sans-serif; font-size: 42px; font-weight: 800; color: var(--primary-color);">
+                            Versatile Print Applications</h2>
+                        <p style="font-size: 18px; color: #666;">Perfect for office use, publishing, and everyday
+                            printing.
+
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 mb-30">
+                        <div class="app-card wow fadeInUp" data-wow-delay=".2s">
+                            <img src="assets/img/products/app-carbonless.png" alt="Carbonless Paper">
+                            <h4>Inktank Printers</h4>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-30">
+                        <div class="app-card wow fadeInUp" data-wow-delay=".4s">
+                            <img src="assets/img/products/app-sublimation.png" alt="Sublimation Base">
+                            <h4>office copiers</h4>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-30">
+                        <div class="app-card wow fadeInUp" data-wow-delay=".6s">
+                            <img src="assets/img/products/app-industrial.png" alt="Industrial Coating">
+                            <h4>Laser Printers</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Specifications -->
+        <section class="specs-area-new" style="background-image: url('assets/img/bg/achievements_bg.png');">
+            <div class="specs-overlay"></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="specs-container-new wow fadeInUp" data-wow-delay=".2s">
+                            <div class="text-center mb-50">
+                                <h2
+                                    style="font-family: 'Inter', sans-serif; font-weight: 800; color: var(--primary-color);">
+                                    Technical Specifications</h2>
+                            </div>
+                            <div class="spec-grid">
+                                <div class="spec-item">
+                                    <div class="spec-label">Nominal GSM (g/m²)</div>
+                                    <div class="spec-value">70 / 75 / 80</div>
+                                </div>
+                                <div class="spec-item">
+                                    <div class="spec-label">Substance Tolerance</div>
+                                    <div class="spec-value">± 2.5 %</div>
+                                </div>
+                                <div class="spec-item">
+                                    <div class="spec-label">Caliper Micron (Min)</div>
+                                    <div class="spec-value">100 / 102 / 105</div>
+                                </div>
+                                <div class="spec-item">
+                                    <div class="spec-label">Moisture %</div>
+                                    <div class="spec-value">6.0 ± 0.5</div>
+                                </div>
+                                <div class="spec-item">
+                                    <div class="spec-label">Bendsten Smoothness TS (ml/min)</div>
+                                    <div class="spec-value">150 – 250</div>
+                                </div>
+                                <div class="spec-item">
+                                    <div class="spec-label">Bendsten Smoothness WS (ml/min)</div>
+                                    <div class="spec-value">150 – 220</div>
+                                </div>
+                                <div class="spec-item">
+                                    <div class="spec-label">Porosity (ml/min, Max)</div>
+                                    <div class="spec-value">650</div>
+                                </div>
+                                <div class="spec-item">
+                                    <div class="spec-label">Cobb 60 (g/m², Max)</div>
+                                    <div class="spec-value">30</div>
+                                </div>
+                                <div class="spec-item">
+                                    <div class="spec-label">Brightness – ISO % (Min)</div>
+                                    <div class="spec-value">89</div>
+                                </div>
+                                <div class="spec-item">
+                                    <div class="spec-label">Opacity %</div>
+                                    <div class="spec-value">92 / 93 / 94</div>
+                                </div>
+                                <div class="spec-item">
+                                    <div class="spec-label">CIE Whiteness</div>
+                                    <div class="spec-value">150 ± 5</div>
+                                </div>
+                            </div>
+                            <div class="text-center mt-50">
+                                <a href="#" class="btn btn-green"><i class="fas fa-download me-2"></i> Download Data
+                                    Sheet</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related Products -->
+        <section class="related-slider-area">
+            <div class="container">
+                <div class="row align-items-center mb-60">
+                    <div class="col-12 text-center">
+                        <span class="section-label centered-label">Greener Paper Solutions</span>
+                        <h2
+                            style="font-family: 'Inter', sans-serif; font-size: 36px; font-weight: 800; color: var(--primary-color);">
+                            Discover More Products</h2>
+                    </div>
+                </div>
+                <div class="row related-product-active">
+                    <div class="col-xl-3">
+                        <div class="tg-shop-item text-center">
+                            <div class="tg-shop-thumb">
+                                <a href="product-tnpl-radiant-platinum.html"><img
+                                        src="assets/img/products/tnpl_radiant_platinum.jpg" alt="TNPL Radiant Platinum"
+                                        style="height: 250px; object-fit: contain;"></a>
+                            </div>
+                            <div class="tg-shop-content">
+                                <div class="tg-shop-cat"><a href="product-tnpl-radiant-platinum.html">Ultra-Premium</a>
+                                </div>
+                                <h4 class="title"><a href="product-tnpl-radiant-platinum.html">TNPL Radiant Platinum</a>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3">
+                        <div class="tg-shop-item text-center">
+                            <div class="tg-shop-thumb">
+                                <a href="product-tnpl-eco-maplitho.html"><img
+                                        src="assets/img/products/tnpl_eco_maplitho.jpg" alt="TNPL Eco Maplitho"
+                                        style="height: 250px; object-fit: contain;"></a>
+                            </div>
+                            <div class="tg-shop-content">
+                                <div class="tg-shop-cat"><a href="product-tnpl-eco-maplitho.html">Eco-Friendly</a></div>
+                                <h4 class="title"><a href="product-tnpl-eco-maplitho.html">TNPL Eco Maplitho</a></h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3">
+                        <div class="tg-shop-item text-center">
+                            <div class="tg-shop-thumb">
+                                <a href="product-tnpl-spectrum.html"><img src="assets/img/products/tnpl_spectrum.png"
+                                        alt="TNPL Spectrum" style="height: 250px; object-fit: contain;"></a>
+                            </div>
+                            <div class="tg-shop-content">
+                                <div class="tg-shop-cat"><a href="product-tnpl-spectrum.html">Eco-Friendly</a></div>
+                                <h4 class="title"><a href="product-tnpl-spectrum.html">TNPL Spectrum</a></h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3">
+                        <div class="tg-shop-item text-center">
+                            <div class="tg-shop-thumb">
+                                <a href="product-tnpl-ace-marvel.html"><img
+                                        src="assets/img/products/tnpl_ace_marvel.jpg" alt="TNPL Ace Marvel"
+                                        style="height: 250px; object-fit: contain;"></a>
+                            </div>
+                            <div class="tg-shop-content">
+                                <div class="tg-shop-cat"><a href="product-tnpl-ace-marvel.html">High-Utility</a></div>
+                                <h4 class="title"><a href="product-tnpl-ace-marvel.html">TNPL Ace Marvel</a></h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer-area -->
+    <footer class="footer-area">
+        <div class="footer-top-wrap">
+            <div class="container">
+                <div class="row">
+                    <!-- Column 1: About with Logo -->
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="footer-widget">
+                            <div class="footer-logo">
+                                <a href="index.html"><img src="images/aruna_logo.png" alt="Aruna & Co."
+                                        class="footer-logo-img"></a>
+                            </div>
+                            <div class="footer-text">
+                                <p class="desc">Trusted authorised dealer of TNPL papers, serving Tamil Nadu with
+                                    quality and reliability.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column 2: Location -->
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="footer-widget">
+                            <h4 class="fw-title">LOCATION</h4>
+                            <div class="footer-contact-wrap">
+                                <ul class="list-wrap footer-contact-info">
+                                    <li>
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>2/16, Giri Nagar, Ramapuram,<br>Chennai – 600089,<br>Tamil Nadu,
+                                            India.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column 3: Contact & Social -->
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="footer-widget">
+                            <h4 class="fw-title">CONTACT US</h4>
+                            <div class="footer-contact-wrap">
+                                <ul class="list-wrap footer-contact-info">
+                                    <li><i class="fas fa-phone"></i> <a href="tel:+919876543210">+91 98765 43210</a>
+                                    </li>
+                                    <li><i class="fas fa-envelope"></i> <a
+                                            href="mailto:info@arunaandco.in">info@arunaandco.in</a></li>
+                                </ul>
+                            </div>
+                            <div class="footer-social-links">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#"><i class="fab fa-whatsapp"></i></a>
+                                <a href="#"><i class="fab fa-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Copyright Area -->
+        <div class="copyright-wrap">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <p class="copyright-text">Copyright &copy; 2026 Aruna & Co. All Rights Reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer-area-end -->
+
+    <!-- JS here -->
+    <script src="assets/js/vendor/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/slick.min.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

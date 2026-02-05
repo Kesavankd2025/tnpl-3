@@ -2,19 +2,19 @@
 
 /* Color Variables from Aruna Logo */
 :root {
+    --aruna-orange: #3C3483;
+    --aruna-orange-dark: #3C3483;
     --aruna-purple: #F7941D;
     --aruna-purple-dark: #D67D15;
-    --aruna-orange: #4B3B87;
-    --aruna-orange-dark: #3A2D6B;
     --aruna-light-bg: #ffffff;
     /* Bootstrap Overrides for Home Page */
     --bs-primary: #F7941D;
-    --bs-blue: #F7941D;
+    --bs-purple: #F7941D;
 }
 
 body {
     color: #000000 !important;
-    font-family: 'Trajan Pro Bold', 'Cinzel', serif !important;
+    font-family: 'Merriweather', serif !important;
     text-transform: none !important;
 }
 
@@ -26,7 +26,7 @@ h5,
 h6,
 .title,
 .sub-title {
-    font-family: 'Trajan Pro Bold', 'Cinzel', serif !important;
+    font-family: 'Merriweather', serif !important;
     text-transform: uppercase !important;
 }
 
@@ -38,7 +38,7 @@ input,
 textarea,
 select,
 .tg-btn {
-    font-family: 'Trajan Pro Bold', 'Cinzel', serif !important;
+    font-family: 'Merriweather', serif !important;
     text-transform: none !important;
 }
 
@@ -98,13 +98,13 @@ p {
 /* Apply Logo Colors to Buttons and Links */
 .tg-btn,
 .header-btn .tg-btn {
-    background: linear-gradient(135deg, var(--aruna-purple) 0%, var(--aruna-purple-dark) 100%) !important;
+    background: var(--aruna-purple) !important;
     border-color: var(--aruna-purple) !important;
     color: #ffffff !important;
 }
 
 .tg-btn:hover {
-    background: linear-gradient(135deg, var(--aruna-orange) 0%, var(--aruna-orange-dark) 100%) !important;
+    background: var(--aruna-orange) !important;
     border-color: var(--aruna-orange) !important;
     box-shadow: 0 5px 15px rgba(75, 59, 135, 0.3);
 }
@@ -126,7 +126,7 @@ p {
 
 /* Feature Icons */
 .tg-features-icon {
-    background: linear-gradient(135deg, var(--aruna-purple) 0%, var(--aruna-purple-dark) 100%) !important;
+    background: var(--aruna-purple) !important;
     color: #ffffff !important;
 }
 
@@ -144,7 +144,7 @@ p {
 }
 
 .tg-banner-area::after {
-    background: linear-gradient(5deg, var(--aruna-purple) 0%, var(--aruna-purple-dark) 100%) !important;
+    background: var(--aruna-purple) !important;
 }
 
 .banner-img-custom {
@@ -164,7 +164,7 @@ p {
 
 /* Why Choose Us Section - Homepage Overlay */
 .why-choose-us.tg-video-bg::after {
-    background: linear-gradient(135deg, var(--aruna-purple) 0%, var(--aruna-purple-dark) 100%) !important;
+    background: var(--aruna-purple) !important;
     opacity: 0.95 !important;
 }
 
@@ -206,13 +206,13 @@ p {
 }
 
 .main-area .tg-btn {
-    background: linear-gradient(135deg, var(--aruna-orange) 0%, var(--aruna-orange-dark) 100%) !important;
+    background: var(--aruna-orange) !important;
     border-color: var(--aruna-orange) !important;
     color: #ffffff !important;
 }
 
 .main-area .tg-btn:hover {
-    background: linear-gradient(135deg, var(--aruna-purple) 0%, var(--aruna-purple-dark) 100%) !important;
+    background: var(--aruna-purple) !important;
     border-color: var(--aruna-purple) !important;
     box-shadow: 0 5px 15px rgba(247, 148, 29, 0.3);
 }
@@ -264,11 +264,6 @@ p {
     height: 100%;
     object-fit: contain;
     /* Standardizes all product pack sizes */
-}
-
-.tg-shop-item:hover .tg-shop-thumb img {
-    /* transform: scale(1.08); */
-    /* Removed zoom effect */
 }
 
 .tg-shop-content {
@@ -345,13 +340,13 @@ p {
     text-transform: uppercase;
     font-weight: 600;
     letter-spacing: 0.5px;
-    background: linear-gradient(135deg, var(--aruna-purple) 0%, var(--aruna-purple-dark) 100%) !important;
+    background: var(--aruna-purple) !important;
     border-color: var(--aruna-purple) !important;
     color: #ffffff !important;
 }
 
 #about .view-btn:hover {
-    background: linear-gradient(135deg, var(--aruna-orange) 0%, var(--aruna-orange-dark) 100%) !important;
+    background: var(--aruna-orange) !important;
     border-color: var(--aruna-orange) !important;
     box-shadow: 0 5px 15px rgba(75, 59, 135, 0.4) !important;
 }
@@ -386,6 +381,12 @@ p {
 /* Mission & Vision Card Centering */
 .mission-card-custom {
     text-align: center !important;
+    height: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    background: #ffffff !important;
+    padding: 40px 30px 0 !important;
+    border-radius: 15px !important;
 }
 
 .mission-card-custom .tg-features-icon {
@@ -432,25 +433,25 @@ p {
 
 /* Floating Elements Styling */
 .scroll-top {
-    background: linear-gradient(135deg, var(--aruna-purple) 0%, var(--aruna-purple-dark) 100%) !important;
+    background: var(--aruna-purple) !important;
     color: #ffffff !important;
     box-shadow: 0 5px 25px rgba(247, 148, 29, 0.4) !important;
     border: none !important;
 }
 
 .scroll-top:hover {
-    background: linear-gradient(135deg, var(--aruna-orange) 0%, var(--aruna-orange-dark) 100%) !important;
+    background: var(--aruna-orange) !important;
     box-shadow: 0 8px 30px rgba(75, 59, 135, 0.5) !important;
 }
 
 .enquiry-trigger-btn {
-    background: linear-gradient(135deg, var(--aruna-purple) 0%, var(--aruna-purple-dark) 100%) !important;
+    background: var(--aruna-purple) !important;
     box-shadow: 0 5px 25px rgba(247, 148, 29, 0.5) !important;
     border: none !important;
 }
 
 .enquiry-trigger-btn:hover {
-    background: linear-gradient(135deg, var(--aruna-orange) 0%, var(--aruna-orange-dark) 100%) !important;
+    background: var(--aruna-orange) !important;
     box-shadow: 0 8px 30px rgba(75, 59, 135, 0.5) !important;
 }
 
@@ -520,6 +521,17 @@ p {
     z-index: 10;
     transition: background 0.3s;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.mission-icon-circle-custom {
+    background: var(--aruna-purple) !important;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 25px;
 }
 
 .slider-btn:hover {
@@ -702,7 +714,7 @@ p {
     top: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, var(--aruna-purple) 0%, var(--aruna-purple-dark) 100%) !important;
+    background: var(--aruna-purple) !important;
     opacity: .92;
     z-index: -1;
 }
@@ -716,9 +728,6 @@ p {
 }
 
 /* Helper Classes */
-.rounded-20 {
-    border-radius: 20px;
-}
 
 /* Testimonial Section Redesign */
 /* Title styles removed to allow centering via bootstrap classes */
@@ -786,6 +795,7 @@ p {
     font-size: 13px;
     display: -webkit-box;
     -webkit-line-clamp: 3;
+    line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
@@ -1036,7 +1046,7 @@ p {
 
 /* Mission Background Style (Replicating Why Choose Us) */
 .mission-bg-style::after {
-    background: linear-gradient(135deg, var(--aruna-purple) 0%, var(--aruna-purple-dark) 100%) !important;
+    background: var(--aruna-purple) !important;
     opacity: 0.95 !important;
 }
 
@@ -1050,7 +1060,7 @@ p {
 
 /* Specific override for Mission/Vision Card Titles */
 .mission-bg-style .tg-features-content .title {
-    color: var(--aruna-orange) !important;
+    color: var(--aruna-purple) !important;
 }
 
 .mission-bg-style .sub-title {
@@ -1063,8 +1073,8 @@ p {
     border-radius: 50%;
     width: 80px;
     /* Fixed width */
-    height: 140px;
-    /* Fixed height */
+    height: 80px;
+    /* Fixed height correctly */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1083,11 +1093,11 @@ p {
     background: #ffffff !important;
 }
 
-.testimonial-area .sub-title {
-    color: var(--aruna-orange) !important;
+.testi.mission-card-custom:hover {
+    border: 2px solid var(--aruna-purple) !important;
 }
 
-.testimonial-area .title {
+.mission-card-custom h4.title {
     color: var(--aruna-purple) !important;
 }
 
@@ -1147,7 +1157,7 @@ p {
 }
 
 .li-name:hover {
-    color: #004182;
+    color: var(--aruna-orange);
     text-decoration: underline !important;
 }
 
@@ -1184,7 +1194,7 @@ p {
 }
 
 .li-hashtag {
-    color: #004182;
+    color: var(--aruna-orange);
     font-weight: 600;
     text-decoration: none !important;
 }
@@ -1266,7 +1276,7 @@ p {
     text-align: center;
     padding: 12px;
     background: #f3f2ef;
-    color: #004182;
+    color: var(--aruna-orange);
     font-weight: 600;
     font-size: 14px;
     text-decoration: none !important;
@@ -1275,4 +1285,9 @@ p {
 
 .li-footer-link:hover {
     text-decoration: underline !important;
+}
+
+/* Reduce space between paragraphs in About section */
+.tg-supplement-content p {
+    margin-bottom: 15px !important;
 }
