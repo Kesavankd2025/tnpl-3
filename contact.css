@@ -1,10 +1,10 @@
 /* Color Variables from Aruna Logo */
 :root {
-    --aruna-purple: #4B3B87;
-    --aruna-purple-dark: #3A2D6B;
-    --aruna-orange: #F7941D;
-    --aruna-orange-dark: #D67D15;
-    --aruna-light-bg: #F8F6FC;
+    --aruna-orange: #3C3483;
+    --aruna-orange-dark: #3C3483;
+    --aruna-purple: #F7941D;
+    --aruna-purple-dark: #D67D15;
+    --aruna-light-bg: #ffffff;
 }
 
 body {
@@ -19,18 +19,36 @@ p {
 .menu-area,
 #sticky-header,
 .transparent-header {
-    background-color: #ffffff !important;
-    box-shadow: 0 2px 8px rgba(75, 59, 135, 0.1);
-    padding: 10px 0 !important;
+    background-color: transparent !important;
+    box-shadow: none;
+    padding: 0 !important;
+    z-index: 9999 !important;
 }
 
-header {
-    background-color: #ffffff !important;
+#sticky-header.sticky-menu {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    animation: sticky 0.5s;
+    background: #ffffff !important;
+    box-shadow: 0 2px 8px rgba(247, 148, 29, 0.1) !important;
+    padding: 0 !important;
+}
+
+@keyframes sticky {
+    0% {
+        transform: translateY(-100%);
+    }
+
+    100% {
+        transform: translateY(0%);
+    }
 }
 
 /* Logo Styles - Reduced Size */
 .header-logo {
-    height: 50px;
+    height: 70px;
     width: auto;
     transition: transform 0.3s ease;
 }
@@ -40,7 +58,7 @@ header {
 }
 
 .mobile-logo {
-    height: 40px;
+    height: 55px;
     width: auto;
     display: block;
     margin: 0 auto;
@@ -48,12 +66,12 @@ header {
 
 /* Apply Logo Colors */
 .tg-btn {
-    background: linear-gradient(135deg, var(--aruna-purple) 0%, var(--aruna-purple-dark) 100%) !important;
+    background: var(--aruna-purple) !important;
     border-color: var(--aruna-purple) !important;
 }
 
 .tg-btn:hover {
-    background: linear-gradient(135deg, var(--aruna-orange) 0%, var(--aruna-orange-dark) 100%) !important;
+    background: var(--aruna-orange) !important;
     border-color: var(--aruna-orange) !important;
     box-shadow: 0 5px 15px rgba(247, 148, 29, 0.3);
 }

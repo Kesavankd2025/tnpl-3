@@ -909,9 +909,9 @@ p {
 }
 
 
-.col-lg-4 {
+/*.col-lg-4 {
     display: flex !important;
-}
+}-->*/
 
 /* Ensure the container matches the header's container exactly */
 .footer-area .container {

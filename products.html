@@ -1,5 +1,6 @@
 <!doctype html>
 <html class="no-js" lang="en">
+<script>document.documentElement.className = document.documentElement.className.replace("no-js", "js");</script>
 
 <head>
     <meta charset="utf-8">
@@ -15,35 +16,230 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Oswald:wght@400;500;600;700&family=Roboto:ital,wght@0,400;0,500;0,700;1,400;1,500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap"
         rel="stylesheet">
 
-    <!-- Preload -->
-
-
-
-
-
-
-    <!-- CSS here -->
-
-
-
-
-
-
-
-
-
-
-
-
+    <link rel="stylesheet" href="assets/css/premium_products.css">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="products.css">
+    <link rel="stylesheet" href="index.css">
+
+    <style>
+        body {
+            font-family: 'Merriweather', serif;
+        }
+
+        .footer-widget.widget_nav_menu ul.list-wrap>li {
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .footer-widget.widget_nav_menu ul.list-wrap>li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--tg-secondary-color);
+            font-size: 20px;
+            line-height: 1;
+        }
+
+        /* Accordion Styles for FAQ */
+        .accordion-button:not(.collapsed) {
+            color: #fff;
+            background-color: var(--aruna-orange);
+            box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .125);
+        }
+
+        .accordion-button:focus {
+            border-color: var(--aruna-orange);
+            box-shadow: 0 0 0 0.25rem rgba(57, 50, 127, 0.25);
+        }
+
+        .accordion-button {
+            font-weight: 600;
+            color: #222;
+        }
+
+        /* Modern Sidebar Filter Styles */
+        .sidebar-filter-group {
+            display: flex;
+            flex-direction: row;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .filter-option {
+            position: relative;
+            cursor: pointer;
+            width: auto;
+            margin-bottom: 0;
+            min-width: 150px;
+        }
+
+        .filter-option input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+
+        .filter-label {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 20px;
+            background-color: #ffffff;
+            border: 1px solid #eef0f2;
+            border-radius: 10px;
+            font-size: 15px;
+            color: #4a4a4a;
+            font-weight: 600;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+        }
+
+        .filter-label:hover {
+            border-color: var(--aruna-orange);
+            background-color: #f7fffd;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(57, 50, 127, 0.15);
+            color: var(--aruna-orange);
+        }
+
+        /* Checked State */
+        .filter-option input:checked+.filter-label {
+            background-color: var(--aruna-orange);
+            border-color: var(--aruna-orange);
+            color: #ffffff;
+            box-shadow: 0 8px 25px rgba(57, 50, 127, 0.25);
+            transform: translateY(-2px);
+        }
+
+        /* Check Icon Animation */
+        .filter-label::after {
+            content: '\f00c';
+            /* FontAwesome Check */
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            font-size: 14px;
+            opacity: 0;
+            transform: scale(0.5);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .filter-option input:checked+.filter-label::after {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .product-card {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            transform: scale(1.03) translateY(-10px) !important;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2) !important;
+        }
+
+        .product-card .product-thumb img {
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        }
+
+        .product-card:hover .product-thumb img {
+            transform: scale(1.1) translateY(-10px) !important;
+        }
+
+        .product-card .blurred-bg {
+            transition: all 0.6s ease !important;
+        }
+
+        .product-card:hover .blurred-bg {
+            filter: blur(45px) brightness(0.8) !important;
+            transform: scale(1.4) !important;
+        }
+
+        .product-card .title {
+            transition: all 0.4s ease !important;
+        }
+
+        .product-card:hover .title {
+            transform: translateY(-5px);
+            text-shadow: 0 10px 20px rgba(0, 0, 0, 0.4) !important;
+        }
+
+        /* Light Breadcrumb Theme */
+        .breadcrumb-light::before {
+            opacity: 0.1 !important;
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+        }
+
+        .breadcrumb-light .title {
+            color: var(--aruna-orange) !important;
+        }
+
+        .breadcrumb-light .breadcrumb li,
+        .breadcrumb-light .breadcrumb li a {
+            color: var(--aruna-orange) !important;
+        }
+
+        .breadcrumb-light .breadcrumb-item+.breadcrumb-item::before {
+            color: var(--aruna-orange) !important;
+        }
+
+        .product-card-actions {
+            margin-top: 16px;
+        }
+
+        .uiverse-download-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            border: none;
+            border-radius: 10px;
+            padding: 10px 14px;
+            background: var(--aruna-purple);
+            color: #fff;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.2px;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+            box-shadow: 0 8px 20px rgba(247, 148, 29, 0.25);
+        }
+
+        .uiverse-download-btn:hover {
+            color: #fff;
+            background: var(--aruna-orange);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(60, 52, 131, 0.25);
+        }
+
+        /* Navigation Menu Color Override for Product Pages - Removed to match index.html */
+    </style>
 </head>
 
 <body>
+    <a class="skip-link sr-only" href="#main-content">Skip to content</a>
 
+    <!-- Pre-loader-start -->
+    <!-- <div id="preloader">
+        <div class="tg-cube-grid">
+            <div class="tg-cube tg-cube1"></div>
+            <div class="tg-cube tg-cube2"></div>
+            <div class="tg-cube tg-cube3"></div>
+            <div class="tg-cube tg-cube4"></div>
+            <div class="tg-cube tg-cube5"></div>
+            <div class="tg-cube tg-cube6"></div>
+            <div class="tg-cube tg-cube7"></div>
+            <div class="tg-cube tg-cube8"></div>
+            <div class="tg-cube tg-cube9"></div>
+        </div>
+    </div> -->
     <!-- Pre-loader-end -->
 
     <!-- Scroll-top -->
@@ -73,8 +269,8 @@
                                         <li><a href="index.html">Home</a></li>
                                         <li><a href="about.html">About Us</a></li>
                                         <li class="active"><a href="products.html">Products</a></li>
-                                        <li><a href="blogs.html">Blog</a></li>
-                                        <li><a href="faq.html">FAQ</a></li>
+                                        <li><a href="#">Blog</a></li>
+                                        <!-- <li><a href="#">FAQ</a></li> -->
                                         <li><a href="contact.html">Contact</a></li>
                                     </ul>
                                 </div>
@@ -87,264 +283,624 @@
                 </div>
             </div>
         </div>
-
-        <!-- Mobile Menu  -->
-        <div class="mobile-menu">
-            <nav class="menu-box">
-                <div class="close-btn"><i class="fas fa-times"></i></div>
-                <div class="nav-logo">
-                    <a href="index.html">
-                        <img src="images/aruna_logo.png" alt="Aruna & Co. - Authorised TNPL Distributor"
-                            class="mobile-logo">
-                    </a>
-                </div>
-                <div class="menu-outer">
-                    <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
-                </div>
-                <div class="social-links">
-                    <ul class="clearfix">
-                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                        <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                        <li><a href="#"><i class="fab fa-youtube"></i></a></li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
-        <div class="menu-backdrop"></div>
-        <!-- End Mobile Menu -->
-
-        <!-- header-search -->
-        <div class="search-popup-wrap" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="search-wrap text-center">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="search-form">
-                                <form action="#">
-                                    <input type="text" placeholder="Enter your keyword...">
-                                    <button class="search-btn"><i class="flaticon-search"></i></button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="search-backdrop"></div>
-        <!-- header-search-end -->
-
-        <!-- offCanvas-start -->
-        <div class="offCanvas-wrap">
-            <div class="offCanvas-toggle"><img src="images/icons/close.png" alt="icon"></div>
-            <div class="offCanvas-body">
-                <div class="offCanvas-content">
-                    <h3 class="title">Premium Quality <span>TNPL Papers</span> for all your printing needs.</h3>
-                    <p>Aruna & Co is a trusted authorised dealer of Tamil Nadu Newsprint & Papers Ltd (TNPL), supplying
-                        high-quality copier and printing papers across Tamil Nadu.</p>
-                </div>
-                <div class="offcanvas-contact">
-                    <h4 class="number">+91 98765 43210</h4>
-                    <h4 class="email">info@arunaco.com</h4>
-                    <p>2/16, Giri Nagar, Ramapuram,<br> Chennai – 600089</p>
-                    <ul class="offcanvas-social list-wrap">
-                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="offCanvas-overlay"></div>
-        <!-- offCanvas-end -->
-
     </header>
+    <!-- header-area-end -->
+
+    <!-- Mobile Menu  -->
+    <div class="mobile-menu">
+        <nav class="menu-box">
+            <div class="close-btn"><i class="fas fa-times"></i></div>
+            <div class="nav-logo">
+                <a href="index.html">
+                    <img src="images/aruna_aruna_logo.png" alt="Aruna & Co. - Authorised TNPL Distributor"
+                        class="mobile-logo">
+                </a>
+            </div>
+            <div class="menu-outer">
+                <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
+            </div>
+            <div class="social-links">
+                <ul class="clearfix">
+                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                    <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <div class="menu-backdrop"></div>
+    <!-- End Mobile Menu -->
+
     <!-- header-area-end -->
 
 
     <!-- main-area -->
-    <main class="main-area fix">
 
-        <!-- breadcrumb-area -->
-        <section class="breadcrumb-area breadcrumb-bg">
+
+    <main id="main-content" class="main-area fix">
+
+        <!-- products-banner-area -->
+        <section class="tg-banner-area banner-bg jarallax parallax-img"
+            style="background-image: url('assets/img/banner/products_banner_bg.png'); color: #fff; padding: 150px 0 120px;">
+        <style>
+            .products-hero-banner::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(52, 51, 126, 0.85);
+                z-index: -1;
+            }
+
+            .products-hero-img {
+                max-width: 100%;
+                width: 100%;
+                margin-top: 0;
+                transform: scale(1);
+                filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.3));
+                transition: transform 0.4s ease;
+            }
+
+            .products-hero-img:hover {
+                transform: scale(1.02);
+            }
+        </style>
+            <div class="products-hero-banner"></div>
             <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-xl-10">
-                        <div class="breadcrumb-content text-center">
-                            <h2 class="title">Our Products</h2>
-                            <nav aria-label="Breadcrumbs" class="breadcrumb-trail">
-                                <ul class="breadcrumb">
+                <div class="row align-items-center justify-content-center">
+                    <div class="col-xl-6 col-lg-6 order-1 order-lg-2">
+                        <div class="tg-banner-img text-center wow fadeInRight" data-wow-delay=".6s">
+                            <img src="assets/img/banner/products_hero_image.png" alt="Aruna & Co. Products"
+                                class="mx-auto d-block products-hero-img">
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-10 order-2 order-lg-1">
+                        <div class="tg-banner-content" style="margin-top: -30px;">
+                            <h4 class="sub-title wow fadeInUp" data-wow-delay=".2s"
+                                style="color: #fff; font-size: 24px; text-transform: uppercase; letter-spacing: 2px;">
+                                Excellence in Every Sheet</h4>
+                            <h2 class="title wow fadeInUp" data-wow-delay=".4s"
+                                style="color: #fff; font-size: 56px; line-height: 1.1;">TNPL Complete Range of
+                                Products</h2>
+                            <p class="wow fadeInUp" data-wow-delay=".6s"
+                                style="color: rgba(255,255,255,0.9); font-size: 18px; margin-bottom: 30px;">Explore our
+                                curated selection of TNPL paper and board products. From high-speed copier paper to
+                                specialized packaging boards, we deliver quality that defines industry standards.</p>
+
+                            <nav aria-label="Breadcrumbs" class="breadcrumb-trail wow fadeInUp" data-wow-delay=".8s">
+                                <ul class="breadcrumb"
+                                    style="background: rgba(255,255,255,0.1); display: inline-flex; padding: 10px 25px; border-radius: 50px; backdrop-filter: blur(5px);">
                                     <li class="breadcrumb-item trail-item trail-begin">
-                                        <a href="index.html"><span>Home</span></a>
+                                        <a href="index.html" style="color: #fff; font-weight: 600;">Home</a>
                                     </li>
-                                    <li class="breadcrumb-item trail-item trail-end"><span>Products</span></li>
+                                    <li class="breadcrumb-item trail-item trail-end">
+                                        <span style="color: rgba(255,255,255,0.7); font-weight: 500;">Products</span>
+                                    </li>
                                 </ul>
                             </nav>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="video-shape one"><img src="images/others/video_shape01.png" alt="shape"></div>
-            <div class="video-shape two"><img src="images/others/video_shape02.png" alt="shape"></div>
         </section>
-        <!-- breadcrumb-area-end -->
+        <!-- products-banner-area-end -->
 
-        <!-- tg-shop-area -->
-        <!-- tg-shop-area -->
-        <section id="products" class="tg-shop-area pt-120 pb-60">
+        <!-- Product Grid & Sidebar -->
+        <section id="products" class="product-listing pt-130 pb-120">
             <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="tg-section-title text-center mb-60">
+                            <span class="sub-title" style="color: var(--aruna-orange);">Product Range</span>
+                            <h2 class="title" style="color: var(--aruna-orange);">TNPL’s Complete Range of Products</h2>
+                            <p style="color: #666; margin-top: 15px;">Discover our extensive collection of high-quality
+                                paper and packaging boards from Tamil Nadu Newsprint & Papers Ltd.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid"> <!-- Wider container for side-by-side -->
+
                 <div class="row">
-                    <!-- Sidebar Area -->
-                    <div class="col-xl-3 col-lg-4 col-md-12">
+                    <!-- Sidebar (Left) -->
+                    <div class="col-lg-3 col-md-4 mb-40">
                         <aside class="product-sidebar">
-                            <div class="widget">
-                                <h4 class="widget-title">Filters</h4>
-                                <div class="filter-group">
-                                    <h5 class="filter-title">Product Type</h5>
-                                    <ul class="filter-list">
-                                        <li>
-                                            <label class="custom-checkbox">
-                                                <input type="checkbox" class="filter-checkbox" data-group="type"
-                                                    value="paper" checked>
-                                                <span class="checkmark"></span>
-                                                Paper
-                                            </label>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="filter-group">
-                                    <h5 class="filter-title">Grade</h5>
-                                    <ul class="filter-list">
-                                        <li>
-                                            <label class="custom-checkbox">
-                                                <input type="checkbox" class="filter-checkbox" data-group="grade"
-                                                    value="premium" checked>
-                                                <span class="checkmark"></span>
-                                                Premium
-                                            </label>
-                                        </li>
-                                        <li>
-                                            <label class="custom-checkbox">
-                                                <input type="checkbox" class="filter-checkbox" data-group="grade"
-                                                    value="standard">
-                                                <span class="checkmark"></span>
-                                                Standard
-                                            </label>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="filter-group">
-                                    <h5 class="filter-title">GSM Range</h5>
-                                    <ul class="filter-list">
-                                        <li>
-                                            <label class="custom-checkbox">
-                                                <input type="checkbox" class="filter-checkbox" data-group="gsm"
-                                                    value="70">
-                                                <span class="checkmark"></span>
-                                                70 GSM
-                                            </label>
-                                        </li>
-                                        <li>
-                                            <label class="custom-checkbox">
-                                                <input type="checkbox" class="filter-checkbox" data-group="gsm"
-                                                    value="75">
-                                                <span class="checkmark"></span>
-                                                75 GSM
-                                            </label>
-                                        </li>
-                                        <li>
-                                            <label class="custom-checkbox">
-                                                <input type="checkbox" class="filter-checkbox" data-group="gsm"
-                                                    value="80">
-                                                <span class="checkmark"></span>
-                                                80 GSM
-                                            </label>
-                                        </li>
-                                    </ul>
-                                </div>
+
+                            <div class="sidebar-header wow fadeIn" data-wow-delay=".1s">
+                                <h3 class="sidebar-title">Filters</h3>
+                                <a href="#" class="clear-all" onclick="resetFilters(); return false;">Clear All</a>
                             </div>
+
+                            <!-- Filter: Product Type -->
+                            <div class="filter-group wow fadeInUp" data-wow-delay=".2s">
+                                <span class="widget-title">Product Type</span>
+                                <label class="custom-radio wow fadeInLeft" data-wow-delay=".3s">
+                                    All Products
+                                    <input type="radio" name="productType" value="all" checked
+                                        onchange="filterProducts()">
+                                </label>
+                                <label class="custom-radio wow fadeInLeft" data-wow-delay=".4s">
+                                    Paper
+                                    <input type="radio" name="productType" value="paper" onchange="filterProducts()">
+                                </label>
+                                <!-- <label class="custom-radio wow fadeInLeft" data-wow-delay=".5s">
+                                    Packaging Board
+                                    <input type="radio" name="productType" value="packaging"
+                                        onchange="filterProducts()">
+                                </label> -->
+                            </div>
+
+                            <!-- Filter: GSM Range -->
+                            <div class="filter-group wow fadeInUp" data-wow-delay=".4s">
+                                <span class="widget-title">GSM Range</span>
+                                <label class="custom-radio wow fadeInLeft" data-wow-delay=".5s">
+                                    40–60 GSM
+                                    <input type="radio" name="gsmRange" value="40-60">
+                                </label>
+                                <label class="custom-radio wow fadeInLeft" data-wow-delay=".6s">
+                                    60–80 GSM
+                                    <input type="radio" name="gsmRange" value="60-80">
+                                </label>
+                                <label class="custom-radio wow fadeInLeft" data-wow-delay=".7s">
+                                    80–100 GSM
+                                    <input type="radio" name="gsmRange" value="80-100">
+                                </label>
+                                <label class="custom-radio wow fadeInLeft" data-wow-delay=".8s">
+                                    100–120 GSM
+                                    <input type="radio" name="gsmRange" value="100-120">
+                                </label>
+                            </div>
+
+                            <!-- Filter: Application -->
+                            <div class="filter-group wow fadeInUp" data-wow-delay=".6s">
+                                <span class="widget-title">Application</span>
+                                <label class="custom-radio wow fadeInLeft" data-wow-delay=".7s">
+                                    Printing
+                                    <input type="radio" name="appType" value="printing">
+                                </label>
+                                <label class="custom-radio wow fadeInLeft" data-wow-delay=".8s">
+                                    Publishing
+                                    <input type="radio" name="appType" value="publishing">
+                                </label>
+                                <label class="custom-radio wow fadeInLeft" data-wow-delay=".9s">
+                                    Notebooks
+                                    <input type="radio" name="appType" value="notebooks">
+                                </label>
+                            </div>
+
                         </aside>
                     </div>
 
-                    <!-- Main Content Area -->
-                    <div class="col-xl-9 col-lg-8 col-md-12">
-                        <div class="tg-section-title mb-40">
-                            <span class="sub-title">OUR PRODUCTS</span>
-                            <h2 class="title">TNPL Paper Products</h2>
-                            <p class="mt-2">Discover our range of high-quality, eco-friendly paper solutions.</p>
+                    <!-- Main Content (Right) -->
+                    <div class="col-lg-9 col-md-8">
+
+                        <!-- Top Bar -->
+                        <div class="product-top-bar wow fadeIn" data-wow-delay=".5s">
+                            <div class="search-mini">
+                                <input type="text" id="productSearch" placeholder="Search products..."
+                                    onkeyup="filterProducts()">
+                            </div>
                         </div>
 
-                        <div class="tg-shop-wrapper">
-                            <div class="row" id="product-grid">
-                                <!-- TNPL Platinum -->
-                                <div class="col-xl-4 col-md-6 col-sm-6 mb-30 product-item text-center" data-type="paper"
-                                    data-grade="premium" data-gsm="70,75,80">
-                                    <div class="tg-shop-thumb">
-                                        <a href="product-platinum.html"><img src="images/products/tnpl_platinum.png"
-                                                alt="TNPL Platinum" class="product-thumb-img"></a>
+                        <!-- Product Grid Row -->
+                        <div class="row" id="productGrid">
+
+                            <!-- Item 1: Ace Marvel -->
+                            <div class="col-xl-4 col-lg-6 col-md-6 mb-30 product-item" data-category="packaging"
+                                data-name="tnpl ace marvel">
+                                <div class="tnpl-product-card">
+                                    <div class="card-img-area">
+                                        <a href="products.html"><img
+                                                src="assets/img/products/tnpl_ace_marvel.jpg" alt="TNPL Ace Marvel"></a>
                                     </div>
-                                    <div class="tg-shop-content">
-                                        <div class="tg-shop-cat">
-                                            <a href="product-platinum.html">Premium Paper</a>
-                                        </div>
-                                        <h4 class="title"><a href="product-platinum.html">TNPL Platinum</a></h4>
-                                        <p>High-brightness, superior quality for all premium printing needs.</p>
-                                        <div class="tg-shop-bottom">
-                                            <a href="product-platinum.html" class="view-btn">View Details</a>
-                                        </div>
+                                    <h5 class="title"><a href="products.html"
+                                            class="card-title-link">TNPL Ace
+                                            Marvel</a></h5>
+                                    <div class="product-card-actions">
+                                        <a href="#" class="uiverse-download-btn" data-product="ace-marvel">
+                                            <i class="fas fa-download"></i> Download
+                                        </a>
                                     </div>
                                 </div>
+                            </div>
 
-                                <!-- TNPL Spectrum -->
-                                <div class="col-xl-4 col-md-6 col-sm-6 mb-30 product-item text-center" data-type="paper"
-                                    data-grade="premium" data-gsm="70,75,80">
-                                    <div class="tg-shop-thumb">
-                                        <a href="product-spectrum.html"><img src="images/products/tnpl_spectrum.png"
-                                                alt="TNPL Spectrum" class="product-thumb-img"></a>
+                            <!-- Item 2: Radiant Stationery (Placeholder img used) -->
+                            <div class="col-xl-4 col-lg-6 col-md-6 mb-30 product-item" data-category="paper"
+                                data-name="tnpl radiant stationery">
+                                <div class="tnpl-product-card">
+                                    <div class="card-img-area">
+                                        <!-- Using radiant img as placeholder -->
+                                        <a href="products.html"><img
+                                                src="assets/img/products/tnpl_radiant_platinum.jpg"
+                                                alt="TNPL Radiant Stationery"></a>
                                     </div>
-                                    <div class="tg-shop-content">
-                                        <div class="tg-shop-cat">
-                                            <a href="product-spectrum.html">Eco-Friendly Paper</a>
-                                        </div>
-                                        <h4 class="title"><a href="product-spectrum.html">TNPL Spectrum</a></h4>
-                                        <p>Vibrant, eco-friendly paper perfect for colorful prints and documents.
-                                        </p>
-                                        <div class="tg-shop-bottom">
-                                            <a href="product-spectrum.html" class="view-btn">View Details</a>
-                                        </div>
+                                    <h5 class="title"><a href="products.html"
+                                            class="card-title-link">TNPL Radiant Stationery</a>
+                                    </h5>
+                                    <div class="product-card-actions">
+                                        <a href="#" class="uiverse-download-btn" data-product="radiant-stationery">
+                                            <i class="fas fa-download"></i> Download
+                                        </a>
                                     </div>
                                 </div>
+                            </div>
 
-                                <!-- TNPL Copy Crown -->
-                                <div class="col-xl-4 col-md-6 col-sm-6 mb-30 product-item text-center" data-type="paper"
-                                    data-grade="standard" data-gsm="70,75">
-                                    <div class="tg-shop-thumb">
-                                        <a href="product-copycrown.html"><img src="images/products/tnpl-copycrown.webp"
-                                                alt="TNPL Copy Crown" class="product-thumb-img"></a>
+                            <!-- Item 3: Radiant Platinum -->
+                            <div class="col-xl-4 col-lg-6 col-md-6 mb-30 product-item" data-category="paper"
+                                data-name="tnpl radiant platinum">
+                                <div class="tnpl-product-card">
+                                    <div class="card-img-area">
+                                        <a href="products.html"><img
+                                                src="assets/img/products/tnpl_radiant_platinum.jpg"
+                                                alt="TNPL Radiant Platinum"></a>
                                     </div>
-                                    <div class="tg-shop-content">
-                                        <div class="tg-shop-cat">
-                                            <a href="product-copycrown.html">Bagasse-Based Paper</a>
+                                    <h5 class="title"><a href="products.html"
+                                            class="card-title-link">TNPL Radiant Platinum</a></h5>
+                                    <div class="product-card-actions">
+                                        <a href="#" class="uiverse-download-btn" data-product="radiant-platinum">
+                                            <i class="fas fa-download"></i> Download
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Item 4: Platinum -->
+                            <div class="col-xl-4 col-lg-6 col-md-6 mb-30 product-item" data-category="paper"
+                                data-name="tnpl platinum">
+                                <div class="tnpl-product-card">
+                                    <div class="card-img-area">
+                                        <a href="products.html"><img
+                                                src="assets/img/products/tnpl_platinum.png" alt="TNPL Platinum"></a>
+                                    </div>
+                                    <h5 class="title"><a href="products.html" class="card-title-link">TNPL
+                                            Platinum</a></h5>
+                                    <div class="product-card-actions">
+                                        <a href="#" class="uiverse-download-btn" data-product="platinum">
+                                            <i class="fas fa-download"></i> Download
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Item 5: Elegant Print -->
+                            <div class="col-xl-4 col-lg-6 col-md-6 mb-30 product-item" data-category="paper"
+                                data-name="tnpl elegant print">
+                                <div class="tnpl-product-card">
+                                    <div class="card-img-area">
+                                        <a href="products.html"><img
+                                                src="assets/img/products/tnpl_elegant_print.jpg"
+                                                alt="TNPL Elegant Print"></a>
+                                    </div>
+                                    <h5 class="title"><a href="products.html"
+                                            class="card-title-link">TNPL Elegant
+                                            Print</a></h5>
+                                    <div class="product-card-actions">
+                                        <a href="#" class="uiverse-download-btn" data-product="elegant-print">
+                                            <i class="fas fa-download"></i> Download
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Item 6: Eco Maplitho -->
+                            <div class="col-xl-4 col-lg-6 col-md-6 mb-30 product-item" data-category="paper"
+                                data-name="tnpl eco maplitho">
+                                <div class="tnpl-product-card">
+                                    <div class="card-img-area">
+                                        <a href="products.html"><img
+                                                src="assets/img/products/tnpl_eco_maplitho.jpg"
+                                                alt="TNPL Eco Maplitho"></a>
+                                    </div>
+                                    <h5 class="title"><a href="products.html"
+                                            class="card-title-link">TNPL Eco Maplitho</a></h5>
+                                    <div class="product-card-actions">
+                                        <a href="#" class="uiverse-download-btn" data-product="eco-maplitho">
+                                            <i class="fas fa-download"></i> Download
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Item 7: Spectrum (re-adding from previous list) -->
+                            <div class="col-xl-4 col-lg-6 col-md-6 mb-30 product-item" data-category="paper"
+                                data-name="tnpl spectrum">
+                                <div class="tnpl-product-card">
+                                    <div class="card-img-area">
+                                        <a href="products.html"><img
+                                                src="assets/img/products/tnpl_spectrum.png" alt="TNPL Spectrum"></a>
+                                    </div>
+                                    <h5 class="title"><a href="products.html" class="card-title-link">TNPL
+                                            Spectrum</a></h5>
+                                    <div class="product-card-actions">
+                                        <a href="#" class="uiverse-download-btn" data-product="spectrum">
+                                            <i class="fas fa-download"></i> Download
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Item 8: Copy Crown -->
+                            <div class="col-xl-4 col-lg-6 col-md-6 mb-30 product-item" data-category="paper"
+                                data-name="tnpl copy crown">
+                                <div class="tnpl-product-card">
+                                    <div class="card-img-area">
+                                        <a href="products.html"><img
+                                                src="assets/img/products/tnpl-copycrown.webp" alt="TNPL Copy Crown"></a>
+                                    </div>
+                                    <h5 class="title"><a href="products.html"
+                                            class="card-title-link">TNPL Copy Crown</a></h5>
+                                    <div class="product-card-actions">
+                                        <a href="#" class="uiverse-download-btn" data-product="copy-crown">
+                                            <i class="fas fa-download"></i> Download
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- bulk-order-area -->
+        <!-- <section id="order" class="tg-video-area tg-video-bg jarallax parallax-img" style="padding-top: 120px;">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-xl-6 col-lg-6">
+                        <div class="bulk-order-img wow fadeInLeft" data-wow-delay=".2s">
+                            <img src="assets/img/others/delivery-man.png" alt="Bulk Order"
+                                style="border-radius: 15px; width: 100%; border: 10px solid #fff;">
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6">
+                        <div class="bulk-order-content wow fadeInRight" data-wow-delay=".2s">
+                            <div class="tg-section-title white mb-30">
+                                <span class="sub-title"
+                                    style="color: #000000; font-weight: 700; text-transform: uppercase; letter-spacing: 2px;">For
+                                    Businesses</span>
+                                <h2 class="title white-text" style="color: #fff;">Bulk Orders & Corporate Supplies</h2>
+                            </div>
+                            <p style="color: #fff;">We specialize in fulfilling large-scale orders for corporate
+                                offices, educational
+                                institutions, and commercial printing presses. Partner with us for reliable supply and
+                                competitive wholesale pricing.</p>
+                            <div class="bulk-features">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="bulk-feature-item mb-30">
+                                            <div class="icon"
+                                                style="color: #000000; font-size: 30px; margin-bottom: 15px;">
+                                                <i class="fas fa-truck"></i>
+                                            </div>
+                                            <h5 class="title"
+                                                style="color: #000000; font-weight: 700; font-size: 20px;">Priority
+                                                Delivery</h5>
+                                            <p style="color: rgba(255,255,255,0.9); font-size: 15px; line-height: 1.6;">
+                                                Fast and scheduled deliveries to keep your
+                                                operations running smoothly.
+                                            </p>
                                         </div>
-                                        <h4 class="title"><a href="product-copycrown.html">TNPL Copy Crown</a></h4>
-                                        <p>Reliable, bagasse-based paper for everyday copying and printing.</p>
-                                        <div class="tg-shop-bottom">
-                                            <a href="product-copycrown.html" class="view-btn">View Details</a>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="bulk-feature-item mb-30">
+                                            <div class="icon"
+                                                style="color: #000000; font-size: 30px; margin-bottom: 15px;">
+                                                <i class="fas fa-tags"></i>
+                                            </div>
+                                            <h5 class="title"
+                                                style="color: #000000; font-weight: 700; font-size: 20px;">Wholesale
+                                                Rates</h5>
+                                            <p style="color: rgba(255,255,255,0.9); font-size: 15px; line-height: 1.6;">
+                                                Exclusive discounts on bulk quantities and recurring
+                                                orders.</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div id="no-products-msg" class="text-center">
-                                <h4>No products found matching your filters.</h4>
+                            <a href="contact.html" class="tg-btn"
+                                style="background: #000000; color: #fff; border: none; padding: 15px 35px; border-radius: 5px; font-weight: 700;">Get
+                                a Bulk
+                                Quote</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+        <!-- bulk-order-area-end -->
+
+        <!-- product-specs-area -->
+        <!-- <section class="product-specs-area pt-60 pb-40" style="background-color: #ffffff;">
+            <div class="container">
+                <div class="row align-items-center justify-content-center">
+                    <div class="col-lg-12">
+                        <div class="tg-video-content wow fadeInUp" data-wow-delay=".2s">
+                            <div class="tg-section-title text-center mb-50 wow fadeInUp" data-wow-delay=".2s">
+                                <span class="sub-title">Technical Details</span>
+                                <h2 class="title">Paper Specifications</h2>
+                                <p class="info-one" style="color: #0a0909; margin-top: 15px;">We offer a wide range of
+                                    GSM and sizes to suit every printing requirement.</p>
+                            </div>
+
+                            <div class="specs-list" style="margin-top: 50px;">
+                                <div class="row justify-content-center">
+                                    <div class="col-md-4 col-sm-6 wow fadeInUp" data-wow-delay=".3s">
+                                        <div class="specs-item mb-30 text-center"
+                                            style="background: #ffffff; padding: 35px 25px; border-radius: 20px; box-shadow: 0 5px 20px rgba(57, 50, 127, 0.08); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid rgba(57, 50, 127, 0.1); min-height: 380px; display: flex; flex-direction: column; justify-content: flex-start;"
+                                            onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 15px 40px rgba(57, 50, 127, 0.15)'; this.style.borderColor='#4B3B87';"
+                                            onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 5px 20px rgba(57, 50, 127, 0.08)'; this.style.borderColor='rgba(57, 50, 127, 0.1)';">
+                                            <div
+                                                style="width: 60px; height: 60px; background: var(--aruna-orange); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; box-shadow: 0 8px 20px rgba(57, 50, 127, 0.3);">
+                                                <i class="fas fa-weight" style="color: #fff; font-size: 24px;"></i>
+                                            </div>
+                                            <h5
+                                                style="color: #222; margin-bottom: 20px; font-size: 22px; font-weight: 700; text-align: center;">
+                                                AVAILABLE GSM</h5>
+                                            <div style="text-align: center;">
+                                                <ul class="list-wrap"
+                                                    style="gap: 12px; margin-bottom: 0; display: inline-block; text-align: left; list-style: none; padding: 0;">
+                                                    <li style="padding: 6px 0; font-size: 15px; color: #555; transition: all 0.3s;"
+                                                        onmouseover="this.style.color='#4B3B87';"
+                                                        onmouseout="this.style.color='#555';">
+                                                        <i class="fas fa-check-circle"
+                                                            style="color: #4B3B87; margin-right: 12px; font-size: 16px;"></i>58
+                                                        – 60 GSM
+                                                    </li>
+                                                    <li style="padding: 6px 0; font-size: 15px; color: #555; transition: all 0.3s;"
+                                                        onmouseover="this.style.color='#4B3B87';"
+                                                        onmouseout="this.style.color='#555';">
+                                                        <i class="fas fa-check-circle"
+                                                            style="color: #4B3B87; margin-right: 12px; font-size: 16px;"></i>70
+                                                        GSM
+                                                    </li>
+                                                    <li style="padding: 6px 0; font-size: 15px; color: #555; transition: all 0.3s;"
+                                                        onmouseover="this.style.color='#4B3B87';"
+                                                        onmouseout="this.style.color='#555';">
+                                                        <i class="fas fa-check-circle"
+                                                            style="color: #4B3B87; margin-right: 12px; font-size: 16px;"></i>75
+                                                        GSM
+                                                    </li>
+                                                    <li style="padding: 6px 0; font-size: 15px; color: #555; transition: all 0.3s;"
+                                                        onmouseover="this.style.color='#4B3B87';"
+                                                        onmouseout="this.style.color='#555';">
+                                                        <i class="fas fa-check-circle"
+                                                            style="color: #4B3B87; margin-right: 12px; font-size: 16px;"></i>80
+                                                        GSM
+                                                    </li>
+                                                    <li style="padding: 6px 0; font-size: 15px; color: #555; transition: all 0.3s;"
+                                                        onmouseover="this.style.color='#4B3B87';"
+                                                        onmouseout="this.style.color='#555';">
+                                                        <i class="fas fa-check-circle"
+                                                            style="color: #4B3B87; margin-right: 12px; font-size: 16px;"></i>90
+                                                        – 100 GSM
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-6 wow fadeInUp" data-wow-delay=".4s">
+                                        <div class="specs-item mb-30 text-center"
+                                            style="background: #ffffff; padding: 35px 25px; border-radius: 20px; box-shadow: 0 5px 20px rgba(57, 50, 127, 0.08); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid rgba(57, 50, 127, 0.1); min-height: 380px; display: flex; flex-direction: column; justify-content: flex-start;"
+                                            onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 15px 40px rgba(57, 50, 127, 0.15)'; this.style.borderColor='#4B3B87';"
+                                            onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 5px 20px rgba(57, 50, 127, 0.08)'; this.style.borderColor='rgba(57, 50, 127, 0.1)';">
+                                            <div
+                                                style="width: 60px; height: 60px; background: var(--aruna-purple); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; box-shadow: 0 8px 20px rgba(255, 152, 0, 0.3);">
+                                                <i class="fas fa-ruler-combined"
+                                                    style="color: #fff; font-size: 24px;"></i>
+                                            </div>
+                                            <h5
+                                                style="color: #222; margin-bottom: 20px; font-size: 22px; font-weight: 700; text-align: center;">
+                                                Standard Sizes</h5>
+                                            <div style="text-align: center;">
+                                                <ul class="list-wrap"
+                                                    style="gap: 12px; margin-bottom: 0; display: inline-block; text-align: left; list-style: none; padding: 0;">
+                                                    <li style="padding: 6px 0; font-size: 15px; color: #555; transition: all 0.3s;"
+                                                        onmouseover="this.style.color='#4B3B87';"
+                                                        onmouseout="this.style.color='#555';">
+                                                        <i class="fas fa-check-circle"
+                                                            style="color: #ff9800; margin-right: 12px; font-size: 16px;"></i>A4
+                                                        (210 × 297 mm)
+                                                    </li>
+                                                    <li style="padding: 6px 0; font-size: 15px; color: #555; transition: all 0.3s;"
+                                                        onmouseover="this.style.color='#4B3B87';"
+                                                        onmouseout="this.style.color='#555';">
+                                                        <i class="fas fa-check-circle"
+                                                            style="color: #ff9800; margin-right: 12px; font-size: 16px;"></i>A3
+                                                        (297 × 420 mm)
+                                                    </li>
+                                                    <li style="padding: 6px 0; font-size: 15px; color: #555; transition: all 0.3s;"
+                                                        onmouseover="this.style.color='#4B3B87';"
+                                                        onmouseout="this.style.color='#555';">
+                                                        <i class="fas fa-check-circle"
+                                                            style="color: #ff9800; margin-right: 12px; font-size: 16px;"></i>FS
+                                                        (215 × 345 mm)
+                                                    </li>
+                                                    <li style="padding: 6px 0; font-size: 15px; color: #555; transition: all 0.3s;"
+                                                        onmouseover="this.style.color='#4B3B87';"
+                                                        onmouseout="this.style.color='#555';">
+                                                        <i class="fas fa-check-circle"
+                                                            style="color: #ff9800; margin-right: 12px; font-size: 16px;"></i>Custom
+                                                        Reels
+                                                    </li>
+                                                    <li style="padding: 6px 0; font-size: 15px; color: #555; transition: all 0.3s;"
+                                                        onmouseover="this.style.color='#4B3B87';"
+                                                        onmouseout="this.style.color='#555';">
+                                                        <i class="fas fa-check-circle"
+                                                            style="color: #ff9800; margin-right: 12px; font-size: 16px;"></i>Custom
+                                                        Sheets
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-6 wow fadeInUp" data-wow-delay=".5s">
+                                        <div class="specs-item mb-30 text-center"
+                                            style="background: #ffffff; padding: 35px 25px; border-radius: 20px; box-shadow: 0 5px 20px rgba(57, 50, 127, 0.08); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid rgba(57, 50, 127, 0.1); min-height: 380px; display: flex; flex-direction: column; justify-content: flex-start;"
+                                            onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 15px 40px rgba(57, 50, 127, 0.15)'; this.style.borderColor='#4B3B87';"
+                                            onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 5px 20px rgba(57, 50, 127, 0.08)'; this.style.borderColor='rgba(57, 50, 127, 0.1)';">
+                                            <div
+                                                style="width: 60px; height: 60px; background: #4caf50; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; box-shadow: 0 8px 20px rgba(76, 175, 80, 0.3);">
+                                                <i class="fas fa-print" style="color: #fff; font-size: 24px;"></i>
+                                            </div>
+                                            <h5
+                                                style="color: #222; margin-bottom: 20px; font-size: 22px; font-weight: 700; text-align: center;">
+                                                Applications</h5>
+                                            <div style="text-align: center;">
+                                                <ul class="list-wrap"
+                                                    style="gap: 12px; margin-bottom: 0; display: inline-block; text-align: left; list-style: none; padding: 0;">
+                                                    <li style="padding: 6px 0; font-size: 15px; color: #555; transition: all 0.3s;"
+                                                        onmouseover="this.style.color='#4B3B87';"
+                                                        onmouseout="this.style.color='#555';">
+                                                        <i class="fas fa-check-circle"
+                                                            style="color: #4caf50; margin-right: 12px; font-size: 16px;"></i>High-Speed
+                                                        Photocopying
+                                                    </li>
+                                                    <li style="padding: 6px 0; font-size: 15px; color: #555; transition: all 0.3s;"
+                                                        onmouseover="this.style.color='#4B3B87';"
+                                                        onmouseout="this.style.color='#555';">
+                                                        <i class="fas fa-check-circle"
+                                                            style="color: #4caf50; margin-right: 12px; font-size: 16px;"></i>Laser
+                                                        & Inkjet Printing
+                                                    </li>
+                                                    <li style="padding: 6px 0; font-size: 15px; color: #555; transition: all 0.3s;"
+                                                        onmouseover="this.style.color='#4B3B87';"
+                                                        onmouseout="this.style.color='#555';">
+                                                        <i class="fas fa-check-circle"
+                                                            style="color: #4caf50; margin-right: 12px; font-size: 16px;"></i>Office
+                                                        & School Stationery
+                                                    </li>
+                                                    <li style="padding: 6px 0; font-size: 15px; color: #555; transition: all 0.3s;"
+                                                        onmouseover="this.style.color='#4B3B87';"
+                                                        onmouseout="this.style.color='#555';">
+                                                        <i class="fas fa-check-circle"
+                                                            style="color: #4caf50; margin-right: 12px; font-size: 16px;"></i>Premium
+                                                        Publishing
+                                                    </li>
+                                                    <li style="padding: 6px 0; font-size: 15px; color: #555; transition: all 0.3s;"
+                                                        onmouseover="this.style.color='#4B3B87';"
+                                                        onmouseout="this.style.color='#555';">
+                                                        <i class="fas fa-check-circle"
+                                                            style="color: #4caf50; margin-right: 12px; font-size: 16px;"></i>Two-Side
+                                                        Printing
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-        <!-- tg-shop-area-end -->
-
+        </section>-->
+        <!-- product-specs-area-end -->
 
 
 
@@ -356,88 +912,575 @@
         <div class="footer-top-wrap">
             <div class="container">
                 <div class="row">
+                    <!-- Column 1: About with Logo -->
                     <div class="col-lg-4 col-md-6 col-sm-12">
                         <div class="footer-widget">
-                            <h4 class="fw-title">ADDRESS</h4>
+                            <div class="footer-logo">
+                                <a href="index.html"><img src="images/aruna_logo.png" alt="Aruna & Co."
+                                        class="footer-logo-img"></a>
+                            </div>
+                            <div class="footer-text">
+                                <p class="desc">Trusted authorised dealer of TNPL papers, serving Tamil Nadu with
+                                    quality and reliability.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column 2: Location -->
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="footer-widget">
+                            <h4 class="fw-title">LOCATION</h4>
                             <div class="footer-contact-wrap">
-                                <ul class="list-wrap">
-                                    <li><i class="fas fa-map-marker-alt"></i> <span>2/16, Giri Nagar, Ramapuram,<br>
-                                            Chennai – 600089</span></li>
+                                <ul class="list-wrap footer-contact-info">
+                                    <li>
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>2/16, Giri Nagar, Ramapuram,<br>Chennai – 600089,<br>Tamil Nadu,
+                                            India.</span>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
                     </div>
+                    <!-- Column 3: Contact & Social -->
                     <div class="col-lg-4 col-md-6 col-sm-12">
                         <div class="footer-widget">
-                            <h4 class="fw-title">MOBILE NUMBER</h4>
+                            <h4 class="fw-title">CONTACT US</h4>
                             <div class="footer-contact-wrap">
-                                <ul class="list-wrap">
-                                    <li class="phone"><i class="fas fa-phone"></i> +91 98765 43210</li>
+                                <ul class="list-wrap footer-contact-info">
+                                    <li><i class="fas fa-phone"></i> <a href="tel:+919876543210">+91 98765 43210</a>
+                                    </li>
+                                    <li><i class="fas fa-envelope"></i> <a
+                                            href="mailto:info@arunaandco.in">info@arunaandco.in</a></li>
                                 </ul>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12">
-                        <div class="footer-widget">
-                            <h4 class="fw-title">EMAIL ID</h4>
-                            <div class="footer-contact-wrap">
-                                <ul class="list-wrap">
-                                    <li class="mail"><i class="fas fa-envelope"></i> info@arunaco.com</li>
-                                </ul>
+                            <div class="footer-social-links">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#"><i class="fab fa-whatsapp"></i></a>
+                                <a href="#"><i class="fab fa-youtube"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </footer>
-    <!-- Footer-area-end -->
-    <!-- JS here -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.7/odometer.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.appear/1.0.1/jquery.appear.min.js"></script>
-    <script src="script.js"></script>
-
-    <script>
-        $(document).ready(function () {
-            if ($('.odometer').length) {
-                $('.odometer').appear(function (e) {
-                    var $el = $(this);
-                    var countValue = $el.attr("data-count");
-                    $el.html(countValue);
-                });
-            }
-        });
-    </script>
-
-    <!-- Enquiry Popup Form -->
-    <div id="enquiry-popup" class="enquiry-popup-overlay">
-        <div class="enquiry-popup-container">
-            <button class="popup-close">&times;</button>
-            <div class="popup-header">
-                <div class="popup-header-icon"><i class="fas fa-envelope"></i></div>
-                <h3>Quick Enquiry</h3>
-                <p>Get a quote for your paper requirements</p>
-            </div>
-            <form id="popup-enquiry-form" class="popup-form">
-                <div class="form-group"><input type="text" name="name" placeholder="Your Name *" required></div>
-                <div class="form-group"><input type="tel" name="phone" placeholder="Phone Number *" required></div>
-                <div class="form-group"><input type="email" name="email" placeholder="Email Address"></div>
-                <div class="form-group"><textarea name="message" placeholder="Brief Requirements"></textarea></div>
-                <button type="submit"><i class="fas fa-paper-plane"></i> Send Enquiry</button>
-                <p class="popup-privacy"><i class="fas fa-lock"></i> Your information is secure with us</p>
-            </form>
-            <div class="popup-success">
-                <div class="popup-success-icon"><i class="fas fa-check"></i></div>
-                <h4>Thank You!</h4>
-                <p>We've received your enquiry and will contact you shortly.</p>
+        <!-- Copyright Area -->
+        <div class="copyright-wrap">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <p class="copyright-text">Copyright &copy; 2026 Aruna & Co. All Rights Reserved.</p>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <button id="enquiry-trigger-btn" class="enquiry-trigger-btn">
-        <i class="fas fa-comment-dots"></i>
-        <span class="btn-label">Quick Enquiry</span>
-    </button>
+    </footer>
+    <!-- Footer-area-end -->
+
+    <!-- JS here -->
+    <script src="assets/js/vendor/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/isotope.pkgd.min.js"></script>
+    <script src="assets/js/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="assets/js/jquery.odometer.min.js"></script>
+    <script src="assets/js/jquery.appear.js"></script>
+    <script src="assets/js/jquery.paroller.min.js"></script>
+    <script src="assets/js/jquery.easypiechart.min.js"></script>
+    <script src="assets/js/jquery.inview.min.js"></script>
+    <script src="assets/js/jquery.easing.js"></script>
+    <script src="assets/js/jquery-ui.min.js"></script>
+    <script src="assets/js/svg-inject.min.js"></script>
+    <script src="assets/js/jarallax.min.js"></script>
+    <script src="assets/js/slick.min.js"></script>
+    <script src="assets/js/validator.js"></script>
+    <script src="assets/js/ajax-form.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script>
+        const productPdfData = {
+            "ace-marvel": {
+                title: "TNPL Ace Marvel",
+                fileName: "tnpl-ace-marvel-key-features.pdf",
+                image: "assets/img/products/tnpl_ace_marvel.jpg",
+                description: "Base paper for surface coating, carbonless, and sublimation applications.",
+                keyFeatures: [
+                    "Low GSM paper with excellent sustainability and dimensions",
+                    "Suitable for coating applications as a coating base",
+                    "Displays strong print quality",
+                    "Uniform caliper for consistent converting"
+                ]
+            },
+            "radiant-stationery": {
+                title: "TNPL Radiant Stationery",
+                fileName: "tnpl-radiant-stationery-key-features.pdf",
+                image: "assets/img/products/tnpl_radiant_platinum.jpg",
+                description: "Premium stationery and documentation paper for corporate and institutional use.",
+                keyFeatures: [
+                    "Pleasant shade and brightness",
+                    "Reliable runnability in office printers and copiers",
+                    "Good opacity for cleaner two-side printing",
+                    "Designed for high-volume daily documentation"
+                ]
+            },
+            "radiant-platinum": {
+                title: "TNPL Radiant Platinum",
+                fileName: "tnpl-radiant-platinum-key-features.pdf",
+                image: "assets/img/products/tnpl_radiant_platinum.jpg",
+                description: "Ultra-premium paper for premium office and digital print output.",
+                keyFeatures: [
+                    "High brightness and premium visual finish",
+                    "Smooth surface for consistent toner laydown",
+                    "Excellent machine compatibility for fast printing",
+                    "Strong two-side print performance"
+                ]
+            },
+            "platinum": {
+                title: "TNPL Platinum",
+                fileName: "tnpl-platinum-key-features.pdf",
+                image: "assets/img/products/tnpl_platinum.png",
+                description: "Premium copier and printer paper for sharp and dependable everyday output.",
+                keyFeatures: [
+                    "Balanced stiffness and bulk for copier performance",
+                    "High opacity for cleaner duplex prints",
+                    "Consistent sheet quality across reams",
+                    "Suitable for laser and inkjet workflows"
+                ]
+            },
+            "elegant-print": {
+                title: "TNPL Elegant Print",
+                fileName: "tnpl-elegant-print-key-features.pdf",
+                image: "assets/img/products/tnpl_elegant_print.jpg",
+                description: "Fine print paper designed for elegant commercial print applications.",
+                keyFeatures: [
+                    "Good formation for clear text and graphics",
+                    "Stable performance in offset and digital workflows",
+                    "Strong shade and whiteness consistency",
+                    "Reliable printability across multiple GSM options"
+                ]
+            },
+            "eco-maplitho": {
+                title: "TNPL Eco Maplitho",
+                fileName: "tnpl-eco-maplitho-key-features.pdf",
+                image: "assets/img/products/tnpl_eco_maplitho.jpg",
+                description: "Eco-friendly maplitho paper made for sustainable printing requirements.",
+                keyFeatures: [
+                    "Bagasse-based sustainable paper option",
+                    "Good stiffness and smoothness balance",
+                    "Dependable print quality for office and educational use",
+                    "Supports eco-conscious procurement goals"
+                ]
+            },
+            "spectrum": {
+                title: "TNPL Spectrum",
+                fileName: "tnpl-spectrum-key-features.pdf",
+                image: "assets/img/products/tnpl_spectrum.png",
+                description: "Multipurpose premium paper for office and professional digital printing.",
+                keyFeatures: [
+                    "High whiteness for crisp visual output",
+                    "Jam-free performance for high-speed machines",
+                    "Multipurpose compatibility across printer brands",
+                    "High opacity for quality two-side printing"
+                ]
+            },
+            "copy-crown": {
+                title: "TNPL Copy Crown",
+                fileName: "tnpl-copy-crown-key-features.pdf",
+                image: "assets/img/products/tnpl-copycrown.webp",
+                description: "Reliable copier-grade paper for daily office and institutional printing.",
+                keyFeatures: [
+                    "Optimized for copier and laser printer performance",
+                    "Consistent caliper and moisture control",
+                    "Smooth feeding and reduced paper jams",
+                    "Suitable for high-volume document production"
+                ]
+            }
+        };
+
+        const productSpecificationsFallback = {
+            "ace-marvel": [
+                ["Nominal GSM Range (g/m2)", "47 - 90"],
+                ["Substance Tolerance", "+/- 2.5 %"],
+                ["Bulk (cc/g)", "1.30 +/- 0.05"],
+                ["Moisture %", "5.5 +/- 0.5"],
+                ["Breaking Length MD (m)", "4000 +/- 200"],
+                ["Breaking Length CD (m)", "2000 +/- 200"],
+                ["Tear Factor MD", "40 +/- 5"],
+                ["Tear Factor CD", "45 +/- 5"],
+                ["Burst Factor (Min)", "18"],
+                ["Bendsten Smoothness TS (ml/min)", "130 - 200"],
+                ["Bendsten Smoothness WS (ml/min)", "70 - 110"],
+                ["Cobb 60 (g/m2)", "25 (max)"],
+                ["Brightness - ISO % (Min)", "87"],
+                ["Opacity %", "84 - 96"],
+                ["CIE Whiteness", "140 +/- 5"]
+            ],
+            "radiant-stationery": [
+                ["Nominal GSM Range (g/m2)", "54 - 120"],
+                ["Substance Tolerance", "+/- 2.5 %"],
+                ["Bulk (cc/g)", "1.35 +/- 0.05"],
+                ["Moisture %", "6.0 +/- 0.5"],
+                ["Breaking Length MD (m)", "5000 +/- 300"],
+                ["Breaking Length CD (m)", "2500 +/- 300"],
+                ["Tear Factor MD", "40 +/- 5"],
+                ["Tear Factor CD", "45 +/- 5"],
+                ["Burst Factor (Min)", "20"],
+                ["Bendsten Smoothness TS (ml/min)", "150 - 230"],
+                ["Bendsten Smoothness WS (ml/min)", "120 - 180"],
+                ["Porosity (ml/min, Max)", "450"],
+                ["Cobb 60 (g/m2)", "25 +/- 2"],
+                ["Brightness - ISO % (Min)", "88"],
+                ["Opacity %", "85 - 95"],
+                ["CIE Whiteness", "145 +/- 5"]
+            ],
+            "radiant-platinum": [
+                ["Nominal GSM Range (g/m2)", "54 - 120"],
+                ["Substance Tolerance", "+/- 2.5 %"],
+                ["Bulk (cc/g)", "1.35 +/- 0.05"],
+                ["Moisture %", "6.0 +/- 0.5"],
+                ["Breaking Length MD (m)", "5000 +/- 300"],
+                ["Breaking Length CD (m)", "2500 +/- 300"],
+                ["Tear Factor MD", "40 +/- 5"],
+                ["Tear Factor CD", "45 +/- 5"],
+                ["Burst Factor (Min)", "20"],
+                ["Bendsten Smoothness TS (ml/min)", "150 - 230"],
+                ["Bendsten Smoothness WS (ml/min)", "120 - 180"],
+                ["Porosity (ml/min, Max)", "450"],
+                ["Cobb 60 (g/m2)", "25 +/- 2"],
+                ["Brightness - ISO % (Min)", "88"],
+                ["Opacity %", "85 - 95"],
+                ["CIE Whiteness", "145 +/- 5"]
+            ],
+            "platinum": [
+                ["Nominal GSM (g/m2)", "70 / 75 / 80"],
+                ["Substance Tolerance", "+/- 2.5 %"],
+                ["Caliper Micron (Min)", "100 / 102 / 105"],
+                ["Moisture %", "6.0 +/- 0.5"],
+                ["Bendsten Smoothness TS (ml/min)", "150 - 250"],
+                ["Bendsten Smoothness WS (ml/min)", "150 - 220"],
+                ["Porosity (ml/min, Max)", "650"],
+                ["Cobb 60 (g/m2, Max)", "30"],
+                ["Brightness - ISO % (Min)", "89"],
+                ["Opacity %", "92 / 93 / 94"],
+                ["CIE Whiteness", "150 +/- 5"]
+            ],
+            "elegant-print": [
+                ["Nominal GSM Range (g/m2)", "54 - 120"],
+                ["Substance Tolerance", "+/- 2.5 %"],
+                ["Bulk (cc/g)", "1.30 +/- 0.05"],
+                ["Moisture %", "6.0 +/- 0.5"],
+                ["Breaking Length MD (m)", "3500 (min)"],
+                ["Breaking Length CD (m)", "1400 (min)"],
+                ["Tear Factor MD", "40 +/- 5"],
+                ["Tear Factor CD", "45 +/- 5"],
+                ["Burst Factor (Min)", "15"],
+                ["Bendsten Smoothness TS (ml/min)", "100 - 250"],
+                ["Bendsten Smoothness WS (ml/min)", "60 - 120"],
+                ["Porosity (ml/min, Max)", "450"],
+                ["Cobb 60 (g/m2)", "25 +/- 2"],
+                ["Brightness - ISO % (Min)", "88"],
+                ["Opacity %", "86 - 96"],
+                ["CIE Whiteness", "150 +/- 5"]
+            ],
+            "eco-maplitho": [
+                ["Nominal GSM Range (g/m2)", "47 - 120"],
+                ["Substance Tolerance", "+/- 2.5 %"],
+                ["Bulk (cc/g)", "1.30 +/- 0.05"],
+                ["Moisture %", "6.0 +/- 0.5"],
+                ["Breaking Length MD (m)", "4000 +/- 200"],
+                ["Breaking Length CD (m)", "2000 +/- 200"],
+                ["Tear Factor MD", "40 +/- 5"],
+                ["Tear Factor CD", "45 +/- 5"],
+                ["Burst Factor (Min)", "15"],
+                ["Bendsten Smoothness TS (ml/min)", "130 - 250"],
+                ["Bendsten Smoothness WS (ml/min)", "80 - 150"],
+                ["Porosity (ml/min, Max)", "450"],
+                ["Cobb 60 (g/m2)", "25 +/- 2"],
+                ["Brightness ISO % (Min)", "87"],
+                ["Opacity %", "84 - 96"],
+                ["CIE Whiteness", "145 +/- 5"]
+            ],
+            "spectrum": [
+                ["Nominal GSM Range (g/m2)", "65, 70, 75, 80"],
+                ["Brightness ISO % (Min)", "88 - 90"],
+                ["Opacity %", "90+"],
+                ["CIE Whiteness", "150 +/- 5"],
+                ["Bulk (cc/g)", "1.35 +/- 0.05"],
+                ["Moisture %", "5.5 +/- 0.5"],
+                ["Burst Factor (Min)", "15"],
+                ["Cobb 60 (g/m2)", "22 +/- 2"]
+            ],
+            "copy-crown": [
+                ["Nominal GSM (g/m2)", "70 / 75 / 80"],
+                ["Substance Tolerance", "+/- 2.5 %"],
+                ["Caliper Micron (Min)", "100 / 102 / 105"],
+                ["Moisture %", "6.0 +/- 0.5"],
+                ["Bendsten Smoothness TS (ml/min)", "150 - 250"],
+                ["Bendsten Smoothness WS (ml/min)", "150 - 220"],
+                ["Porosity (ml/min, Max)", "650"],
+                ["Cobb 60 (g/m2, Max)", "30"],
+                ["Brightness - ISO % (Min)", "89"],
+                ["Opacity %", "92 / 93 / 94"],
+                ["CIE Whiteness", "150 +/- 5"]
+            ]
+        };
+
+        function normalizeSpecText(value) {
+            return (value || "")
+                .replace(/\u00a0/g, " ")
+                .replace(/\s+/g, " ")
+                .trim();
+        }
+
+        async function getSpecificationsFromProductPage(productPageUrl) {
+            if (!productPageUrl) return null;
+            try {
+                const response = await fetch(productPageUrl, { cache: "no-store" });
+                if (!response.ok) return null;
+                const html = await response.text();
+                const pageDoc = new DOMParser().parseFromString(html, "text/html");
+                const items = pageDoc.querySelectorAll(".spec-grid .spec-item");
+                const specs = [];
+                items.forEach((item) => {
+                    const label = normalizeSpecText(item.querySelector(".spec-label")?.textContent);
+                    const value = normalizeSpecText(item.querySelector(".spec-value")?.textContent);
+                    if (label && value) specs.push([label, value]);
+                });
+                return specs.length ? specs : null;
+            } catch (e) {
+                return null;
+            }
+        }
+
+        function loadImageAsDataUrl(imagePath) {
+            return new Promise((resolve, reject) => {
+                const img = new Image();
+                img.onload = function () {
+                    const canvas = document.createElement("canvas");
+                    canvas.width = img.naturalWidth;
+                    canvas.height = img.naturalHeight;
+                    const ctx = canvas.getContext("2d");
+                    ctx.drawImage(img, 0, 0);
+                    resolve(canvas.toDataURL("image/jpeg", 0.92));
+                };
+                img.onerror = reject;
+                img.src = imagePath;
+            });
+        }
+
+        async function downloadSpecs(productName, specsId, productPageUrl) {
+            const product = productPdfData[specsId];
+            if (!product) {
+                return;
+            }
+
+            const specsFromPage = await getSpecificationsFromProductPage(productPageUrl);
+            const specs = specsFromPage || productSpecificationsFallback[specsId] || [];
+
+            if (!window.jspdf || !window.jspdf.jsPDF) {
+                alert("PDF generator is not available. Please refresh and try again.");
+                return;
+            }
+
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            const pageHeight = doc.internal.pageSize.getHeight();
+            const pageWidth = doc.internal.pageSize.getWidth();
+            const left = 14;
+            const right = pageWidth - 14;
+            const labelX = left;
+            const valueX = 78;
+            const contentWidth = right - left;
+            const valueWidth = right - valueX;
+            const lineHeight = 5.5;
+            let y = 20;
+
+            function ensureSpace(requiredHeight) {
+                if (y + requiredHeight > pageHeight - 16) {
+                    doc.addPage();
+                    y = 20;
+                }
+            }
+
+            doc.setFont("helvetica", "bold");
+            doc.setFontSize(18);
+            doc.text("Aruna & Co.", left, y);
+            y += 10;
+
+            doc.setFontSize(14);
+            doc.text(productName + " - Product Sheet", left, y);
+            y += 8;
+
+            doc.setFont("helvetica", "normal");
+            doc.setFontSize(10);
+            doc.text("Generated on: " + new Date().toLocaleDateString(), left, y);
+            y += 10;
+
+            doc.setDrawColor(220, 220, 220);
+            doc.line(left, y, right, y);
+            y += 8;
+
+            try {
+                const imageDataUrl = await loadImageAsDataUrl(product.image);
+                const imageWidth = 70;
+                const imageHeight = 70;
+                const imageX = (pageWidth - imageWidth) / 2;
+                ensureSpace(imageHeight + 10);
+                doc.addImage(imageDataUrl, "JPEG", imageX, y, imageWidth, imageHeight);
+                y += imageHeight + 10;
+            } catch (e) {
+                // If image fails, continue PDF generation without stopping download.
+            }
+
+            doc.setFont("helvetica", "bold");
+            doc.setFontSize(12);
+            ensureSpace(12);
+            doc.text("Product Name", left, y);
+            y += 6;
+            doc.setFont("helvetica", "normal");
+            doc.setFontSize(11);
+            const nameLines = doc.splitTextToSize(productName, contentWidth);
+            doc.text(nameLines, left, y);
+            y += (nameLines.length * lineHeight) + 4;
+
+            if (product.description) {
+                doc.setFont("helvetica", "bold");
+                doc.setFontSize(12);
+                ensureSpace(12);
+                doc.text("Short Description", left, y);
+                y += 6;
+                doc.setFont("helvetica", "normal");
+                doc.setFontSize(11);
+                const descLines = doc.splitTextToSize(product.description, contentWidth);
+                doc.text(descLines, left, y);
+                y += (descLines.length * lineHeight) + 6;
+            }
+
+            doc.setFont("helvetica", "bold");
+            doc.setFontSize(12);
+            ensureSpace(14);
+            doc.text("Key Specifications", left, y);
+            y += 8;
+
+            const tableTop = y;
+            const labelColWidth = valueX - left;
+            const valueColWidth = right - valueX;
+            const cellPaddingX = 2.5;
+            const cellPaddingY = 3.8;
+            const headerHeight = 10;
+
+            function drawSpecsTableHeader() {
+                ensureSpace(headerHeight + 2);
+                doc.setFillColor(247, 247, 247);
+                doc.rect(left, y, labelColWidth, headerHeight, "FD");
+                doc.rect(valueX, y, valueColWidth, headerHeight, "FD");
+
+                doc.setFont("helvetica", "bold");
+                doc.setFontSize(11);
+                doc.text("Specification", left + cellPaddingX, y + 6.6);
+                doc.text("Value", valueX + cellPaddingX, y + 6.6);
+                y += headerHeight;
+            }
+
+            doc.setDrawColor(180, 180, 180);
+            doc.setLineWidth(0.2);
+            drawSpecsTableHeader();
+
+            specs.forEach(([label, value]) => {
+                const labelLines = doc.splitTextToSize(label, labelColWidth - (cellPaddingX * 2));
+                const valueLines = doc.splitTextToSize(value, valueColWidth - (cellPaddingX * 2));
+                const rowLines = Math.max(labelLines.length, valueLines.length);
+                const rowHeight = (rowLines * lineHeight) + (cellPaddingY * 2) - 1;
+
+                const yBeforeRow = y;
+                ensureSpace(rowHeight + 1);
+                if (y !== yBeforeRow) {
+                    drawSpecsTableHeader();
+                }
+
+                doc.rect(left, y, labelColWidth, rowHeight);
+                doc.rect(valueX, y, valueColWidth, rowHeight);
+
+                doc.setFont("helvetica", "bold");
+                doc.setFontSize(10.5);
+                doc.text(labelLines, left + cellPaddingX, y + cellPaddingY + 1);
+
+                doc.setFont("helvetica", "normal");
+                doc.text(valueLines, valueX + cellPaddingX, y + cellPaddingY + 1);
+
+                y += rowHeight;
+            });
+
+            doc.save(product.fileName);
+        }
+
+        function bindProductPdfDownloadButtons() {
+            const buttons = document.querySelectorAll(".uiverse-download-btn[data-product]");
+            buttons.forEach((button) => {
+                button.addEventListener("click", function (event) {
+                    event.preventDefault();
+                    const productKey = button.getAttribute("data-product");
+                    const titleEl = button.closest(".tnpl-product-card")?.querySelector(".card-title-link");
+                    const pageUrl = titleEl ? titleEl.getAttribute("href") : "";
+                    const productName = titleEl ? titleEl.textContent.trim() : "Product";
+                    downloadSpecs(productName, productKey, pageUrl);
+                });
+            });
+        }
+
+        function filterProducts() {
+            // Get Search Query
+            const searchQuery = document.getElementById('productSearch').value.toLowerCase();
+
+            // Get Selected Product Type
+            const typeRadios = document.getElementsByName('productType');
+            let activeType = 'all';
+            for (let r of typeRadios) {
+                if (r.checked) activeType = r.value;
+            }
+
+            // Get Items
+            const items = document.querySelectorAll('.product-item');
+            let visibleCount = 0;
+
+            items.forEach(item => {
+                const category = item.getAttribute('data-category');
+                const name = item.getAttribute('data-name');
+
+                const matchesType = (activeType === 'all' || category === activeType);
+                const matchesSearch = name.includes(searchQuery);
+
+                if (matchesType && matchesSearch) {
+                    item.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+
+            // Update count only if the counter element exists
+            const visibleCountEl = document.getElementById('visibleCount');
+            if (visibleCountEl) {
+                visibleCountEl.innerText = visibleCount;
+            }
+        }
+
+        function resetFilters() {
+            document.getElementById('productSearch').value = '';
+            const typeRadios = document.getElementsByName('productType');
+            for (let r of typeRadios) {
+                if (r.value === 'all') r.checked = true;
+            }
+            filterProducts();
+        }
+
+        // Run on load
+        document.addEventListener('DOMContentLoaded', function () {
+            bindProductPdfDownloadButtons();
+            filterProducts();
+        });
+        SVGInject(document.querySelectorAll("img.injectable"));
+    </script>
 </body>
 
 </html>

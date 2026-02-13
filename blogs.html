@@ -15,7 +15,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Oswald:wght@400;500;600;700&family=Roboto:ital,wght@0,400;0,500;0,700;1,400;1,500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap"
         rel="stylesheet">
 
     <!-- CSS here -->
@@ -30,8 +30,14 @@
 
 
 
-    <link rel="stylesheet" href="blogs.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/animate.min.css">
+    <link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/css/flaticon.css">
+    <link rel="stylesheet" href="assets/css/default.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="blogs.css">
 </head>
 
 <body>
@@ -65,13 +71,13 @@
                                         <li><a href="index.html">Home</a></li>
                                         <li><a href="about.html">About Us</a></li>
                                         <li><a href="products.html">Products</a></li>
-                                        <li class="active"><a href="blogs.html">Blog</a></li>
-                                        <li><a href="faq.html">FAQ</a></li>
+                                        <li class="active"><a href="#">Blog</a></li>
+                                        <!-- <li><a href="#">FAQ</a></li> -->
                                         <li><a href="contact.html">Contact</a></li>
                                     </ul>
                                 </div>
                                 <div class="header-btn d-none d-sm-block">
-                                    <a href="products.html#order" class="tg-btn">Order Now</a>
+                                    <a href="index.html#order" class="tg-btn">Order Now</a>
                                 </div>
                             </nav>
                         </div>
@@ -79,29 +85,35 @@
                 </div>
             </div>
         </div>
+    </header>
+    <!-- header-area-end -->
 
-        <!-- Mobile Menu  -->
-        <div class="mobile-menu">
-            <nav class="menu-box">
-                <div class="close-btn"><i class="fas fa-times"></i></div>
-                <div class="nav-logo">
-                    <a href="index.html">
-                        <img src="images/aruna_logo.png" alt="Aruna & Co. - Authorised TNPL Distributor"
-                            class="mobile-logo">
-                    </a>
-                </div>
-                <div class="menu-outer"></div>
-                <div class="social-links">
-                    <ul class="clearfix">
-                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
-        <div class="menu-backdrop"></div>
-        <!-- End Mobile Menu -->
+    <!-- Mobile Menu  -->
+    <div class="mobile-menu">
+        <nav class="menu-box">
+            <div class="close-btn"><i class="fas fa-times"></i></div>
+            <div class="nav-logo">
+                <a href="index.html">
+                    <img src="images/aruna_aruna_logo.png" alt="Aruna & Co. - Authorised TNPL Distributor"
+                        class="mobile-logo">
+                </a>
+            </div>
+            <div class="menu-outer">
+                <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
+            </div>
+            <div class="social-links">
+                <ul class="clearfix">
+                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                    <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <div class="menu-backdrop"></div>
+    <!-- End Mobile Menu -->
     </header>
     <!-- header-area-end -->
 
@@ -356,41 +368,69 @@
         <div class="footer-top-wrap">
             <div class="container">
                 <div class="row">
+                    <!-- Column 1: About with Logo -->
                     <div class="col-lg-4 col-md-6 col-sm-12">
                         <div class="footer-widget">
-                            <h4 class="fw-title">ADDRESS</h4>
+                            <div class="footer-logo">
+                                <a href="index.html"><img src="images/aruna_logo.png" alt="Aruna & Co."
+                                        class="footer-logo-img"></a>
+                            </div>
+                            <div class="footer-text">
+                                <p class="desc">Trusted authorised dealer of TNPL papers, serving Tamil Nadu with
+                                    quality and reliability.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column 2: Location -->
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="footer-widget">
+                            <h4 class="fw-title">LOCATION</h4>
                             <div class="footer-contact-wrap">
-                                <ul class="list-wrap">
-                                    <li><i class="fas fa-map-marker-alt"></i> <span>2/16, Giri Nagar, Ramapuram,<br>
-                                            Chennai – 600089</span></li>
+                                <ul class="list-wrap footer-contact-info">
+                                    <li>
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>2/16, Giri Nagar, Ramapuram,<br>Chennai – 600089,<br>Tamil Nadu,
+                                            India.</span>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
                     </div>
+                    <!-- Column 3: Contact & Social -->
                     <div class="col-lg-4 col-md-6 col-sm-12">
                         <div class="footer-widget">
-                            <h4 class="fw-title">MOBILE NUMBER</h4>
+                            <h4 class="fw-title">CONTACT US</h4>
                             <div class="footer-contact-wrap">
-                                <ul class="list-wrap">
-                                    <li class="phone"><i class="fas fa-phone"></i> +91 98765 43210</li>
+                                <ul class="list-wrap footer-contact-info">
+                                    <li><i class="fas fa-phone"></i> <a href="tel:+919876543210">+91 98765 43210</a>
+                                    </li>
+                                    <li><i class="fas fa-envelope"></i> <a
+                                            href="mailto:info@arunaandco.in">info@arunaandco.in</a></li>
                                 </ul>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12">
-                        <div class="footer-widget">
-                            <h4 class="fw-title">EMAIL ID</h4>
-                            <div class="footer-contact-wrap">
-                                <ul class="list-wrap">
-                                    <li class="mail"><i class="fas fa-envelope"></i> info@arunaco.com</li>
-                                </ul>
+                            <div class="footer-social-links">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#"><i class="fab fa-whatsapp"></i></a>
+                                <a href="#"><i class="fab fa-youtube"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <!-- Copyright Area -->
+        <div class="copyright-wrap">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <p class="copyright-text">Copyright &copy; 2026 Aruna & Co. All Rights Reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </footer>
+    <!-- Footer-area-end -->
     <!-- Footer-area-end -->
     <!-- JS here -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

@@ -70,10 +70,14 @@ p {
     display: none !important;
 }
 
-.list-unstyled-mb20 {
-    list-style-type: none !important;
-    padding-left: 0 !important;
-    margin-bottom: 20px !important;
+.ethics-supplement .tg-supplement-bg {
+    background: #ffffff;
+}
+
+.ethics-img {
+    width: 100%;
+    max-width: 480px;
+    object-fit: cover;
 }
 
 /* Breadcrumb Centering */
