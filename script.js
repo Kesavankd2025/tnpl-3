@@ -1038,25 +1038,97 @@
 (function (a) {
   "use strict";
 
-  a("#contact-form").length &&
-    (a("#contact-form").validator(),
-      a("#contact-form").on("submit", function (b) {
-        if (!b.isDefaultPrevented())
-          return (
-            a.ajax({
-              type: "POST",
-              url: "inc/contact.php",
-              data: a(this).serialize(),
-              success: function (d) {
-                var f = "alert-" + d.type;
-                d = d.message;
-                var h = '<div class="alert ' + f + ' alert-dismissible" role="alert">' + d + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
-                f && d && (a("#contact-form").find(".messages").html(h), a("#contact-form")[0].reset());
-              },
-            }),
-            !1
-          );
-      }));
+  function getEnquiryApiUrls() {
+    var urls = [];
+    if (window.ARUNA_API_BASE) {
+      urls.push(window.ARUNA_API_BASE.replace(/\/$/, "") + "/api/enquiry");
+    }
+    if (window.location.protocol === "http:" || window.location.protocol === "https:") {
+      urls.push("/api/enquiry");
+    }
+    urls.push("http://localhost:5000/api/enquiry");
+    return Array.from(new Set(urls));
+  }
+
+  function renderContactMessage($form, type, message) {
+    var alertClass = type === "success" ? "alert-success" : "alert-danger";
+    var html = '<div class="alert ' + alertClass + ' alert-dismissible" role="alert">' +
+      message +
+      '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+    $form.find(".messages").html(html);
+  }
+
+  var $contactForm = a("#contact-form");
+  if (!$contactForm.length) return;
+
+  $contactForm.attr("novalidate", "novalidate");
+  $contactForm.on("submit", function (event) {
+    event.preventDefault();
+
+    var formEl = this;
+    var $form = a(formEl);
+    var name = ($form.find('[name="name"]').val() || "").toString().trim();
+    var email = ($form.find('[name="email"]').val() || "").toString().trim();
+    var phone = ($form.find('[name="phone"]').val() || "").toString().trim();
+    var message = ($form.find('[name="message"]').val() || "").toString().trim();
+
+    if (!name || (!phone && !email)) {
+      renderContactMessage($form, "error", "Name and either phone or email are required.");
+      return;
+    }
+
+    var $submitBtn = $form.find('button[type="submit"]');
+    var originalText = $submitBtn.html();
+    $submitBtn.prop("disabled", true).html('<i class="fas fa-spinner fa-spin"></i> Sending...');
+
+    var payload = {
+      name: name,
+      phone: phone,
+      email: email,
+      message: message,
+      source: "contact-get-quote",
+      page: window.location.pathname,
+      submittedAt: new Date().toISOString()
+    };
+
+    var postToEnquiryApi = function () {
+      var urls = getEnquiryApiUrls();
+      var tryNext = function (index) {
+        if (index >= urls.length) {
+          return Promise.reject(new Error("Unable to submit enquiry."));
+        }
+        return fetch(urls[index], {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        })
+          .then(function (response) {
+            return response.json().catch(function () { return {}; }).then(function (result) {
+              if (!response.ok || result.success === false) {
+                throw new Error(result.message || "Unable to submit enquiry.");
+              }
+              return result;
+            });
+          })
+          .catch(function () {
+            return tryNext(index + 1);
+          });
+      };
+      return tryNext(0);
+    };
+
+    postToEnquiryApi()
+      .then(function (result) {
+        renderContactMessage($form, "success", result.message || "Enquiry submitted successfully.");
+        formEl.reset();
+      })
+      .catch(function (error) {
+        renderContactMessage($form, "error", error.message || "Unable to submit enquiry. Please try again.");
+      })
+      .finally(function () {
+        $submitBtn.prop("disabled", false).html(originalText);
+      });
+  });
 
 })(jQuery);
 /*! WOW - v1.1.3 - 2016-05-06
@@ -1893,6 +1965,18 @@
     }
   }
 
+  function getEnquiryApiUrls() {
+    const urls = [];
+    if (window.ARUNA_API_BASE) {
+      urls.push(window.ARUNA_API_BASE.replace(/\/$/, '') + '/api/enquiry');
+    }
+    if (window.location.protocol === 'http:' || window.location.protocol === 'https:') {
+      urls.push('/api/enquiry');
+    }
+    urls.push('http://localhost:5000/api/enquiry');
+    return Array.from(new Set(urls));
+  }
+
   // Handle form submission
   function handleFormSubmit(form) {
     const formData = new FormData(form);
@@ -1902,9 +1986,12 @@
       data[key] = value;
     });
 
-    // Validate
+    data.name = (data.name || '').toString().trim();
+    data.phone = (data.phone || '').toString().trim();
+    data.email = (data.email || '').toString().trim();
+    data.message = (data.message || '').toString().trim();
+
     if (!data.name || !data.phone) {
-      alert('Please fill in your name and phone number.');
       return;
     }
 
@@ -1914,50 +2001,71 @@
     submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
     submitBtn.disabled = true;
 
-    // Simulate form submission (replace with actual API call)
-    setTimeout(function () {
-      // Hide form, show success
-      form.style.display = 'none';
-      const successDiv = document.querySelector('.popup-success');
-      if (successDiv) {
-        successDiv.classList.add('active');
-      }
+    const payload = {
+      name: data.name,
+      phone: data.phone,
+      email: data.email,
+      message: data.message,
+      source: 'quick-enquiry',
+      page: window.location.pathname,
+      submittedAt: new Date().toISOString()
+    };
 
-      // Auto-close after 3 seconds
-      setTimeout(function () {
-        hidePopup();
-        saveDismissal();
-
-        // Reset form for next time
-        form.reset();
-        form.style.display = 'block';
-        if (successDiv) {
-          successDiv.classList.remove('active');
+    const postToEnquiryApi = function () {
+      const urls = getEnquiryApiUrls();
+      const tryNext = function (index) {
+        if (index >= urls.length) {
+          return Promise.reject(new Error('Unable to submit enquiry.'));
         }
+        return fetch(urls[index], {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        })
+          .then(function (response) {
+            return response.json().catch(function () { return {}; }).then(function (result) {
+              if (!response.ok || result.success === false) {
+                throw new Error(result.message || 'Unable to submit enquiry.');
+              }
+              return result;
+            });
+          })
+          .catch(function () {
+            return tryNext(index + 1);
+          });
+      };
+      return tryNext(0);
+    };
+
+    postToEnquiryApi()
+      .then(function () {
+        // Hide form, show success
+        form.style.display = 'none';
+        const successDiv = document.querySelector('.popup-success');
+        if (successDiv) {
+          successDiv.classList.add('active');
+        }
+
+        // Auto-close after 3 seconds
+        setTimeout(function () {
+          hidePopup();
+          saveDismissal();
+
+          // Reset form for next time
+          form.reset();
+          form.style.display = 'block';
+          if (successDiv) {
+            successDiv.classList.remove('active');
+          }
+          submitBtn.innerHTML = originalText;
+          submitBtn.disabled = false;
+        }, 3000);
+      })
+      .catch(function (error) {
         submitBtn.innerHTML = originalText;
         submitBtn.disabled = false;
-      }, 3000);
-
-    }, 1500);
-
-    // For actual implementation, use:
-    /*
-    fetch('/api/enquiry', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-    })
-    .then(response => response.json())
-    .then(result => {
-        // Handle success
-    })
-    .catch(error => {
-        // Handle error
-        submitBtn.innerHTML = originalText;
-        submitBtn.disabled = false;
-        alert('Something went wrong. Please try again.');
-    });
-    */
+        alert(error.message || 'Something went wrong. Please try again.');
+      });
   }
 
   // Initialize when DOM is ready

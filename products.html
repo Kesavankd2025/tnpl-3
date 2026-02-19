@@ -219,6 +219,278 @@
             box-shadow: 0 12px 24px rgba(60, 52, 131, 0.25);
         }
 
+        .download-form-modal {
+            position: fixed;
+            inset: 0;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.45);
+            z-index: 9999;
+            padding: 18px;
+        }
+
+        .download-form-modal.active {
+            display: flex;
+        }
+
+        .download-form-dialog {
+            width: 100%;
+            max-width: 430px;
+            background: #fff;
+            border-radius: 12px;
+            padding: 16px;
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.2);
+        }
+
+        .download-form-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .download-form-title {
+            margin: 0;
+            font-size: 17px;
+            padding-bottom: 20px;
+            /* padding-left: 40px !important; */
+            color: var(--aruna-purple);
+        }
+
+        .download-form-close {
+            border: none;
+            background: transparent;
+            font-size: 24px;
+            line-height: 1;
+            color: #444;
+            cursor: pointer;
+            padding: 0 6px;
+            padding-bottom: 20px !important;
+        }
+
+        .download-form-grid {
+            padding-left: 50px !important;
+            padding-right: 50px !important;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+
+        .download-form-field {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .download-form-field.full {
+            grid-column: 1 / -1;
+        }
+
+        .download-form-field label {
+            font-size: 13px;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .download-form-field input,
+        .download-form-field textarea {
+            border: 1px solid #d7d7d7;
+            border-radius: 8px;
+            padding: 7px 10px;
+            font-size: 13px;
+            color: #222;
+            width: 100%;
+        }
+
+        .download-form-field input.aruna-invalid,
+        .download-form-field textarea.aruna-invalid {
+            border-color: #d64545;
+            box-shadow: 0 0 0 2px rgba(214, 69, 69, 0.14);
+        }
+
+        .download-form-field textarea {
+            min-height: 34px;
+            padding-top: 6px;
+            padding-bottom: 6px;
+            resize: vertical;
+        }
+
+        .download-field-error {
+            display: none;
+            margin-top: 3px;
+            color: #d64545;
+            font-size: 12px;
+            line-height: 1.3;
+        }
+
+        .download-field-error.active {
+            display: block;
+        }
+
+        .download-form-actions {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .download-success-popup {
+            display: none;
+            text-align: center;
+            padding: 18px 10px 8px;
+        }
+
+        .download-success-popup.active {
+            display: block;
+        }
+
+        .download-success-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            margin: 0 auto 12px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #26a269;
+            color: #fff;
+            font-size: 20px;
+            box-shadow: 0 8px 18px rgba(38, 162, 105, 0.35);
+        }
+
+        .download-success-icon.error {
+            background: #d64545;
+            box-shadow: 0 8px 18px rgba(214, 69, 69, 0.32);
+        }
+
+        .download-success-text {
+            margin: 0;
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--aruna-purple);
+        }
+
+        .download-success-subtext {
+            margin: 8px 0 0;
+            font-size: 12px;
+            color: #c0392b;
+            display: none;
+        }
+
+        .download-success-subtext.active {
+            display: block;
+        }
+
+        .download-submit-btn {
+            border: none;
+            border-radius: 10px;
+            padding: 10px 16px;
+            background: var(--aruna-orange);
+            color: #fff;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .download-submit-btn:disabled {
+            opacity: 0.65;
+            cursor: not-allowed;
+        }
+
+        .aruna-alert-stack {
+            position: fixed;
+            right: 18px;
+            bottom: 18px;
+            z-index: 10050;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: min(92vw, 340px);
+            pointer-events: none;
+        }
+
+        .aruna-alert {
+            pointer-events: auto;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 12px 14px;
+            border-radius: 12px;
+            background: #fff;
+            border-left: 4px solid var(--aruna-orange);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+            transform: translateY(8px);
+            opacity: 0;
+            animation: arunaAlertIn 0.22s ease forwards;
+        }
+
+        .aruna-alert.is-error {
+            border-left-color: #d64545;
+        }
+
+        .aruna-alert.is-success {
+            border-left-color: #26a269;
+        }
+
+        .aruna-alert-icon {
+            flex: 0 0 auto;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 12px;
+            background: var(--aruna-orange);
+        }
+
+        .aruna-alert.is-error .aruna-alert-icon {
+            background: #d64545;
+        }
+
+        .aruna-alert.is-success .aruna-alert-icon {
+            background: #26a269;
+        }
+
+        .aruna-alert-text {
+            margin: 0;
+            font-size: 13px;
+            line-height: 1.45;
+            color: #2b2b2b;
+        }
+
+        .aruna-alert-close {
+            margin-left: auto;
+            border: none;
+            background: transparent;
+            color: #666;
+            line-height: 1;
+            font-size: 16px;
+            cursor: pointer;
+            padding: 0;
+        }
+
+        @keyframes arunaAlertIn {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 575px) {
+            .download-form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .aruna-alert-stack {
+                right: 12px;
+                left: 12px;
+                width: auto;
+                bottom: 12px;
+            }
+        }
+
         /* Navigation Menu Color Override for Product Pages - Removed to match index.html */
     </style>
 </head>
@@ -226,21 +498,6 @@
 <body>
     <a class="skip-link sr-only" href="#main-content">Skip to content</a>
 
-    <!-- Pre-loader-start -->
-    <!-- <div id="preloader">
-        <div class="tg-cube-grid">
-            <div class="tg-cube tg-cube1"></div>
-            <div class="tg-cube tg-cube2"></div>
-            <div class="tg-cube tg-cube3"></div>
-            <div class="tg-cube tg-cube4"></div>
-            <div class="tg-cube tg-cube5"></div>
-            <div class="tg-cube tg-cube6"></div>
-            <div class="tg-cube tg-cube7"></div>
-            <div class="tg-cube tg-cube8"></div>
-            <div class="tg-cube tg-cube9"></div>
-        </div>
-    </div> -->
-    <!-- Pre-loader-end -->
 
     <!-- Scroll-top -->
     <button class="scroll-top scroll-to-target" data-target="html">
@@ -270,7 +527,6 @@
                                         <li><a href="about.html">About Us</a></li>
                                         <li class="active"><a href="products.html">Products</a></li>
                                         <li><a href="#">Blog</a></li>
-                                        <!-- <li><a href="#">FAQ</a></li> -->
                                         <li><a href="contact.html">Contact</a></li>
                                     </ul>
                                 </div>
@@ -292,7 +548,7 @@
             <div class="close-btn"><i class="fas fa-times"></i></div>
             <div class="nav-logo">
                 <a href="index.html">
-                    <img src="images/aruna_aruna_logo.png" alt="Aruna & Co. - Authorised TNPL Distributor"
+                    <img src="images/aruna_logo.png" alt="Aruna & Co. - Authorised TNPL Distributor"
                         class="mobile-logo">
                 </a>
             </div>
@@ -321,73 +577,29 @@
 
     <main id="main-content" class="main-area fix">
 
-        <!-- products-banner-area -->
-        <section class="tg-banner-area banner-bg jarallax parallax-img"
-            style="background-image: url('assets/img/banner/products_banner_bg.png'); color: #fff; padding: 150px 0 120px;">
-        <style>
-            .products-hero-banner::after {
-                content: "";
-                position: absolute;
-                left: 0;
-                top: 0;
-                width: 100%;
-                height: 100%;
-                background: rgba(52, 51, 126, 0.85);
-                z-index: -1;
-            }
-
-            .products-hero-img {
-                max-width: 100%;
-                width: 100%;
-                margin-top: 0;
-                transform: scale(1);
-                filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.3));
-                transition: transform 0.4s ease;
-            }
-
-            .products-hero-img:hover {
-                transform: scale(1.02);
-            }
-        </style>
-            <div class="products-hero-banner"></div>
+        <!-- breadcrumb-area -->
+        <section class="breadcrumb-area breadcrumb-bg">
             <div class="container">
-                <div class="row align-items-center justify-content-center">
-                    <div class="col-xl-6 col-lg-6 order-1 order-lg-2">
-                        <div class="tg-banner-img text-center wow fadeInRight" data-wow-delay=".6s">
-                            <img src="assets/img/banner/products_hero_image.png" alt="Aruna & Co. Products"
-                                class="mx-auto d-block products-hero-img">
-                        </div>
-                    </div>
-                    <div class="col-xl-6 col-lg-6 col-md-10 order-2 order-lg-1">
-                        <div class="tg-banner-content" style="margin-top: -30px;">
-                            <h4 class="sub-title wow fadeInUp" data-wow-delay=".2s"
-                                style="color: #fff; font-size: 24px; text-transform: uppercase; letter-spacing: 2px;">
-                                Excellence in Every Sheet</h4>
-                            <h2 class="title wow fadeInUp" data-wow-delay=".4s"
-                                style="color: #fff; font-size: 56px; line-height: 1.1;">TNPL Complete Range of
-                                Products</h2>
-                            <p class="wow fadeInUp" data-wow-delay=".6s"
-                                style="color: rgba(255,255,255,0.9); font-size: 18px; margin-bottom: 30px;">Explore our
-                                curated selection of TNPL paper and board products. From high-speed copier paper to
-                                specialized packaging boards, we deliver quality that defines industry standards.</p>
-
-                            <nav aria-label="Breadcrumbs" class="breadcrumb-trail wow fadeInUp" data-wow-delay=".8s">
-                                <ul class="breadcrumb"
-                                    style="background: rgba(255,255,255,0.1); display: inline-flex; padding: 10px 25px; border-radius: 50px; backdrop-filter: blur(5px);">
+                <div class="row justify-content-center">
+                    <div class="col-xl-10">
+                        <div class="breadcrumb-content text-center">
+                            <h2 class="title">Products</h2>
+                            <nav aria-label="Breadcrumbs" class="breadcrumb-trail">
+                                <ul class="breadcrumb">
                                     <li class="breadcrumb-item trail-item trail-begin">
-                                        <a href="index.html" style="color: #fff; font-weight: 600;">Home</a>
+                                        <a href="index.html"><span>Home</span></a>
                                     </li>
-                                    <li class="breadcrumb-item trail-item trail-end">
-                                        <span style="color: rgba(255,255,255,0.7); font-weight: 500;">Products</span>
-                                    </li>
+                                    <li class="breadcrumb-item trail-item trail-end"><span>Products</span></li>
                                 </ul>
                             </nav>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="video-shape one"><img src="images/others/video_shape01.png" alt="shape"></div>
+            <div class="video-shape two"><img src="images/others/video_shape02.png" alt="shape"></div>
         </section>
-        <!-- products-banner-area-end -->
+        <!-- breadcrumb-area-end -->
 
         <!-- Product Grid & Sidebar -->
         <section id="products" class="product-listing pt-130 pb-120">
@@ -437,38 +649,46 @@
                             <!-- Filter: GSM Range -->
                             <div class="filter-group wow fadeInUp" data-wow-delay=".4s">
                                 <span class="widget-title">GSM Range</span>
+                                <label class="custom-radio wow fadeInLeft" data-wow-delay=".45s">
+                                    All GSM
+                                    <input type="radio" name="gsmRange" value="all" checked onchange="filterProducts()">
+                                </label>
                                 <label class="custom-radio wow fadeInLeft" data-wow-delay=".5s">
                                     40–60 GSM
-                                    <input type="radio" name="gsmRange" value="40-60">
+                                    <input type="radio" name="gsmRange" value="40-60" onchange="filterProducts()">
                                 </label>
                                 <label class="custom-radio wow fadeInLeft" data-wow-delay=".6s">
                                     60–80 GSM
-                                    <input type="radio" name="gsmRange" value="60-80">
+                                    <input type="radio" name="gsmRange" value="60-80" onchange="filterProducts()">
                                 </label>
                                 <label class="custom-radio wow fadeInLeft" data-wow-delay=".7s">
                                     80–100 GSM
-                                    <input type="radio" name="gsmRange" value="80-100">
+                                    <input type="radio" name="gsmRange" value="80-100" onchange="filterProducts()">
                                 </label>
                                 <label class="custom-radio wow fadeInLeft" data-wow-delay=".8s">
                                     100–120 GSM
-                                    <input type="radio" name="gsmRange" value="100-120">
+                                    <input type="radio" name="gsmRange" value="100-120" onchange="filterProducts()">
                                 </label>
                             </div>
 
                             <!-- Filter: Application -->
                             <div class="filter-group wow fadeInUp" data-wow-delay=".6s">
                                 <span class="widget-title">Application</span>
+                                <label class="custom-radio wow fadeInLeft" data-wow-delay=".65s">
+                                    All Applications
+                                    <input type="radio" name="appType" value="all" checked onchange="filterProducts()">
+                                </label>
                                 <label class="custom-radio wow fadeInLeft" data-wow-delay=".7s">
                                     Printing
-                                    <input type="radio" name="appType" value="printing">
+                                    <input type="radio" name="appType" value="printing" onchange="filterProducts()">
                                 </label>
                                 <label class="custom-radio wow fadeInLeft" data-wow-delay=".8s">
                                     Publishing
-                                    <input type="radio" name="appType" value="publishing">
+                                    <input type="radio" name="appType" value="publishing" onchange="filterProducts()">
                                 </label>
                                 <label class="custom-radio wow fadeInLeft" data-wow-delay=".9s">
                                     Notebooks
-                                    <input type="radio" name="appType" value="notebooks">
+                                    <input type="radio" name="appType" value="notebooks" onchange="filterProducts()">
                                 </label>
                             </div>
 
@@ -485,76 +705,16 @@
                                     onkeyup="filterProducts()">
                             </div>
                         </div>
-
                         <!-- Product Grid Row -->
                         <div class="row" id="productGrid">
 
-                            <!-- Item 1: Ace Marvel -->
-                            <div class="col-xl-4 col-lg-6 col-md-6 mb-30 product-item" data-category="packaging"
-                                data-name="tnpl ace marvel">
-                                <div class="tnpl-product-card">
-                                    <div class="card-img-area">
-                                        <a href="products.html"><img
-                                                src="assets/img/products/tnpl_ace_marvel.jpg" alt="TNPL Ace Marvel"></a>
-                                    </div>
-                                    <h5 class="title"><a href="products.html"
-                                            class="card-title-link">TNPL Ace
-                                            Marvel</a></h5>
-                                    <div class="product-card-actions">
-                                        <a href="#" class="uiverse-download-btn" data-product="ace-marvel">
-                                            <i class="fas fa-download"></i> Download
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Item 2: Radiant Stationery (Placeholder img used) -->
+                            <!-- Item 1: Platinum -->
                             <div class="col-xl-4 col-lg-6 col-md-6 mb-30 product-item" data-category="paper"
-                                data-name="tnpl radiant stationery">
+                                data-name="tnpl platinum" data-gsm="60-80" data-app="printing">
                                 <div class="tnpl-product-card">
                                     <div class="card-img-area">
-                                        <!-- Using radiant img as placeholder -->
-                                        <a href="products.html"><img
-                                                src="assets/img/products/tnpl_radiant_platinum.jpg"
-                                                alt="TNPL Radiant Stationery"></a>
-                                    </div>
-                                    <h5 class="title"><a href="products.html"
-                                            class="card-title-link">TNPL Radiant Stationery</a>
-                                    </h5>
-                                    <div class="product-card-actions">
-                                        <a href="#" class="uiverse-download-btn" data-product="radiant-stationery">
-                                            <i class="fas fa-download"></i> Download
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Item 3: Radiant Platinum -->
-                            <div class="col-xl-4 col-lg-6 col-md-6 mb-30 product-item" data-category="paper"
-                                data-name="tnpl radiant platinum">
-                                <div class="tnpl-product-card">
-                                    <div class="card-img-area">
-                                        <a href="products.html"><img
-                                                src="assets/img/products/tnpl_radiant_platinum.jpg"
-                                                alt="TNPL Radiant Platinum"></a>
-                                    </div>
-                                    <h5 class="title"><a href="products.html"
-                                            class="card-title-link">TNPL Radiant Platinum</a></h5>
-                                    <div class="product-card-actions">
-                                        <a href="#" class="uiverse-download-btn" data-product="radiant-platinum">
-                                            <i class="fas fa-download"></i> Download
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Item 4: Platinum -->
-                            <div class="col-xl-4 col-lg-6 col-md-6 mb-30 product-item" data-category="paper"
-                                data-name="tnpl platinum">
-                                <div class="tnpl-product-card">
-                                    <div class="card-img-area">
-                                        <a href="products.html"><img
-                                                src="assets/img/products/tnpl_platinum.png" alt="TNPL Platinum"></a>
+                                        <a href="products.html"><img src="images/Products/Platinum.png"
+                                                alt="TNPL Platinum"></a>
                                     </div>
                                     <h5 class="title"><a href="products.html" class="card-title-link">TNPL
                                             Platinum</a></h5>
@@ -566,52 +726,13 @@
                                 </div>
                             </div>
 
-                            <!-- Item 5: Elegant Print -->
+                            <!-- Item 2: Spectrum (re-adding from previous list) -->
                             <div class="col-xl-4 col-lg-6 col-md-6 mb-30 product-item" data-category="paper"
-                                data-name="tnpl elegant print">
+                                data-name="tnpl spectrum" data-gsm="60-80" data-app="printing,publishing">
                                 <div class="tnpl-product-card">
                                     <div class="card-img-area">
-                                        <a href="products.html"><img
-                                                src="assets/img/products/tnpl_elegant_print.jpg"
-                                                alt="TNPL Elegant Print"></a>
-                                    </div>
-                                    <h5 class="title"><a href="products.html"
-                                            class="card-title-link">TNPL Elegant
-                                            Print</a></h5>
-                                    <div class="product-card-actions">
-                                        <a href="#" class="uiverse-download-btn" data-product="elegant-print">
-                                            <i class="fas fa-download"></i> Download
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Item 6: Eco Maplitho -->
-                            <div class="col-xl-4 col-lg-6 col-md-6 mb-30 product-item" data-category="paper"
-                                data-name="tnpl eco maplitho">
-                                <div class="tnpl-product-card">
-                                    <div class="card-img-area">
-                                        <a href="products.html"><img
-                                                src="assets/img/products/tnpl_eco_maplitho.jpg"
-                                                alt="TNPL Eco Maplitho"></a>
-                                    </div>
-                                    <h5 class="title"><a href="products.html"
-                                            class="card-title-link">TNPL Eco Maplitho</a></h5>
-                                    <div class="product-card-actions">
-                                        <a href="#" class="uiverse-download-btn" data-product="eco-maplitho">
-                                            <i class="fas fa-download"></i> Download
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Item 7: Spectrum (re-adding from previous list) -->
-                            <div class="col-xl-4 col-lg-6 col-md-6 mb-30 product-item" data-category="paper"
-                                data-name="tnpl spectrum">
-                                <div class="tnpl-product-card">
-                                    <div class="card-img-area">
-                                        <a href="products.html"><img
-                                                src="assets/img/products/tnpl_spectrum.png" alt="TNPL Spectrum"></a>
+                                        <a href="products.html"><img src="images/Products/Spectrum.png"
+                                                alt="TNPL Spectrum"></a>
                                     </div>
                                     <h5 class="title"><a href="products.html" class="card-title-link">TNPL
                                             Spectrum</a></h5>
@@ -623,18 +744,114 @@
                                 </div>
                             </div>
 
-                            <!-- Item 8: Copy Crown -->
+                            <!-- Item 3: Copy Crown -->
                             <div class="col-xl-4 col-lg-6 col-md-6 mb-30 product-item" data-category="paper"
-                                data-name="tnpl copy crown">
+                                data-name="tnpl copy crown" data-gsm="60-80" data-app="printing">
                                 <div class="tnpl-product-card">
                                     <div class="card-img-area">
-                                        <a href="products.html"><img
-                                                src="assets/img/products/tnpl-copycrown.webp" alt="TNPL Copy Crown"></a>
+                                        <a href="products.html"><img src="images/Products/Copy Crown.png"
+                                                alt="TNPL Copy Crown"></a>
                                     </div>
-                                    <h5 class="title"><a href="products.html"
-                                            class="card-title-link">TNPL Copy Crown</a></h5>
+                                    <h5 class="title"><a href="products.html" class="card-title-link">TNPL Copy
+                                            Crown</a></h5>
                                     <div class="product-card-actions">
                                         <a href="#" class="uiverse-download-btn" data-product="copy-crown">
+                                            <i class="fas fa-download"></i> Download
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Item 4: Ace Marvel -->
+                            <div class="col-xl-4 col-lg-6 col-md-6 mb-30 product-item" data-category="packaging"
+                                data-name="tnpl ace marvel" data-gsm="40-60,60-80" data-app="printing">
+                                <div class="tnpl-product-card">
+                                    <div class="card-img-area">
+                                        <a href="products.html"><img src="images/Products/Ace Marvel.png"
+                                                alt="TNPL Ace Marvel"></a>
+                                    </div>
+                                    <h5 class="title"><a href="products.html" class="card-title-link">TNPL Ace
+                                            Marvel</a></h5>
+                                    <div class="product-card-actions">
+                                        <a href="#" class="uiverse-download-btn" data-product="ace-marvel">
+                                            <i class="fas fa-download"></i> Download
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Item 5: Radiant Stationery (Placeholder img used) -->
+                            <div class="col-xl-4 col-lg-6 col-md-6 mb-30 product-item" data-category="paper"
+                                data-name="tnpl radiant stationery" data-gsm="40-60,60-80,80-100,100-120"
+                                data-app="notebooks">
+                                <div class="tnpl-product-card">
+                                    <div class="card-img-area">
+                                        <!-- Using radiant img as placeholder -->
+                                        <a href="products.html"><img src="images/Products/Radiant Stationery.png"
+                                                alt="TNPL Radiant Stationery"></a>
+                                    </div>
+                                    <h5 class="title"><a href="products.html" class="card-title-link">TNPL Radiant
+                                            Stationery</a>
+                                    </h5>
+                                    <div class="product-card-actions">
+                                        <a href="#" class="uiverse-download-btn" data-product="radiant-stationery">
+                                            <i class="fas fa-download"></i> Download
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Item 6: Radiant Platinum -->
+                            <div class="col-xl-4 col-lg-6 col-md-6 mb-30 product-item" data-category="paper"
+                                data-name="tnpl radiant platinum" data-gsm="40-60,60-80,80-100,100-120"
+                                data-app="printing">
+                                <div class="tnpl-product-card">
+                                    <div class="card-img-area">
+                                        <a href="products.html"><img src="images/Products/Radiant Platinum.png"
+                                                alt="TNPL Radiant Platinum"></a>
+                                    </div>
+                                    <h5 class="title"><a href="products.html" class="card-title-link">TNPL Radiant
+                                            Platinum</a></h5>
+                                    <div class="product-card-actions">
+                                        <a href="#" class="uiverse-download-btn" data-product="radiant-platinum">
+                                            <i class="fas fa-download"></i> Download
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Item 7: Elegant Print -->
+                            <div class="col-xl-4 col-lg-6 col-md-6 mb-30 product-item" data-category="paper"
+                                data-name="tnpl elegant print" data-gsm="40-60,60-80,80-100,100-120"
+                                data-app="printing,publishing">
+                                <div class="tnpl-product-card">
+                                    <div class="card-img-area">
+                                        <a href="products.html"><img src="images/Products/Elegant Print.png"
+                                                alt="TNPL Elegant Print"></a>
+                                    </div>
+                                    <h5 class="title"><a href="products.html" class="card-title-link">TNPL Elegant
+                                            Print</a></h5>
+                                    <div class="product-card-actions">
+                                        <a href="#" class="uiverse-download-btn" data-product="elegant-print">
+                                            <i class="fas fa-download"></i> Download
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Item 8: Eco Maplitho -->
+                            <div class="col-xl-4 col-lg-6 col-md-6 mb-30 product-item" data-category="paper"
+                                data-name="tnpl eco maplitho" data-gsm="40-60,60-80,80-100,100-120"
+                                data-app="printing,publishing">
+                                <div class="tnpl-product-card">
+                                    <div class="card-img-area">
+                                        <a href="products.html"><img src="images/products/Eco Maplitho.png"
+                                                alt="TNPL Eco Maplitho"></a>
+                                    </div>
+                                    <h5 class="title"><a href="products.html" class="card-title-link">TNPL Eco
+                                            Maplitho</a></h5>
+                                    <div class="product-card-actions">
+                                        <a href="#" class="uiverse-download-btn" data-product="eco-maplitho">
                                             <i class="fas fa-download"></i> Download
                                         </a>
                                     </div>
@@ -649,257 +866,6 @@
         </section>
 
 
-        <!-- bulk-order-area -->
-        <!-- <section id="order" class="tg-video-area tg-video-bg jarallax parallax-img" style="padding-top: 120px;">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-xl-6 col-lg-6">
-                        <div class="bulk-order-img wow fadeInLeft" data-wow-delay=".2s">
-                            <img src="assets/img/others/delivery-man.png" alt="Bulk Order"
-                                style="border-radius: 15px; width: 100%; border: 10px solid #fff;">
-                        </div>
-                    </div>
-                    <div class="col-xl-6 col-lg-6">
-                        <div class="bulk-order-content wow fadeInRight" data-wow-delay=".2s">
-                            <div class="tg-section-title white mb-30">
-                                <span class="sub-title"
-                                    style="color: #000000; font-weight: 700; text-transform: uppercase; letter-spacing: 2px;">For
-                                    Businesses</span>
-                                <h2 class="title white-text" style="color: #fff;">Bulk Orders & Corporate Supplies</h2>
-                            </div>
-                            <p style="color: #fff;">We specialize in fulfilling large-scale orders for corporate
-                                offices, educational
-                                institutions, and commercial printing presses. Partner with us for reliable supply and
-                                competitive wholesale pricing.</p>
-                            <div class="bulk-features">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="bulk-feature-item mb-30">
-                                            <div class="icon"
-                                                style="color: #000000; font-size: 30px; margin-bottom: 15px;">
-                                                <i class="fas fa-truck"></i>
-                                            </div>
-                                            <h5 class="title"
-                                                style="color: #000000; font-weight: 700; font-size: 20px;">Priority
-                                                Delivery</h5>
-                                            <p style="color: rgba(255,255,255,0.9); font-size: 15px; line-height: 1.6;">
-                                                Fast and scheduled deliveries to keep your
-                                                operations running smoothly.
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="bulk-feature-item mb-30">
-                                            <div class="icon"
-                                                style="color: #000000; font-size: 30px; margin-bottom: 15px;">
-                                                <i class="fas fa-tags"></i>
-                                            </div>
-                                            <h5 class="title"
-                                                style="color: #000000; font-weight: 700; font-size: 20px;">Wholesale
-                                                Rates</h5>
-                                            <p style="color: rgba(255,255,255,0.9); font-size: 15px; line-height: 1.6;">
-                                                Exclusive discounts on bulk quantities and recurring
-                                                orders.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="contact.html" class="tg-btn"
-                                style="background: #000000; color: #fff; border: none; padding: 15px 35px; border-radius: 5px; font-weight: 700;">Get
-                                a Bulk
-                                Quote</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section> -->
-        <!-- bulk-order-area-end -->
-
-        <!-- product-specs-area -->
-        <!-- <section class="product-specs-area pt-60 pb-40" style="background-color: #ffffff;">
-            <div class="container">
-                <div class="row align-items-center justify-content-center">
-                    <div class="col-lg-12">
-                        <div class="tg-video-content wow fadeInUp" data-wow-delay=".2s">
-                            <div class="tg-section-title text-center mb-50 wow fadeInUp" data-wow-delay=".2s">
-                                <span class="sub-title">Technical Details</span>
-                                <h2 class="title">Paper Specifications</h2>
-                                <p class="info-one" style="color: #0a0909; margin-top: 15px;">We offer a wide range of
-                                    GSM and sizes to suit every printing requirement.</p>
-                            </div>
-
-                            <div class="specs-list" style="margin-top: 50px;">
-                                <div class="row justify-content-center">
-                                    <div class="col-md-4 col-sm-6 wow fadeInUp" data-wow-delay=".3s">
-                                        <div class="specs-item mb-30 text-center"
-                                            style="background: #ffffff; padding: 35px 25px; border-radius: 20px; box-shadow: 0 5px 20px rgba(57, 50, 127, 0.08); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid rgba(57, 50, 127, 0.1); min-height: 380px; display: flex; flex-direction: column; justify-content: flex-start;"
-                                            onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 15px 40px rgba(57, 50, 127, 0.15)'; this.style.borderColor='#4B3B87';"
-                                            onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 5px 20px rgba(57, 50, 127, 0.08)'; this.style.borderColor='rgba(57, 50, 127, 0.1)';">
-                                            <div
-                                                style="width: 60px; height: 60px; background: var(--aruna-orange); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; box-shadow: 0 8px 20px rgba(57, 50, 127, 0.3);">
-                                                <i class="fas fa-weight" style="color: #fff; font-size: 24px;"></i>
-                                            </div>
-                                            <h5
-                                                style="color: #222; margin-bottom: 20px; font-size: 22px; font-weight: 700; text-align: center;">
-                                                AVAILABLE GSM</h5>
-                                            <div style="text-align: center;">
-                                                <ul class="list-wrap"
-                                                    style="gap: 12px; margin-bottom: 0; display: inline-block; text-align: left; list-style: none; padding: 0;">
-                                                    <li style="padding: 6px 0; font-size: 15px; color: #555; transition: all 0.3s;"
-                                                        onmouseover="this.style.color='#4B3B87';"
-                                                        onmouseout="this.style.color='#555';">
-                                                        <i class="fas fa-check-circle"
-                                                            style="color: #4B3B87; margin-right: 12px; font-size: 16px;"></i>58
-                                                        – 60 GSM
-                                                    </li>
-                                                    <li style="padding: 6px 0; font-size: 15px; color: #555; transition: all 0.3s;"
-                                                        onmouseover="this.style.color='#4B3B87';"
-                                                        onmouseout="this.style.color='#555';">
-                                                        <i class="fas fa-check-circle"
-                                                            style="color: #4B3B87; margin-right: 12px; font-size: 16px;"></i>70
-                                                        GSM
-                                                    </li>
-                                                    <li style="padding: 6px 0; font-size: 15px; color: #555; transition: all 0.3s;"
-                                                        onmouseover="this.style.color='#4B3B87';"
-                                                        onmouseout="this.style.color='#555';">
-                                                        <i class="fas fa-check-circle"
-                                                            style="color: #4B3B87; margin-right: 12px; font-size: 16px;"></i>75
-                                                        GSM
-                                                    </li>
-                                                    <li style="padding: 6px 0; font-size: 15px; color: #555; transition: all 0.3s;"
-                                                        onmouseover="this.style.color='#4B3B87';"
-                                                        onmouseout="this.style.color='#555';">
-                                                        <i class="fas fa-check-circle"
-                                                            style="color: #4B3B87; margin-right: 12px; font-size: 16px;"></i>80
-                                                        GSM
-                                                    </li>
-                                                    <li style="padding: 6px 0; font-size: 15px; color: #555; transition: all 0.3s;"
-                                                        onmouseover="this.style.color='#4B3B87';"
-                                                        onmouseout="this.style.color='#555';">
-                                                        <i class="fas fa-check-circle"
-                                                            style="color: #4B3B87; margin-right: 12px; font-size: 16px;"></i>90
-                                                        – 100 GSM
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 col-sm-6 wow fadeInUp" data-wow-delay=".4s">
-                                        <div class="specs-item mb-30 text-center"
-                                            style="background: #ffffff; padding: 35px 25px; border-radius: 20px; box-shadow: 0 5px 20px rgba(57, 50, 127, 0.08); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid rgba(57, 50, 127, 0.1); min-height: 380px; display: flex; flex-direction: column; justify-content: flex-start;"
-                                            onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 15px 40px rgba(57, 50, 127, 0.15)'; this.style.borderColor='#4B3B87';"
-                                            onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 5px 20px rgba(57, 50, 127, 0.08)'; this.style.borderColor='rgba(57, 50, 127, 0.1)';">
-                                            <div
-                                                style="width: 60px; height: 60px; background: var(--aruna-purple); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; box-shadow: 0 8px 20px rgba(255, 152, 0, 0.3);">
-                                                <i class="fas fa-ruler-combined"
-                                                    style="color: #fff; font-size: 24px;"></i>
-                                            </div>
-                                            <h5
-                                                style="color: #222; margin-bottom: 20px; font-size: 22px; font-weight: 700; text-align: center;">
-                                                Standard Sizes</h5>
-                                            <div style="text-align: center;">
-                                                <ul class="list-wrap"
-                                                    style="gap: 12px; margin-bottom: 0; display: inline-block; text-align: left; list-style: none; padding: 0;">
-                                                    <li style="padding: 6px 0; font-size: 15px; color: #555; transition: all 0.3s;"
-                                                        onmouseover="this.style.color='#4B3B87';"
-                                                        onmouseout="this.style.color='#555';">
-                                                        <i class="fas fa-check-circle"
-                                                            style="color: #ff9800; margin-right: 12px; font-size: 16px;"></i>A4
-                                                        (210 × 297 mm)
-                                                    </li>
-                                                    <li style="padding: 6px 0; font-size: 15px; color: #555; transition: all 0.3s;"
-                                                        onmouseover="this.style.color='#4B3B87';"
-                                                        onmouseout="this.style.color='#555';">
-                                                        <i class="fas fa-check-circle"
-                                                            style="color: #ff9800; margin-right: 12px; font-size: 16px;"></i>A3
-                                                        (297 × 420 mm)
-                                                    </li>
-                                                    <li style="padding: 6px 0; font-size: 15px; color: #555; transition: all 0.3s;"
-                                                        onmouseover="this.style.color='#4B3B87';"
-                                                        onmouseout="this.style.color='#555';">
-                                                        <i class="fas fa-check-circle"
-                                                            style="color: #ff9800; margin-right: 12px; font-size: 16px;"></i>FS
-                                                        (215 × 345 mm)
-                                                    </li>
-                                                    <li style="padding: 6px 0; font-size: 15px; color: #555; transition: all 0.3s;"
-                                                        onmouseover="this.style.color='#4B3B87';"
-                                                        onmouseout="this.style.color='#555';">
-                                                        <i class="fas fa-check-circle"
-                                                            style="color: #ff9800; margin-right: 12px; font-size: 16px;"></i>Custom
-                                                        Reels
-                                                    </li>
-                                                    <li style="padding: 6px 0; font-size: 15px; color: #555; transition: all 0.3s;"
-                                                        onmouseover="this.style.color='#4B3B87';"
-                                                        onmouseout="this.style.color='#555';">
-                                                        <i class="fas fa-check-circle"
-                                                            style="color: #ff9800; margin-right: 12px; font-size: 16px;"></i>Custom
-                                                        Sheets
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 col-sm-6 wow fadeInUp" data-wow-delay=".5s">
-                                        <div class="specs-item mb-30 text-center"
-                                            style="background: #ffffff; padding: 35px 25px; border-radius: 20px; box-shadow: 0 5px 20px rgba(57, 50, 127, 0.08); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid rgba(57, 50, 127, 0.1); min-height: 380px; display: flex; flex-direction: column; justify-content: flex-start;"
-                                            onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 15px 40px rgba(57, 50, 127, 0.15)'; this.style.borderColor='#4B3B87';"
-                                            onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 5px 20px rgba(57, 50, 127, 0.08)'; this.style.borderColor='rgba(57, 50, 127, 0.1)';">
-                                            <div
-                                                style="width: 60px; height: 60px; background: #4caf50; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; box-shadow: 0 8px 20px rgba(76, 175, 80, 0.3);">
-                                                <i class="fas fa-print" style="color: #fff; font-size: 24px;"></i>
-                                            </div>
-                                            <h5
-                                                style="color: #222; margin-bottom: 20px; font-size: 22px; font-weight: 700; text-align: center;">
-                                                Applications</h5>
-                                            <div style="text-align: center;">
-                                                <ul class="list-wrap"
-                                                    style="gap: 12px; margin-bottom: 0; display: inline-block; text-align: left; list-style: none; padding: 0;">
-                                                    <li style="padding: 6px 0; font-size: 15px; color: #555; transition: all 0.3s;"
-                                                        onmouseover="this.style.color='#4B3B87';"
-                                                        onmouseout="this.style.color='#555';">
-                                                        <i class="fas fa-check-circle"
-                                                            style="color: #4caf50; margin-right: 12px; font-size: 16px;"></i>High-Speed
-                                                        Photocopying
-                                                    </li>
-                                                    <li style="padding: 6px 0; font-size: 15px; color: #555; transition: all 0.3s;"
-                                                        onmouseover="this.style.color='#4B3B87';"
-                                                        onmouseout="this.style.color='#555';">
-                                                        <i class="fas fa-check-circle"
-                                                            style="color: #4caf50; margin-right: 12px; font-size: 16px;"></i>Laser
-                                                        & Inkjet Printing
-                                                    </li>
-                                                    <li style="padding: 6px 0; font-size: 15px; color: #555; transition: all 0.3s;"
-                                                        onmouseover="this.style.color='#4B3B87';"
-                                                        onmouseout="this.style.color='#555';">
-                                                        <i class="fas fa-check-circle"
-                                                            style="color: #4caf50; margin-right: 12px; font-size: 16px;"></i>Office
-                                                        & School Stationery
-                                                    </li>
-                                                    <li style="padding: 6px 0; font-size: 15px; color: #555; transition: all 0.3s;"
-                                                        onmouseover="this.style.color='#4B3B87';"
-                                                        onmouseout="this.style.color='#555';">
-                                                        <i class="fas fa-check-circle"
-                                                            style="color: #4caf50; margin-right: 12px; font-size: 16px;"></i>Premium
-                                                        Publishing
-                                                    </li>
-                                                    <li style="padding: 6px 0; font-size: 15px; color: #555; transition: all 0.3s;"
-                                                        onmouseover="this.style.color='#4B3B87';"
-                                                        onmouseout="this.style.color='#555';">
-                                                        <i class="fas fa-check-circle"
-                                                            style="color: #4caf50; margin-right: 12px; font-size: 16px;"></i>Two-Side
-                                                        Printing
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>-->
         <!-- product-specs-area-end -->
 
 
@@ -976,6 +942,51 @@
     </footer>
     <!-- Footer-area-end -->
 
+    <div class="download-form-modal" id="downloadFormModal" aria-hidden="true">
+        <div class="download-form-dialog" role="dialog" aria-modal="true" aria-labelledby="downloadFormTitle">
+            <div class="download-form-head">
+                <h3 class="download-form-title" id="downloadFormTitle">Request Product Details</h3>
+                <button type="button" class="download-form-close" id="downloadFormClose"
+                    aria-label="Close popup">&times;</button>
+            </div>
+            <form id="downloadLeadForm">
+                <div class="download-form-grid">
+                    <div class="download-form-field">
+                        <label for="downloadName">Name</label>
+                        <input id="downloadName" name="name" type="text" required>
+                        <div class="download-field-error" id="downloadNameError"></div>
+                    </div>
+                    <div class="download-form-field">
+                        <label for="downloadPhone">Phone Number</label>
+                        <input id="downloadPhone" name="phone" type="tel" pattern="[0-9+\\-\\s]{7,20}" required>
+                        <div class="download-field-error" id="downloadPhoneError"></div>
+                    </div>
+                    <div class="download-form-field full">
+                        <label for="downloadEmail">Email</label>
+                        <input id="downloadEmail" name="email" type="email" required>
+                        <div class="download-field-error" id="downloadEmailError"></div>
+                    </div>
+                    <div class="download-form-field full">
+                        <label for="downloadSuggestion">Requirements</label>
+                        <textarea id="downloadSuggestion" name="suggestion" placeholder="Your requirements"></textarea>
+                        <div class="download-field-error" id="downloadSuggestionError"></div>
+                    </div>
+                </div>
+                <div class="download-form-actions">
+                    <button type="submit" class="download-submit-btn" id="downloadSubmitBtn">Submit &amp;
+                        Download</button>
+                </div>
+            </form>
+            <div class="download-success-popup" id="downloadSuccessPopup" aria-live="polite">
+                <div class="download-success-icon" id="downloadSuccessIcon" aria-hidden="true"><i
+                        class="fas fa-check"></i></div>
+                <p class="download-success-text">Thank you for your precious time.</p>
+                <p class="download-success-subtext" id="downloadSuccessSubtext"></p>
+            </div>
+        </div>
+    </div>
+    <div class="aruna-alert-stack" id="arunaAlertStack" aria-live="polite" aria-atomic="true"></div>
+
     <!-- JS here -->
     <script src="assets/js/vendor/jquery-3.6.0.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
@@ -1002,7 +1013,7 @@
             "ace-marvel": {
                 title: "TNPL Ace Marvel",
                 fileName: "tnpl-ace-marvel-key-features.pdf",
-                image: "assets/img/products/tnpl_ace_marvel.jpg",
+                image: "images/products/tnpl_ace_marvel.jpg",
                 description: "Base paper for surface coating, carbonless, and sublimation applications.",
                 keyFeatures: [
                     "Low GSM paper with excellent sustainability and dimensions",
@@ -1014,7 +1025,7 @@
             "radiant-stationery": {
                 title: "TNPL Radiant Stationery",
                 fileName: "tnpl-radiant-stationery-key-features.pdf",
-                image: "assets/img/products/tnpl_radiant_platinum.jpg",
+                image: "images/products/tnpl_radiant_platinum.jpg",
                 description: "Premium stationery and documentation paper for corporate and institutional use.",
                 keyFeatures: [
                     "Pleasant shade and brightness",
@@ -1026,7 +1037,7 @@
             "radiant-platinum": {
                 title: "TNPL Radiant Platinum",
                 fileName: "tnpl-radiant-platinum-key-features.pdf",
-                image: "assets/img/products/tnpl_radiant_platinum.jpg",
+                image: "images/products/tnpl_radiant_platinum.jpg",
                 description: "Ultra-premium paper for premium office and digital print output.",
                 keyFeatures: [
                     "High brightness and premium visual finish",
@@ -1038,7 +1049,7 @@
             "platinum": {
                 title: "TNPL Platinum",
                 fileName: "tnpl-platinum-key-features.pdf",
-                image: "assets/img/products/tnpl_platinum.png",
+                image: "images/products/tnpl_platinum.png",
                 description: "Premium copier and printer paper for sharp and dependable everyday output.",
                 keyFeatures: [
                     "Balanced stiffness and bulk for copier performance",
@@ -1050,7 +1061,7 @@
             "elegant-print": {
                 title: "TNPL Elegant Print",
                 fileName: "tnpl-elegant-print-key-features.pdf",
-                image: "assets/img/products/tnpl_elegant_print.jpg",
+                image: "images/products/tnpl_elegant_print.jpg",
                 description: "Fine print paper designed for elegant commercial print applications.",
                 keyFeatures: [
                     "Good formation for clear text and graphics",
@@ -1062,7 +1073,7 @@
             "eco-maplitho": {
                 title: "TNPL Eco Maplitho",
                 fileName: "tnpl-eco-maplitho-key-features.pdf",
-                image: "assets/img/products/tnpl_eco_maplitho.jpg",
+                image: "images/products/tnpl_eco_maplitho.jpg",
                 description: "Eco-friendly maplitho paper made for sustainable printing requirements.",
                 keyFeatures: [
                     "Bagasse-based sustainable paper option",
@@ -1074,7 +1085,7 @@
             "spectrum": {
                 title: "TNPL Spectrum",
                 fileName: "tnpl-spectrum-key-features.pdf",
-                image: "assets/img/products/tnpl_spectrum.png",
+                image: "images/products/tnpl_spectrum.png",
                 description: "Multipurpose premium paper for office and professional digital printing.",
                 keyFeatures: [
                     "High whiteness for crisp visual output",
@@ -1086,7 +1097,7 @@
             "copy-crown": {
                 title: "TNPL Copy Crown",
                 fileName: "tnpl-copy-crown-key-features.pdf",
-                image: "assets/img/products/tnpl-copycrown.webp",
+                image: "images/products/tnpl-copycrown.webp",
                 description: "Reliable copier-grade paper for daily office and institutional printing.",
                 keyFeatures: [
                     "Optimized for copier and laser printer performance",
@@ -1095,6 +1106,17 @@
                     "Suitable for high-volume document production"
                 ]
             }
+        };
+
+        const productSheetFileMap = {
+            "platinum": "product_pdf/Product Sheet- Platinum.pdf",
+            "spectrum": "",
+            "copy-crown": "",
+            "ace-marvel": "",
+            "radiant-stationery": "",
+            "radiant-platinum": "",
+            "elegant-print": "",
+            "eco-maplitho": ""
         };
 
         const productSpecificationsFallback = {
@@ -1269,149 +1291,283 @@
         }
 
         async function downloadSpecs(productName, specsId, productPageUrl) {
-            const product = productPdfData[specsId];
-            if (!product) {
-                return;
+            const pdfPath = productSheetFileMap[specsId] || "";
+            if (!pdfPath) {
+                return false;
             }
 
-            const specsFromPage = await getSpecificationsFromProductPage(productPageUrl);
-            const specs = specsFromPage || productSpecificationsFallback[specsId] || [];
+            const link = document.createElement("a");
+            link.href = encodeURI(pdfPath);
+            link.download = pdfPath.split("/").pop() || "";
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            return true;
+        }
 
-            if (!window.jspdf || !window.jspdf.jsPDF) {
-                alert("PDF generator is not available. Please refresh and try again.");
-                return;
+        function getEnquiryApiUrls() {
+            const urls = [];
+            if (window.ARUNA_API_BASE) {
+                urls.push(window.ARUNA_API_BASE.replace(/\/$/, "") + "/api/enquiry");
             }
-
-            const { jsPDF } = window.jspdf;
-            const doc = new jsPDF();
-            const pageHeight = doc.internal.pageSize.getHeight();
-            const pageWidth = doc.internal.pageSize.getWidth();
-            const left = 14;
-            const right = pageWidth - 14;
-            const labelX = left;
-            const valueX = 78;
-            const contentWidth = right - left;
-            const valueWidth = right - valueX;
-            const lineHeight = 5.5;
-            let y = 20;
-
-            function ensureSpace(requiredHeight) {
-                if (y + requiredHeight > pageHeight - 16) {
-                    doc.addPage();
-                    y = 20;
-                }
+            if (window.location.protocol === "http:" || window.location.protocol === "https:") {
+                urls.push("/api/enquiry");
             }
+            urls.push("http://localhost:5000/api/enquiry");
+            return Array.from(new Set(urls));
+        }
 
-            doc.setFont("helvetica", "bold");
-            doc.setFontSize(18);
-            doc.text("Aruna & Co.", left, y);
-            y += 10;
-
-            doc.setFontSize(14);
-            doc.text(productName + " - Product Sheet", left, y);
-            y += 8;
-
-            doc.setFont("helvetica", "normal");
-            doc.setFontSize(10);
-            doc.text("Generated on: " + new Date().toLocaleDateString(), left, y);
-            y += 10;
-
-            doc.setDrawColor(220, 220, 220);
-            doc.line(left, y, right, y);
-            y += 8;
-
+        async function submitProductLead(payload) {
+            let url = "send_mail.php";
+            if (window.location.protocol === 'file:') {
+                url = "http://localhost:8080/send_mail.php";
+            }
             try {
-                const imageDataUrl = await loadImageAsDataUrl(product.image);
-                const imageWidth = 70;
-                const imageHeight = 70;
-                const imageX = (pageWidth - imageWidth) / 2;
-                ensureSpace(imageHeight + 10);
-                doc.addImage(imageDataUrl, "JPEG", imageX, y, imageWidth, imageHeight);
-                y += imageHeight + 10;
-            } catch (e) {
-                // If image fails, continue PDF generation without stopping download.
-            }
-
-            doc.setFont("helvetica", "bold");
-            doc.setFontSize(12);
-            ensureSpace(12);
-            doc.text("Product Name", left, y);
-            y += 6;
-            doc.setFont("helvetica", "normal");
-            doc.setFontSize(11);
-            const nameLines = doc.splitTextToSize(productName, contentWidth);
-            doc.text(nameLines, left, y);
-            y += (nameLines.length * lineHeight) + 4;
-
-            if (product.description) {
-                doc.setFont("helvetica", "bold");
-                doc.setFontSize(12);
-                ensureSpace(12);
-                doc.text("Short Description", left, y);
-                y += 6;
-                doc.setFont("helvetica", "normal");
-                doc.setFontSize(11);
-                const descLines = doc.splitTextToSize(product.description, contentWidth);
-                doc.text(descLines, left, y);
-                y += (descLines.length * lineHeight) + 6;
-            }
-
-            doc.setFont("helvetica", "bold");
-            doc.setFontSize(12);
-            ensureSpace(14);
-            doc.text("Key Specifications", left, y);
-            y += 8;
-
-            const tableTop = y;
-            const labelColWidth = valueX - left;
-            const valueColWidth = right - valueX;
-            const cellPaddingX = 2.5;
-            const cellPaddingY = 3.8;
-            const headerHeight = 10;
-
-            function drawSpecsTableHeader() {
-                ensureSpace(headerHeight + 2);
-                doc.setFillColor(247, 247, 247);
-                doc.rect(left, y, labelColWidth, headerHeight, "FD");
-                doc.rect(valueX, y, valueColWidth, headerHeight, "FD");
-
-                doc.setFont("helvetica", "bold");
-                doc.setFontSize(11);
-                doc.text("Specification", left + cellPaddingX, y + 6.6);
-                doc.text("Value", valueX + cellPaddingX, y + 6.6);
-                y += headerHeight;
-            }
-
-            doc.setDrawColor(180, 180, 180);
-            doc.setLineWidth(0.2);
-            drawSpecsTableHeader();
-
-            specs.forEach(([label, value]) => {
-                const labelLines = doc.splitTextToSize(label, labelColWidth - (cellPaddingX * 2));
-                const valueLines = doc.splitTextToSize(value, valueColWidth - (cellPaddingX * 2));
-                const rowLines = Math.max(labelLines.length, valueLines.length);
-                const rowHeight = (rowLines * lineHeight) + (cellPaddingY * 2) - 1;
-
-                const yBeforeRow = y;
-                ensureSpace(rowHeight + 1);
-                if (y !== yBeforeRow) {
-                    drawSpecsTableHeader();
+                const response = await fetch(url, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(payload)
+                });
+                // The PHP script returns valid JSON on success and error
+                const result = await response.json();
+                if (result.status === "error") {
+                    throw new Error(result.message || "Unable to submit enquiry.");
                 }
+                return result;
+            } catch (err) {
+                console.error("Submission error:", err);
+                throw err;
+            }
+        }
 
-                doc.rect(left, y, labelColWidth, rowHeight);
-                doc.rect(valueX, y, valueColWidth, rowHeight);
+        function showArunaAlert(message, type = "info", duration = 3600) {
+            const stack = document.getElementById("arunaAlertStack");
+            if (!stack) return;
 
-                doc.setFont("helvetica", "bold");
-                doc.setFontSize(10.5);
-                doc.text(labelLines, left + cellPaddingX, y + cellPaddingY + 1);
+            const alertEl = document.createElement("div");
+            alertEl.className = "aruna-alert" + (type ? " is-" + type : "");
 
-                doc.setFont("helvetica", "normal");
-                doc.text(valueLines, valueX + cellPaddingX, y + cellPaddingY + 1);
+            const icon = type === "error" ? "fa-exclamation" : type === "success" ? "fa-check" : "fa-info";
+            alertEl.innerHTML = `
+                <span class="aruna-alert-icon" aria-hidden="true"><i class="fas ${icon}"></i></span>
+                <p class="aruna-alert-text"></p>
+                <button type="button" class="aruna-alert-close" aria-label="Close message">&times;</button>
+            `;
+            const textNode = alertEl.querySelector(".aruna-alert-text");
+            if (textNode) textNode.textContent = message;
+            stack.appendChild(alertEl);
 
-                y += rowHeight;
+            const closeAlert = () => {
+                if (!alertEl.parentElement) return;
+                alertEl.style.opacity = "0";
+                alertEl.style.transform = "translateY(8px)";
+                setTimeout(() => alertEl.remove(), 150);
+            };
+
+            const closeBtn = alertEl.querySelector(".aruna-alert-close");
+            if (closeBtn) closeBtn.addEventListener("click", closeAlert);
+            setTimeout(closeAlert, duration);
+        }
+
+        function clearDownloadFieldErrors(form) {
+            form.querySelectorAll(".download-field-error").forEach((el) => {
+                el.textContent = "";
+                el.classList.remove("active");
+            });
+        }
+
+        function setDownloadFieldError(field, message) {
+            const errorEl = document.getElementById(field.id + "Error");
+            if (!errorEl) return;
+            const text = (message || "").toString().trim();
+            errorEl.textContent = text;
+            if (text) {
+                errorEl.classList.add("active");
+            } else {
+                errorEl.classList.remove("active");
+            }
+        }
+
+        function validateDownloadLeadForm(form) {
+            const fields = form.querySelectorAll("input, textarea");
+            fields.forEach((field) => field.classList.remove("aruna-invalid"));
+            clearDownloadFieldErrors(form);
+
+            const firstInvalid = Array.from(fields).find((field) => !field.checkValidity());
+            if (!firstInvalid) return true;
+
+            firstInvalid.classList.add("aruna-invalid");
+            firstInvalid.focus();
+
+            const label = form.querySelector(`label[for="${firstInvalid.id}"]`)?.textContent?.trim() || "This field";
+            let message = firstInvalid.validationMessage || `${label} is invalid.`;
+            if (firstInvalid.validity.valueMissing) {
+                message = `${label} is required.`;
+            } else if (firstInvalid.validity.typeMismatch && firstInvalid.type === "email") {
+                message = "Please enter a valid email address.";
+            } else if (firstInvalid.validity.patternMismatch && firstInvalid.name === "phone") {
+                message = "Please enter a valid phone number.";
+            }
+
+            setDownloadFieldError(firstInvalid, message);
+            return false;
+        }
+
+        let pendingDownloadRequest = null;
+        let downloadFormCloseTimer = null;
+
+        function openDownloadFormModal(downloadRequest) {
+            pendingDownloadRequest = downloadRequest;
+            const modal = document.getElementById("downloadFormModal");
+            const form = document.getElementById("downloadLeadForm");
+            const submitBtn = document.getElementById("downloadSubmitBtn");
+            const successPopup = document.getElementById("downloadSuccessPopup");
+            const successSubtext = document.getElementById("downloadSuccessSubtext");
+            const successIcon = document.getElementById("downloadSuccessIcon");
+            if (!modal || !form || !submitBtn) return;
+            if (downloadFormCloseTimer) {
+                clearTimeout(downloadFormCloseTimer);
+                downloadFormCloseTimer = null;
+            }
+            form.reset();
+            clearDownloadFieldErrors(form);
+            form.style.display = "block";
+            if (successPopup) successPopup.classList.remove("active");
+            if (successSubtext) {
+                successSubtext.textContent = "";
+                successSubtext.classList.remove("active");
+            }
+            if (successIcon) {
+                successIcon.classList.remove("error");
+                successIcon.innerHTML = '<i class="fas fa-check"></i>';
+            }
+            submitBtn.disabled = false;
+            submitBtn.textContent = "Submit & Download";
+            modal.classList.add("active");
+            modal.setAttribute("aria-hidden", "false");
+            const nameInput = document.getElementById("downloadName");
+            if (nameInput) nameInput.focus();
+        }
+
+        function closeDownloadFormModal() {
+            const modal = document.getElementById("downloadFormModal");
+            const form = document.getElementById("downloadLeadForm");
+            const successPopup = document.getElementById("downloadSuccessPopup");
+            const successSubtext = document.getElementById("downloadSuccessSubtext");
+            const successIcon = document.getElementById("downloadSuccessIcon");
+            if (!modal) return;
+            modal.classList.remove("active");
+            modal.setAttribute("aria-hidden", "true");
+            if (form) form.style.display = "block";
+            if (successPopup) successPopup.classList.remove("active");
+            if (successSubtext) {
+                successSubtext.textContent = "";
+                successSubtext.classList.remove("active");
+            }
+            if (successIcon) {
+                successIcon.classList.remove("error");
+                successIcon.innerHTML = '<i class="fas fa-check"></i>';
+            }
+            if (form) clearDownloadFieldErrors(form);
+            if (downloadFormCloseTimer) {
+                clearTimeout(downloadFormCloseTimer);
+                downloadFormCloseTimer = null;
+            }
+            pendingDownloadRequest = null;
+        }
+
+        function bindDownloadLeadForm() {
+            const modal = document.getElementById("downloadFormModal");
+            const closeBtn = document.getElementById("downloadFormClose");
+            const form = document.getElementById("downloadLeadForm");
+            const submitBtn = document.getElementById("downloadSubmitBtn");
+            if (!modal || !closeBtn || !form || !submitBtn) return;
+            form.setAttribute("novalidate", "novalidate");
+
+            closeBtn.addEventListener("click", closeDownloadFormModal);
+            modal.addEventListener("click", function (event) {
+                if (event.target === modal) closeDownloadFormModal();
+            });
+            document.addEventListener("keydown", function (event) {
+                if (event.key === "Escape" && modal.classList.contains("active")) {
+                    closeDownloadFormModal();
+                }
             });
 
-            doc.save(product.fileName);
+            form.querySelectorAll("input, textarea").forEach((field) => {
+                field.addEventListener("input", function () {
+                    if (field.checkValidity()) {
+                        field.classList.remove("aruna-invalid");
+                        setDownloadFieldError(field, "");
+                    }
+                });
+            });
+
+            form.addEventListener("submit", async function (event) {
+                event.preventDefault();
+                let shouldResetSubmitButton = true;
+                if (!pendingDownloadRequest) {
+                    showArunaAlert("Please select a product and try again.", "error");
+                    return;
+                }
+                if (!validateDownloadLeadForm(form)) {
+                    return;
+                }
+
+                submitBtn.disabled = true;
+                submitBtn.textContent = "Preparing Download...";
+
+                const formData = new FormData(form);
+                const leadPayload = {
+                    name: (formData.get("name") || "").toString().trim(),
+                    phone: (formData.get("phone") || "").toString().trim(),
+                    email: (formData.get("email") || "").toString().trim(),
+                    suggestion: (formData.get("suggestion") || "").toString().trim(),
+                    product: pendingDownloadRequest.productName,
+                    productKey: pendingDownloadRequest.productKey,
+                    submittedAt: new Date().toISOString()
+                };
+                console.log("Download lead submitted:", leadPayload);
+
+                try {
+                    const productName = pendingDownloadRequest.productName;
+
+                    // 1. Submit the lead first
+                    await submitProductLead({
+                        ...leadPayload,
+                        source: "product-review",
+                        page: pendingDownloadRequest.pageUrl || window.location.pathname
+                    });
+
+                    // 2. Show Toast Message
+                    showArunaAlert("Thank you! Your brochure is downloading...", "success");
+
+                    // 3. Start Download
+                    const isDownloadStarted = await downloadSpecs(
+                        productName,
+                        pendingDownloadRequest.productKey,
+                        pendingDownloadRequest.pageUrl
+                    );
+
+                    // 4. Close Modal
+                    closeDownloadFormModal();
+
+                    // Optional: If download failed, show another alert
+                    if (!isDownloadStarted) {
+                        showArunaAlert("Sorry, the brochure for " + productName + " is not available yet.", "info");
+                    }
+
+                    shouldResetSubmitButton = false;
+                } catch (error) {
+                    console.error("Submission failed:", error);
+                    showArunaAlert("Unable to submit request. Please try again.", "error");
+                } finally {
+                    if (shouldResetSubmitButton) {
+                        submitBtn.textContent = "Submit & Download";
+                        submitBtn.disabled = false;
+                    }
+                }
+            });
         }
 
         function bindProductPdfDownloadButtons() {
@@ -1423,63 +1579,306 @@
                     const titleEl = button.closest(".tnpl-product-card")?.querySelector(".card-title-link");
                     const pageUrl = titleEl ? titleEl.getAttribute("href") : "";
                     const productName = titleEl ? titleEl.textContent.trim() : "Product";
-                    downloadSpecs(productName, productKey, pageUrl);
+                    openDownloadFormModal({
+                        productName: productName,
+                        productKey: productKey,
+                        pageUrl: pageUrl
+                    });
                 });
             });
         }
 
-        function filterProducts() {
-            // Get Search Query
-            const searchQuery = document.getElementById('productSearch').value.toLowerCase();
-
-            // Get Selected Product Type
-            const typeRadios = document.getElementsByName('productType');
-            let activeType = 'all';
-            for (let r of typeRadios) {
-                if (r.checked) activeType = r.value;
+        function getSelectedRadioValue(groupName) {
+            const radios = document.getElementsByName(groupName);
+            for (let i = 0; i < radios.length; i++) {
+                if (radios[i].checked) return radios[i].value;
             }
+            return "all";
+        }
 
-            // Get Items
-            const items = document.querySelectorAll('.product-item');
-            let visibleCount = 0;
+        const productFilterMap = {
+            "ace-marvel": {
+                gsm: ["40-60", "80-100"],
+                app: []
+            },
+            "radiant-stationery": {
+                gsm: ["40-60", "80-100"],
+                app: ["printing", "publishing"]
+            },
+            "radiant-platinum": {
+                gsm: ["40-60", "100-120"],
+                app: ["printing", "publishing"]
+            },
+            "platinum": {
+                gsm: ["60-80"],
+                app: []
+            },
+            "elegant-print": {
+                gsm: ["40-60", "80-100"],
+                app: ["printing", "publishing"]
+            },
+            "eco-maplitho": {
+                gsm: ["40-60", "80-100"],
+                app: ["publishing", "notebooks"]
+            },
+            "spectrum": {
+                gsm: ["60-80"],
+                app: []
+            },
+            "copy-crown": {
+                gsm: ["60-80"],
+                app: ["printing"]
+            }
+        };
 
-            items.forEach(item => {
-                const category = item.getAttribute('data-category');
-                const name = item.getAttribute('data-name');
+        function getProductKeyFromItem(item) {
+            return item.querySelector(".uiverse-download-btn[data-product]")?.getAttribute("data-product") || "";
+        }
 
-                const matchesType = (activeType === 'all' || category === activeType);
-                const matchesSearch = name.includes(searchQuery);
+        function itemMatchesFilters(item, filters) {
+            const category = item.getAttribute("data-category") || "";
+            const name = (item.getAttribute("data-name") || "").toLowerCase();
+            const productKey = getProductKeyFromItem(item);
+            const filterProfile = productFilterMap[productKey] || { gsm: [], app: [] };
 
-                if (matchesType && matchesSearch) {
-                    item.style.display = 'block';
-                    visibleCount++;
-                } else {
-                    item.style.display = 'none';
+            const matchesType = (filters.type === "all" || category === filters.type);
+            const matchesGsm = (filters.gsm === "all" || filterProfile.gsm.includes(filters.gsm));
+            const matchesApp = (filters.app === "all" || filterProfile.app.includes(filters.app));
+            const matchesSearch = name.includes(filters.search);
+
+            return matchesType && matchesGsm && matchesApp && matchesSearch;
+        }
+
+        function hasAnyMatchingProduct(filters) {
+            const items = document.querySelectorAll(".product-item");
+            for (let i = 0; i < items.length; i++) {
+                if (itemMatchesFilters(items[i], filters)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        function updateFilterOptions(filters) {
+            const groups = [
+                { name: "productType", key: "type" },
+                { name: "gsmRange", key: "gsm" },
+                { name: "appType", key: "app" }
+            ];
+
+            groups.forEach(function (group) {
+                const radios = document.getElementsByName(group.name);
+                for (let i = 0; i < radios.length; i++) {
+                    const radio = radios[i];
+                    const trialFilters = {
+                        type: filters.type,
+                        gsm: filters.gsm,
+                        app: filters.app,
+                        search: filters.search
+                    };
+                    trialFilters[group.key] = radio.value;
+
+                    const isAvailable = hasAnyMatchingProduct(trialFilters);
+                    const shouldDisable = !isAvailable && !radio.checked;
+                    radio.disabled = shouldDisable;
+
+                    const label = radio.closest("label");
+                    if (label) {
+                        label.style.opacity = shouldDisable ? "0.45" : "1";
+                        label.style.cursor = shouldDisable ? "not-allowed" : "pointer";
+                    }
                 }
             });
+        }
 
-            // Update count only if the counter element exists
-            const visibleCountEl = document.getElementById('visibleCount');
+        function filterProducts() {
+            const filters = {
+                search: (document.getElementById("productSearch").value || "").toLowerCase(),
+                type: getSelectedRadioValue("productType"),
+                gsm: getSelectedRadioValue("gsmRange"),
+                app: getSelectedRadioValue("appType")
+            };
+
+            const items = document.querySelectorAll(".product-item");
+            let visibleCount = 0;
+
+            items.forEach(function (item) {
+                const isMatch = itemMatchesFilters(item, filters);
+                item.style.display = isMatch ? "block" : "none";
+                if (isMatch) visibleCount++;
+            });
+
+            const visibleCountEl = document.getElementById("visibleCount");
             if (visibleCountEl) {
                 visibleCountEl.innerText = visibleCount;
             }
+
+            updateFilterOptions(filters);
         }
 
         function resetFilters() {
-            document.getElementById('productSearch').value = '';
-            const typeRadios = document.getElementsByName('productType');
-            for (let r of typeRadios) {
-                if (r.value === 'all') r.checked = true;
-            }
+            document.getElementById("productSearch").value = "";
+            ["productType", "gsmRange", "appType"].forEach(function (groupName) {
+                const radios = document.getElementsByName(groupName);
+                for (let i = 0; i < radios.length; i++) {
+                    radios[i].checked = (radios[i].value === "all");
+                }
+            });
             filterProducts();
         }
 
         // Run on load
         document.addEventListener('DOMContentLoaded', function () {
+            bindDownloadLeadForm();
             bindProductPdfDownloadButtons();
             filterProducts();
         });
         SVGInject(document.querySelectorAll("img.injectable"));
+    </script>
+
+    <!-- Enquiry Popup Form -->
+    <div id="enquiry-popup" class="enquiry-popup-overlay">
+        <div class="enquiry-popup-container">
+            <button class="popup-close">&times;</button>
+            <div class="popup-header">
+                <div class="popup-header-icon"><i class="fas fa-envelope"></i></div>
+                <h3>Quick Enquiry</h3>
+                <p>Get a quote for your paper requirements</p>
+            </div>
+            <form id="popup-enquiry-form" class="popup-form">
+                <div class="form-group"><input type="text" name="name" placeholder="Your Name *" required></div>
+                <div class="form-group"><input type="tel" name="phone" placeholder="Phone Number *" required></div>
+                <div class="form-group"><input type="email" name="email" placeholder="Email Address"></div>
+                <div class="form-group"><textarea name="message" placeholder="Brief Requirements"></textarea></div>
+                <button type="submit"><i class="fas fa-paper-plane"></i> Send Enquiry</button>
+                <p class="popup-privacy"><i class="fas fa-lock"></i> Your information is secure with us</p>
+            </form>
+            <div class="popup-success">
+                <div class="popup-success-icon"><i class="fas fa-check"></i></div>
+                <h4>Thank You!</h4>
+                <p>We've received your enquiry and will contact you shortly.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="#" class="whatsapp-trigger-btn">
+        <i class="fab fa-whatsapp"></i>
+        <span class="btn-label">Chat on WhatsApp</span>
+    </a>
+
+    <button id="enquiry-trigger-btn" class="enquiry-trigger-btn">
+        <i class="fas fa-comment-dots"></i>
+        <span class="btn-label">Quick Enquiry</span>
+    </button>
+
+    <script>
+        (function () {
+            function showPopup() {
+                const popup = document.getElementById("enquiry-popup");
+                if (popup) popup.classList.add("active");
+            }
+
+            function hidePopup() {
+                const popup = document.getElementById("enquiry-popup");
+                if (popup) popup.classList.remove("active");
+            }
+
+            function postQuickEnquiry(payload) {
+                const urls = typeof getEnquiryApiUrls === "function"
+                    ? getEnquiryApiUrls()
+                    : ["http://localhost:5000/api/enquiry"];
+
+                const tryNext = (index) => {
+                    if (index >= urls.length) {
+                        return Promise.reject(new Error("Unable to submit enquiry."));
+                    }
+                    return fetch(urls[index], {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify(payload)
+                    })
+                        .then((response) =>
+                            response.json().catch(() => ({})).then((result) => {
+                                if (!response.ok || result.success === false) {
+                                    throw new Error(result.message || "Unable to submit enquiry.");
+                                }
+                                return result;
+                            })
+                        )
+                        .catch(() => tryNext(index + 1));
+                };
+
+                return tryNext(0);
+            }
+
+            const popup = document.getElementById("enquiry-popup");
+            const triggerBtn = document.getElementById("enquiry-trigger-btn");
+            const closeBtn = popup ? popup.querySelector(".popup-close") : null;
+            const form = document.getElementById("popup-enquiry-form");
+            const successDiv = popup ? popup.querySelector(".popup-success") : null;
+
+            if (triggerBtn) {
+                triggerBtn.addEventListener("click", showPopup);
+            }
+            if (closeBtn) {
+                closeBtn.addEventListener("click", hidePopup);
+            }
+            if (popup) {
+                popup.addEventListener("click", function (e) {
+                    if (e.target === popup) hidePopup();
+                });
+            }
+
+            if (form) {
+                form.addEventListener("submit", function (e) {
+                    e.preventDefault();
+                    const formData = new FormData(form);
+                    const payload = {
+                        name: (formData.get("name") || "").toString().trim(),
+                        phone: (formData.get("phone") || "").toString().trim(),
+                        email: (formData.get("email") || "").toString().trim(),
+                        message: (formData.get("message") || "").toString().trim(),
+                        source: "quick-enquiry",
+                        page: window.location.pathname,
+                        submittedAt: new Date().toISOString()
+                    };
+
+                    if (!payload.name || !payload.phone) {
+                        return;
+                    }
+
+                    const submitBtn = form.querySelector('button[type="submit"]');
+                    const originalText = submitBtn ? submitBtn.innerHTML : "";
+                    if (submitBtn) {
+                        submitBtn.disabled = true;
+                        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+                    }
+
+                    postQuickEnquiry(payload)
+                        .then(() => {
+                            form.style.display = "none";
+                            if (successDiv) successDiv.classList.add("active");
+                            setTimeout(() => {
+                                hidePopup();
+                                form.reset();
+                                form.style.display = "block";
+                                if (successDiv) successDiv.classList.remove("active");
+                                if (submitBtn) {
+                                    submitBtn.disabled = false;
+                                    submitBtn.innerHTML = originalText;
+                                }
+                            }, 3000);
+                        })
+                        .catch(() => {
+                            if (submitBtn) {
+                                submitBtn.disabled = false;
+                                submitBtn.innerHTML = originalText;
+                            }
+                        });
+                });
+            }
+        })();
     </script>
 </body>
 

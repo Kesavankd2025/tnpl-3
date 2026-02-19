@@ -4,7 +4,7 @@
 /* 1. Global Section Background */
 .product-listing {
     background-color: #fcfcfc !important;
-    background-image: url('assets/img/bg/paper bg .png') !important;
+    background-image: url('images/bg/paper bg .png') !important;
     background-repeat: repeat !important;
     background-size: 500px auto !important;
     background-blend-mode: multiply !important;
