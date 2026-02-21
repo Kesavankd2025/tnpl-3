@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "jimp": "^1.6.0",
+    "jpeg-js": "^0.4.4"
+  }
+}

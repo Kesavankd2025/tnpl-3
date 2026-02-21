@@ -1038,15 +1038,12 @@
 (function (a) {
   "use strict";
 
-  function getEnquiryApiUrls() {
+  function getMailApiUrls() {
     var urls = [];
-    if (window.ARUNA_API_BASE) {
-      urls.push(window.ARUNA_API_BASE.replace(/\/$/, "") + "/api/enquiry");
+    urls.push("send_mail.php");
+    if (window.location.protocol === "file:") {
+      urls.push("http://localhost:8080/send_mail.php");
     }
-    if (window.location.protocol === "http:" || window.location.protocol === "https:") {
-      urls.push("/api/enquiry");
-    }
-    urls.push("http://localhost:5000/api/enquiry");
     return Array.from(new Set(urls));
   }
 
@@ -1091,8 +1088,8 @@
       submittedAt: new Date().toISOString()
     };
 
-    var postToEnquiryApi = function () {
-      var urls = getEnquiryApiUrls();
+    var postToMailApi = function () {
+      var urls = getMailApiUrls();
       var tryNext = function (index) {
         if (index >= urls.length) {
           return Promise.reject(new Error("Unable to submit enquiry."));
@@ -1104,7 +1101,7 @@
         })
           .then(function (response) {
             return response.json().catch(function () { return {}; }).then(function (result) {
-              if (!response.ok || result.success === false) {
+              if (!response.ok || result.success === false || result.status === "error") {
                 throw new Error(result.message || "Unable to submit enquiry.");
               }
               return result;
@@ -1117,7 +1114,7 @@
       return tryNext(0);
     };
 
-    postToEnquiryApi()
+    postToMailApi()
       .then(function (result) {
         renderContactMessage($form, "success", result.message || "Enquiry submitted successfully.");
         formEl.reset();
@@ -1703,7 +1700,11 @@
   /*============================================
     =          Jarallax Active          =
   =============================================*/
-  $('.jarallax').jarallax({
+  $('.tg-banner-area.jarallax').jarallax({
+    speed: 0.2,
+    imgPosition: '40% 70%',
+  });
+  $('.jarallax').not('.tg-banner-area.jarallax').jarallax({
     speed: 0.2,
   });
 
@@ -1958,6 +1959,7 @@
     // Form submission
     const form = document.getElementById('popup-enquiry-form');
     if (form) {
+      form.setAttribute('novalidate', 'novalidate');
       form.addEventListener('submit', function (e) {
         e.preventDefault();
         handleFormSubmit(form);
@@ -1965,19 +1967,28 @@
     }
   }
 
-  function getEnquiryApiUrls() {
+  function getMailApiUrls() {
     const urls = [];
-    if (window.ARUNA_API_BASE) {
-      urls.push(window.ARUNA_API_BASE.replace(/\/$/, '') + '/api/enquiry');
+    urls.push('send_mail.php');
+    if (window.location.protocol === 'file:') {
+      urls.push('http://localhost:8080/send_mail.php');
     }
-    if (window.location.protocol === 'http:' || window.location.protocol === 'https:') {
-      urls.push('/api/enquiry');
-    }
-    urls.push('http://localhost:5000/api/enquiry');
     return Array.from(new Set(urls));
   }
 
   // Handle form submission
+  function showQuickFormMessage(form, text, type) {
+    let box = form.querySelector('.popup-form-message');
+    if (!box) {
+      box = document.createElement('p');
+      box.className = 'popup-form-message';
+      form.appendChild(box);
+    }
+    box.textContent = text || '';
+    box.classList.remove('is-error', 'is-success');
+    box.classList.add(type === 'error' ? 'is-error' : 'is-success');
+  }
+
   function handleFormSubmit(form) {
     const formData = new FormData(form);
     const data = {};
@@ -1991,15 +2002,24 @@
     data.email = (data.email || '').toString().trim();
     data.message = (data.message || '').toString().trim();
 
+    const nameField = form.querySelector('[name="name"]');
+    const phoneField = form.querySelector('[name="phone"]');
+    if (nameField) nameField.classList.remove('input-error');
+    if (phoneField) phoneField.classList.remove('input-error');
+
     if (!data.name || !data.phone) {
+      if (!data.name && nameField) nameField.classList.add('input-error');
+      if (!data.phone && phoneField) phoneField.classList.add('input-error');
+      showQuickFormMessage(form, 'Please enter your name and phone number.', 'error');
       return;
     }
 
     // Show loading state
     const submitBtn = form.querySelector('button[type="submit"]');
     const originalText = submitBtn.innerHTML;
-    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
     submitBtn.disabled = true;
+    showQuickFormMessage(form, '', 'success');
 
     const payload = {
       name: data.name,
@@ -2011,8 +2031,8 @@
       submittedAt: new Date().toISOString()
     };
 
-    const postToEnquiryApi = function () {
-      const urls = getEnquiryApiUrls();
+    const postToMailApi = function () {
+      const urls = getMailApiUrls();
       const tryNext = function (index) {
         if (index >= urls.length) {
           return Promise.reject(new Error('Unable to submit enquiry.'));
@@ -2024,7 +2044,7 @@
         })
           .then(function (response) {
             return response.json().catch(function () { return {}; }).then(function (result) {
-              if (!response.ok || result.success === false) {
+              if (!response.ok || result.success === false || result.status === "error") {
                 throw new Error(result.message || 'Unable to submit enquiry.');
               }
               return result;
@@ -2037,12 +2057,16 @@
       return tryNext(0);
     };
 
-    postToEnquiryApi()
+    postToMailApi()
       .then(function () {
         // Hide form, show success
         form.style.display = 'none';
         const successDiv = document.querySelector('.popup-success');
         if (successDiv) {
+          const titleEl = successDiv.querySelector('h4');
+          const descEl = successDiv.querySelector('p');
+          if (titleEl) titleEl.textContent = 'Enquiry Submitted';
+          if (descEl) descEl.textContent = "Thanks! Our team will contact you shortly.";
           successDiv.classList.add('active');
         }
 
@@ -2064,7 +2088,7 @@
       .catch(function (error) {
         submitBtn.innerHTML = originalText;
         submitBtn.disabled = false;
-        alert(error.message || 'Something went wrong. Please try again.');
+        showQuickFormMessage(form, error.message || 'Unable to submit now. Please try again in a few minutes.', 'error');
       });
   }
 
@@ -2441,4 +2465,6 @@ $(window).on('scroll', function () {
     $("#sticky-header").addClass("sticky-menu");
   }
 });
+
+
 

@@ -404,45 +404,58 @@
             z-index: 10050;
             display: flex;
             flex-direction: column;
-            gap: 10px;
-            width: min(92vw, 340px);
+            gap: 12px;
+            width: min(92vw, 360px);
             pointer-events: none;
         }
 
         .aruna-alert {
             pointer-events: auto;
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            padding: 12px 14px;
-            border-radius: 12px;
-            background: #fff;
-            border-left: 4px solid var(--aruna-orange);
-            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
-            transform: translateY(8px);
+            position: relative;
+            display: grid;
+            grid-template-columns: 36px 1fr 20px;
+            align-items: start;
+            gap: 12px;
+            padding: 14px 14px 13px;
+            border-radius: 14px;
+            background: #ffffff;
+            border: 1px solid #ececf5;
+            box-shadow: 0 16px 34px rgba(8, 14, 30, 0.16);
+            transform: translateY(10px) scale(0.98);
             opacity: 0;
-            animation: arunaAlertIn 0.22s ease forwards;
+            animation: arunaAlertIn 0.26s cubic-bezier(0.2, 0.9, 0.2, 1) forwards;
         }
 
-        .aruna-alert.is-error {
-            border-left-color: #d64545;
+        .aruna-alert::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            border-radius: 14px 0 0 14px;
+            background: var(--aruna-orange);
         }
 
-        .aruna-alert.is-success {
-            border-left-color: #26a269;
+        .aruna-alert.is-error::before {
+            background: #d64545;
+        }
+
+        .aruna-alert.is-success::before {
+            background: #26a269;
         }
 
         .aruna-alert-icon {
-            flex: 0 0 auto;
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             color: #fff;
-            font-size: 12px;
+            font-size: 14px;
             background: var(--aruna-orange);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
         }
 
         .aruna-alert.is-error .aruna-alert-icon {
@@ -454,26 +467,31 @@
         }
 
         .aruna-alert-text {
-            margin: 0;
+            margin: 1px 0 0;
             font-size: 13px;
-            line-height: 1.45;
-            color: #2b2b2b;
+            line-height: 1.5;
+            color: #1f2430;
+            font-weight: 500;
         }
 
         .aruna-alert-close {
-            margin-left: auto;
             border: none;
             background: transparent;
-            color: #666;
+            color: #7b8190;
             line-height: 1;
-            font-size: 16px;
+            font-size: 18px;
             cursor: pointer;
             padding: 0;
+            margin-top: 2px;
+        }
+
+        .aruna-alert-close:hover {
+            color: #1f2430;
         }
 
         @keyframes arunaAlertIn {
             to {
-                transform: translateY(0);
+                transform: translateY(0) scale(1);
                 opacity: 1;
             }
         }
@@ -845,7 +863,7 @@
                                 data-app="printing,publishing">
                                 <div class="tnpl-product-card">
                                     <div class="card-img-area">
-                                        <a href="products.html"><img src="images/products/Eco Maplitho.png"
+                                        <a href="products.html"><img src="images/products/Mapiltho.png"
                                                 alt="TNPL Eco Maplitho"></a>
                                     </div>
                                     <h5 class="title"><a href="products.html" class="card-title-link">TNPL Eco
@@ -1110,13 +1128,13 @@
 
         const productSheetFileMap = {
             "platinum": "product_pdf/Product Sheet- Platinum.pdf",
-            "spectrum": "",
-            "copy-crown": "",
-            "ace-marvel": "",
-            "radiant-stationery": "",
-            "radiant-platinum": "",
-            "elegant-print": "",
-            "eco-maplitho": ""
+            "spectrum": "product_pdf/Product Sheet- Spectrum .pdf",
+            "copy-crown": "product_pdf/Product Sheet- Copy Crown.pdf",
+            "ace-marvel": "product_pdf/Product Sheet- Ace Marvel.pdf",
+            "radiant-stationery": "product_pdf/Product Sheet- Radiant Stationery.pdf",
+            "radiant-platinum": "product_pdf/Product Sheet- Radiant Platinum.pdf",
+            "elegant-print": "product_pdf/Product Sheet- Elegant Print.pdf",
+            "eco-maplitho": "product_pdf/Product Sheet- Eco Maplitho.pdf"
         };
 
         const productSpecificationsFallback = {
@@ -1531,31 +1549,39 @@
 
                 try {
                     const productName = pendingDownloadRequest.productName;
+                    let leadSubmitted = true;
 
-                    // 1. Submit the lead first
-                    await submitProductLead({
-                        ...leadPayload,
-                        source: "product-review",
-                        page: pendingDownloadRequest.pageUrl || window.location.pathname
-                    });
+                    // 1. Try submitting the lead (download should continue even if this fails)
+                    try {
+                        await submitProductLead({
+                            ...leadPayload,
+                            source: "product-review",
+                            page: pendingDownloadRequest.pageUrl || window.location.pathname
+                        });
+                    } catch (leadError) {
+                        leadSubmitted = false;
+                        console.error("Lead submission failed:", leadError);
+                    }
 
-                    // 2. Show Toast Message
-                    showArunaAlert("Thank you! Your brochure is downloading...", "success");
-
-                    // 3. Start Download
+                    // 2. Start download regardless of lead submission result
                     const isDownloadStarted = await downloadSpecs(
                         productName,
                         pendingDownloadRequest.productKey,
                         pendingDownloadRequest.pageUrl
                     );
 
-                    // 4. Close Modal
-                    closeDownloadFormModal();
-
-                    // Optional: If download failed, show another alert
-                    if (!isDownloadStarted) {
+                    // 3. Notify user
+                    if (isDownloadStarted) {
+                        showArunaAlert("Thank you! Your brochure is downloading...", "success");
+                    } else {
                         showArunaAlert("Sorry, the brochure for " + productName + " is not available yet.", "info");
                     }
+                    if (!leadSubmitted) {
+                        showArunaAlert("Download started, but we could not submit your enquiry.", "info");
+                    }
+
+                    // 4. Close modal
+                    closeDownloadFormModal();
 
                     shouldResetSubmitButton = false;
                 } catch (error) {
@@ -1774,6 +1800,18 @@
 
     <script>
         (function () {
+            function showQuickFormMessage(form, text, type) {
+                let box = form.querySelector(".popup-form-message");
+                if (!box) {
+                    box = document.createElement("p");
+                    box.className = "popup-form-message";
+                    form.appendChild(box);
+                }
+                box.textContent = text || "";
+                box.classList.remove("is-error", "is-success");
+                box.classList.add(type === "error" ? "is-error" : "is-success");
+            }
+
             function showPopup() {
                 const popup = document.getElementById("enquiry-popup");
                 if (popup) popup.classList.add("active");
@@ -1785,9 +1823,10 @@
             }
 
             function postQuickEnquiry(payload) {
-                const urls = typeof getEnquiryApiUrls === "function"
-                    ? getEnquiryApiUrls()
-                    : ["http://localhost:5000/api/enquiry"];
+                const urls = ["send_mail.php"];
+                if (window.location.protocol === "file:") {
+                    urls.push("http://localhost:8080/send_mail.php");
+                }
 
                 const tryNext = (index) => {
                     if (index >= urls.length) {
@@ -1800,7 +1839,7 @@
                     })
                         .then((response) =>
                             response.json().catch(() => ({})).then((result) => {
-                                if (!response.ok || result.success === false) {
+                                if (!response.ok || result.success === false || result.status === "error") {
                                     throw new Error(result.message || "Unable to submit enquiry.");
                                 }
                                 return result;
@@ -1817,6 +1856,9 @@
             const closeBtn = popup ? popup.querySelector(".popup-close") : null;
             const form = document.getElementById("popup-enquiry-form");
             const successDiv = popup ? popup.querySelector(".popup-success") : null;
+            if (form) {
+                form.setAttribute("novalidate", "novalidate");
+            }
 
             if (triggerBtn) {
                 triggerBtn.addEventListener("click", showPopup);
@@ -1844,7 +1886,15 @@
                         submittedAt: new Date().toISOString()
                     };
 
+                    const nameField = form.querySelector('[name="name"]');
+                    const phoneField = form.querySelector('[name="phone"]');
+                    if (nameField) nameField.classList.remove("input-error");
+                    if (phoneField) phoneField.classList.remove("input-error");
+
                     if (!payload.name || !payload.phone) {
+                        if (!payload.name && nameField) nameField.classList.add("input-error");
+                        if (!payload.phone && phoneField) phoneField.classList.add("input-error");
+                        showQuickFormMessage(form, "Please enter your name and phone number.", "error");
                         return;
                     }
 
@@ -1852,13 +1902,20 @@
                     const originalText = submitBtn ? submitBtn.innerHTML : "";
                     if (submitBtn) {
                         submitBtn.disabled = true;
-                        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+                        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
                     }
+                    showQuickFormMessage(form, "", "success");
 
                     postQuickEnquiry(payload)
                         .then(() => {
                             form.style.display = "none";
-                            if (successDiv) successDiv.classList.add("active");
+                            if (successDiv) {
+                                const titleEl = successDiv.querySelector("h4");
+                                const descEl = successDiv.querySelector("p");
+                                if (titleEl) titleEl.textContent = "Enquiry Submitted";
+                                if (descEl) descEl.textContent = "Thanks! Our team will contact you shortly.";
+                                successDiv.classList.add("active");
+                            }
                             setTimeout(() => {
                                 hidePopup();
                                 form.reset();
@@ -1870,11 +1927,16 @@
                                 }
                             }, 3000);
                         })
-                        .catch(() => {
+                        .catch((error) => {
                             if (submitBtn) {
                                 submitBtn.disabled = false;
                                 submitBtn.innerHTML = originalText;
                             }
+                            showQuickFormMessage(
+                                form,
+                                (error && error.message) || "Unable to submit now. Please try again in a few minutes.",
+                                "error"
+                            );
                         });
                 });
             }
